@@ -81,5 +81,5 @@ theme: icarus
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/misterjames/misterjames.git
+  repository: https://github.com/MisterJames/misterjames.git
   branch: live-site
