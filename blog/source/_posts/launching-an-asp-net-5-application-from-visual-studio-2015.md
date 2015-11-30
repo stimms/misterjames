@@ -21,6 +21,6 @@ If you’re instead running with a debugger attached, you won’t hit a breakpoi
 
 1.  Launch the website from the command line in your project directory using the command “dnx . web”. Web is a command that is exposed in your project.json and shares the needed info (config) to launch a project-specific instance of IIS.
 2.  In your project properties (right-click, properties from Solution Explorer), add the following environment variable in the Debug tab:
-&nbsp;&nbsp;&nbsp;&nbsp; DNX_IIS_RUNTIME_FRAMEWORK = dnx46<p>![image](http://jameschambers.com/wp-content/uploads/2015/07/image25.png "image")
+&nbsp;&nbsp;&nbsp;&nbsp; DNX_IIS_RUNTIME_FRAMEWORK = dnx46<p>![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image25.png "image")
 
 A huge thanks goes out to [Andrew Nurse](https://twitter.com/anurse) for providing a resolution on [this matter](http://stackoverflow.com/questions/31671851/vs-2015-setting-right-target-framework-for-asp-net-5-web-project/31687529#31687529) and responding to [my issue](https://github.com/aspnet/dnx/issues/2367) on GitHub.

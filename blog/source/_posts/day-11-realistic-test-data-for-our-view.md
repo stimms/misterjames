@@ -245,7 +245,7 @@ You’re going to like this part. Add an empty View to the project by right-clic
 
 Yeup! That’s it! Run your site to see your list of peeps!
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb5.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image19.png) 
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb5.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image19.png) 
 <style type="text/css">.csharpcode, .csharpcode pre
 {
 	font-size: small;

@@ -11,7 +11,7 @@ date: 2013-12-04 23:19:06
 
 The Windows Azure team has accelerated their deployment cadence, and to be honest, if you happened to look away for nine months, it’s like a whole ‘nother baby to deal with. For those not building solutions on WAWS, you’d be surprised at how much has changed, improved and increased in flexibility.
 
-![image](http://jameschambers.com/wp-content/uploads/2013/12/image.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2013/12/image.png "image")
 
 I’m privileged to get the chance to break it all down for you with [Tejaswi Redkar](https://twitter.com/tejaswiredkar), Director of Worldwide Communities at Microsoft. Join us live on Microsoft Virtual Academy on Thursday, December 12th ([register here](http://www.microsoftvirtualacademy.com/liveevents/windows-azure-web-sites-deep-dive-jump-start#?fbid=iakxSr9rHuj&amp;prid=ca_mvpjc&amp;mtag=MVP4038205)).
 

@@ -9,11 +9,11 @@ categories:
 date: 2014-09-26 00:22:20
 ---
 
-[![banner5](http://jameschambers.com/wp-content/uploads/2014/09/banner5.png "banner5")](https://leanpub.com/bootstrappingmvc "Bootstrapping MVC - THE eBook for developers using Bootstrap on MVC")
+[![banner5](https://jcblogimages.blob.core.windows.net/img/2014/09/banner5.png "banner5")](https://leanpub.com/bootstrappingmvc "Bootstrapping MVC - THE eBook for developers using Bootstrap on MVC")
 
 In the last post [we created a star rating control](http://jameschambers.com/2014/09/using-font-awesome-in-an-accessible-bindable-star-rating-control/) that can be easily used in model binding and in displaying a record on our page. The rating control used FontAwesome and some CSS hacks to change radio buttons (which are usable from screen readers) into stars. This gave us a reusable rating control in MVC that is accessible and looks pretty darn okay, and meets our needs for model binding.
 
-![image_thumb6](http://jameschambers.com/wp-content/uploads/2014/09/image_thumb6.png "image_thumb6")
+![image_thumb6](https://jcblogimages.blob.core.windows.net/img/2014/09/image_thumb6.png "image_thumb6")
 
 But what if you wanted to build out a list of elements that you wanted to rate? Rather than just one movie, you wanted users to be able to rate your whole collection?&nbsp; Understanding the mechanics of the binding engine are important if you want to POST a list of entities back to an MVC controller.
 
@@ -124,9 +124,9 @@ So, that’s great for simple values, but…
 
 ## …What About Binding Complex Objects?
 
-I’m so glad you asked. ![Smile](http://jameschambers.com/wp-content/uploads/2014/09/wlEmoticon-smile.png)
+I’m so glad you asked. ![Smile](https://jcblogimages.blob.core.windows.net/img/2014/09/wlEmoticon-smile.png)
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/09/image_thumb1.png "image")](http://jameschambers.com/wp-content/uploads/2014/09/image2.png)If we now look back at our rating control, the control itself is actually ready to go as-is, but we’d need to get a bit more code into our view page (not the partial, but more like, the list of the movies) to get it to tick correctly.&nbsp; 
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/09/image_thumb1.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/09/image2.png)If we now look back at our rating control, the control itself is actually ready to go as-is, but we’d need to get a bit more code into our view page (not the partial, but more like, the list of the movies) to get it to tick correctly.&nbsp; 
 
 Here’s what we’ll do:
 
@@ -369,7 +369,7 @@ Finally, we’re going to need to get that POST action in line.&nbsp; Update you
 
 Now, when the form is submitted each set of indexed form fields will be used to new up an instance of our Movie class and placed in the collection. I’ve set a breakpoint so that you can see it in action:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/09/image3.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/09/image3.png "image")
 <style type="text/css">.csharpcode, .csharpcode pre
 {
 	font-size: small;

@@ -9,7 +9,7 @@ date: 2014-09-08 02:00:49
 ---
 
 <font size="1">
-</font>[![banner](http://jameschambers.com/wp-content/uploads/2014/09/banner.png "banner")](https://leanpub.com/bootstrappingmvc "Bootstrapping MVC - THE eBook for developers using Bootstrap on MVC")
+</font>[![banner](https://jcblogimages.blob.core.windows.net/img/2014/09/banner.png "banner")](https://leanpub.com/bootstrappingmvc "Bootstrapping MVC - THE eBook for developers using Bootstrap on MVC")
 
 Creating a rating control that works across browsers, looks good and can be taken advantage of by the MVC Framework requires a little CSS know-how, a couple of freely-available frameworks and some convention-following. There’s a bit of work to get it set up, but it’s reusable, accessible and gosh darn it, it looks good, too.
 
@@ -72,11 +72,11 @@ Nothing too fancy here, just a GET and POST action for Index requests. The GET p
 
 Finally, scaffold a view for Index. **First**, delete the Index.cshtml from the Views/Home folder in your project. **Next**, right-click on one of the the Index methods above and select Add View, then choose the Edit template (don’t create a partial view here) and let it build the page for you.&nbsp; **Finally**, run your project to see what you get; it should look like this:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/09/image.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/09/image.png "image")
 
 That’s okay, but, here’s what we want to see:
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/09/image_thumb.png "image")](http://jameschambers.com/wp-content/uploads/2014/09/image1.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/09/image_thumb.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/09/image1.png)
 
 ## Getting Stylish
 

@@ -21,7 +21,7 @@ Enter into the mix Xamarin’s solution to building apps, with a twist that .Net
 
 ### I’m Going to Need a Few Things
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/02/image_thumb.png "image")](http://jameschambers.com/wp-content/uploads/2014/02/image.png)From the get-go, the Xamarin install experience is smart and well-informed. People still make bad installers in 2014, but I can’t accuse Xamarin of that. Like any good citizen, this one knows what it needs to know to get your PC up-and-running. A quick inventory to avoid downloading the parts you already have, then it’s off to cyberspace to fetch the bits. Grab a coffee.
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image_thumb.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/02/image.png)From the get-go, the Xamarin install experience is smart and well-informed. People still make bad installers in 2014, but I can’t accuse Xamarin of that. Like any good citizen, this one knows what it needs to know to get your PC up-and-running. A quick inventory to avoid downloading the parts you already have, then it’s off to cyberspace to fetch the bits. Grab a coffee.
 
 After pulling about 1.5GB down (thank goodness for fast interwebs) the installer runs without much prompting and preps your box with the goods.
 
@@ -29,34 +29,34 @@ Compared to my last experience? So far, this is aces, baby. Each of the installe
 
 I open up Visual Studio and from my File –&gt; New Project experience I get this:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image1.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image1.png "image")
 
 Creating the project gives me a prompt for my Xamarin credentials, which then activates my subscription.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image2.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image2.png "image")
 
 Visual Studio is well equipped to give me the lay of the land through the Solution Explorer. You can see the project layout, look at files that make up the solution and even drill into classes to get at the method level-of-detail. I see some interesting bits and drill in.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image3.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image3.png "image")
 
 I do the most natural thing in the world to any dev familiar with Visual Studio and hit F5\. I want to see what this baby does. I get the comically honest message:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image4.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image4.png "image")
  > You are about to launch the MonoForAndroid_API_10 emulator. Google Android emulators are slow. Do you wish to proceed? 
 
 Yes. Yes, I do. **But!!** First I need to make sure that I’m using the correct emulator. In my case I had selected an Ice Cream Sandwich project template, so I needed to update my emulator selection to the MonoForAndroid_API_15 option. On my little 2 core i7 with 8GB RAM, the first-start for the virtual device and deployment took about 8 minutes, so, that previous message about taking a little time to get things going is pretty true. That said, the first run also needs to fire up the emulator, push the SDK out, then install the app and sync the assemblies. Seconds later, I have a working app. Hello World!
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image5.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image5.png "image")
 
 ## Bells and Whistles. Because Awesome.
 
 I return to the IDE, press the Stop control for the debugger and dig into the code. I set a breakpoint on an interesting line of code and re-run the app.&nbsp; Are you kidding me? Sweet! I’m debugging an Android application in Visual Studio.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image6.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image6.png "image")
 
 That interesting line of code allowed me to assume something given the project structure I had previously seen, so I drilled into the folder called “Resources” where you wouldn’t be too surprised to find a “Layout” folder, followed by a “Main.axml”. Double-clicking this file gave me a well-equipped toolbox and a rich designer with draw and source modes and a convenient device selection for preview purposes.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image7.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image7.png "image")
 
 ## Wrapping Up
 

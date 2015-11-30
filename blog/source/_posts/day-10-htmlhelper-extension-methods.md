@@ -252,7 +252,7 @@ Now, update your Person.cshtml template by replacing the image tag with the foll
 
 Then, pop into your browser to see the fruits of your effort!
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb3.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image18.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb3.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image18.png)
 
 The gravatar image will be updated for any email address that you put in. You can try playing with the different defaults, your own email address or other options. 
 

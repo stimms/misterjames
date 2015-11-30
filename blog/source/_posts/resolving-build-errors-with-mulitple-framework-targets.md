@@ -14,11 +14,11 @@ As a developer, I tend to have a short memory and flush it often. When I start u
 This morning, I started getting the following error while working on [Glimpse](http://github.com/glimpse/glimpse), where the primary project is authored in .Net 4.5:
  > System.Enum does not contain a definition for ‘TryParse’. 
 
-![image](http://jameschambers.com/wp-content/uploads/2014/03/image.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/03/image.png "image")
 
 A quick check on MSDN shows that [System.Enum](http://msdn.microsoft.com/en-us/library/dd783499(v=vs.110).aspx) _does indeed_ contain a definition for TryParse, but only in 4.0 and higher.
 
-&nbsp;[![image](http://jameschambers.com/wp-content/uploads/2014/03/image_thumb.png "image")](http://jameschambers.com/wp-content/uploads/2014/03/image1.png)
+&nbsp;[![image](https://jcblogimages.blob.core.windows.net/img/2014/03/image_thumb.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/03/image1.png)
 
 If you peek back at the Error List screen cap, you’ll see the hint to what was going on in the “Project” column. Namely, one of the projects in the Glimpse solution used for backwards compatibility targets an older version of the .Net Framework.
 

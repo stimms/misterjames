@@ -42,7 +42,7 @@ DNX has the ability to scan a project.json and look for commands that you instal
 .csharpcode .lnum { color: #606060; }
 </style>
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/08/image_thumb2.png "image")](http://jameschambers.com/wp-content/uploads/2015/08/image5.png)These entries are here so that DNX understands the alias you assign (such as “web” or “ef”) and how it maps to an assembly that you’ve created or taken on as a dependency.&nbsp; The EF reference is quite straightforward above, simply saying that any call to “ef” via DNX will go into the entry point in EntityFramework.Commands.&nbsp; You would invoke that as follows from the directory of your _project_:
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/08/image_thumb2.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/08/image5.png)These entries are here so that DNX understands the alias you assign (such as “web” or “ef”) and how it maps to an assembly that you’ve created or taken on as a dependency.&nbsp; The EF reference is quite straightforward above, simply saying that any call to “ef” via DNX will go into the entry point in EntityFramework.Commands.&nbsp; You would invoke that as follows from the directory of your _project_:
 <pre class="csharpcode">dnx . ef </pre><style type="text/css">.csharpcode, .csharpcode pre
 {
 	font-size: small;
@@ -420,4 +420,4 @@ What you should do next is to look at the kinds of things you do when you’re w
 
 To get some inspiration, check out my [sample project on GitHub](https://github.com/MisterJames/DnxCommands/), the DNX commands for other libraries (such as [EF](https://github.com/aspnet/EntityFramework/tree/dev/src/EntityFramework.Commands) or [xUnit](https://github.com/xunit/dnx.xunit/)) and try writing a few of your own.
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/08/wlEmoticon-smile1.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/08/wlEmoticon-smile1.png)

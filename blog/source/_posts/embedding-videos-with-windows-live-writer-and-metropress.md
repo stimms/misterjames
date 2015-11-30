@@ -48,7 +48,7 @@ The fix is quite simple: rather than using the built-in “Insert Video” featu
 
 This embed code is snapped from Share –&gt; Embed on the YouTube site under your video.
 
-[![image](http://jameschambers.com/wp-content/uploads/2012/12/image_thumb3.png "image")](http://jameschambers.com/wp-content/uploads/2012/12/image7.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2012/12/image_thumb3.png "image")](https://jcblogimages.blob.core.windows.net/img/2012/12/image7.png)
 <style type="text/css">.csharpcode, .csharpcode pre
 {
 	font-size: small;
@@ -77,7 +77,7 @@ This embed code is snapped from Share –&gt; Embed on the YouTube site under yo
 
 You can see that the new embed code is cleaner, and better still it is allowed in a Windows Store app and the video plays embedded in your posts just fine.
 
-[![image](http://jameschambers.com/wp-content/uploads/2012/12/image_thumb2.png "image")](http://jameschambers.com/wp-content/uploads/2012/12/image6.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2012/12/image_thumb2.png "image")](https://jcblogimages.blob.core.windows.net/img/2012/12/image6.png)
 
 ## A Little Background
 

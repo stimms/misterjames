@@ -32,7 +32,7 @@ I would like to note that there are still improvements to be made here – for i
 
 ## Step 1 – Core
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/08/image_thumb.png "image")](http://jameschambers.com/wp-content/uploads/2015/08/image.png)Our Core project was a breeze to port because it’s at the heart of the system in an [Onion Architecture](jeffreypalermo.com/blog/the-onion-architecture-part-1/) and takes on very few dependencies. I started the conversion by going through the motions of creating a new Core project, using the DLL project from the "Web Templates" part of the dialog.&nbsp; The first project also creates the solution, and the convention for the way the solutions are laid out on disk has changed.
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/08/image_thumb.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/08/image.png)Our Core project was a breeze to port because it’s at the heart of the system in an [Onion Architecture](jeffreypalermo.com/blog/the-onion-architecture-part-1/) and takes on very few dependencies. I started the conversion by going through the motions of creating a new Core project, using the DLL project from the "Web Templates" part of the dialog.&nbsp; The first project also creates the solution, and the convention for the way the solutions are laid out on disk has changed.
 
 So…the build broke.
 
@@ -41,7 +41,7 @@ Thankfully, this was easy to resolve with just a couple of quick fixes, but you�
 *   First, update your paths to point at the correct location on disk
 *   Second, comment out all the build steps that have to come later, like running unit or integration tests
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/08/image_thumb1.png "image")](http://jameschambers.com/wp-content/uploads/2015/08/image1.png)We can’t run unit tests quite yet (we need to convert those projects as well), but we can make sure that the project is building correctly.
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/08/image_thumb1.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/08/image1.png)We can’t run unit tests quite yet (we need to convert those projects as well), but we can make sure that the project is building correctly.
 
 We’re not modifying code at this point, so provided we can get the solution building we can have a good level of confidence – but not a guarantee – that our code is still in good shape. We want those tests back online before we merge this branch back to develop.
 
@@ -49,13 +49,13 @@ With the build running, I was able to jump back into Visual Studio and start add
 
 The only package that I had to add at this point was a legacy dependency from NHibernate, namely the Iesi.Collections package. This is done by opening up the project.json for Core and updating the “dependencies” part of the project file. As soon as you save the file out, Visual Studio goes off and runs a background install of the packages that it finds you’ve put in there, along with any dependencies of those packages.
 
-![image](http://jameschambers.com/wp-content/uploads/2015/08/image2.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/08/image2.png "image")
 
 Finding the right package and most recent version is quite easy in the project.json world. As you start typing a package name, in-line search kicks in and starts suggesting matches. Available versions of the packages are displayed, and VS indicates if those packages are available locally in a cache or found on a remote NuGet repository, indicated by the icon you see. All packages sources are queried for package information, so you can get packages and their version information from private repositories as well.
 
 Once the packages were restored the solution built fine in Visual Studio 2015 and I was able to return to my console to run the build script.
 
-![image](http://jameschambers.com/wp-content/uploads/2015/08/image3.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/08/image3.png "image")
 
 ## Step 2: Data Access
 
@@ -106,7 +106,7 @@ Just a couple of other notes that I took and a couple of tips I’ve learned as 
 
 You’re also in charge of wiring up any dependencies your modules need where they aren’t satisfied with a single package for all output types. For instance, when I tried a small gamut of output targets I ran into this problem:
 
-![image](http://jameschambers.com/wp-content/uploads/2015/08/image4.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/08/image4.png "image")
 
 The new .NET Platform (the base for Windows, web, mobile and x-plat) was not supported given the dependencies I have listed in my project, namely it is the IESI Collections that is the problem here. Ideally, you want to be able to support as many runtimes as possible, so you want to target the lowest common denominator. That is likely going to be “dotnet” going forward (which could in turn be used to build up applications for web, Windows or phone) but more realistically things like “net46”, which is just the 4.6 version of .NET, or “dnx46”, which is the new bits (think MVC Framework) running on top of .NET 4.6\. In the cases where you don’t have a package that matches the target you need, you have a couple of choices, listed in order of easiest to most difficult:
 
@@ -125,4 +125,4 @@ The main tenets of our application are now alive and kicking in our Visual Studi
 
 If you’d like to follow along with the progression as we get this fully converted you can check out [the branch on GitHub](https://github.com/ClearMeasureLabs/ClearMeasureBootcamp/tree/refactor/move-to46-with-multitargetting).
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/08/wlEmoticon-smile.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/08/wlEmoticon-smile.png)

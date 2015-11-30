@@ -14,7 +14,7 @@ Stop the madness! You don’t have to live like that, and I’m telling you it�
 
 I was first inspired to do this through a talk at WebStock by [Scott Hanselman](https://twitter.com/shanselman), which you can view [here](http://www.hanselman.com/blog/ItsNotWhatYouReadItsWhatYouIgnoreVideoOfScottHanselmansPersonalProductivityTips.aspx). I have to admit, I struggled for the first little while, getting on track and trying to maintain the practice. But, I’m going to do something that I couldn’t have done two years ago, and that is to share an image of my inbox.  Here it is:
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/04/image_thumb4.png "image")](http://jameschambers.com/wp-content/uploads/2015/04/image4.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/04/image_thumb4.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/04/image4.png)
 
 Beauty, eh? This isn’t here as bragging rights, I’m just trying to illustrate that this is achievable and can be a reality for you. The only really _hard_ day was the first one, when I had to make the decision to nuke everything in there. From there it was just about a little discipline and establishing some good habits.
 
@@ -53,8 +53,8 @@ There are things that don’t belong in your inbox. That’s it. So get them out
 
 ## Fly Away, Stanley, be Free!
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/04/image_thumb5.png "image")](http://jameschambers.com/wp-content/uploads/2015/04/image5.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/04/image_thumb5.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/04/image5.png)
 
 So, there’s really no secret sauce here. If you’re still reading this, you’re likely willing to give this a try, so carve out two and a half hours in your schedule and give it a go. Make rules that work for you, and don’t sweat it if it takes you one or two attempts to make it work, or a couple of weeks to find your groove on getting things cleared out. In no time, you’ll be rocking Inbox:0 and enjoying the stress-free benefits of seeing absolutely nothing when you check your email. Just like Stanley.
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/04/wlEmoticon-smile4.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/04/wlEmoticon-smile4.png)

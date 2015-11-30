@@ -23,7 +23,7 @@ Whenever disaster strikes a community – a forest fire, a tsunami, an earthquak
 
 From November 6th to the 8th I was privileged to join in with about twenty other individuals from around the world to work on [AllReady](http://www.htbox.org/blog/allready-project-launched-at-visual-studio-2015-release-event), an open source project that is curated by the Humanitarian Toolbox. AllReady is software that helps communities _organize_ and _execute_ efforts in preparedness so that those who are at risk are better equipped to make it out of a disaster in the best shape possible.
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/11/image_thumb.png "image")](http://jameschambers.com/wp-content/uploads/2015/11/image.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/11/image_thumb.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/11/image.png)
 
 The group of us descended to the Garage at Building 27 on Microsoft Campus. We hunkered down, plowed through hundreds of commits and many dozens of issues and pull requests.
 
@@ -35,7 +35,7 @@ To find out more about the awesome work that The Humanitarian Toolbox is doing, 
 
 There is a huge draw to dive in and help with a project that can affect so many people and thwart the negative impact of unfortunate conditions. Preparedness is so much more effective than disaster recovery.
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/11/image_thumb1.png "image")](http://jameschambers.com/wp-content/uploads/2015/11/image1.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/11/image_thumb1.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/11/image1.png)
 
 So…it’s a good reason to get involved. But if that’s not enough, check out this tech stack:
 
@@ -51,11 +51,11 @@ So…it’s a good reason to get involved. But if that’s not enough, check out
 
 I mean, _just look at that list_. That’s like…**all** the buzzwords. And jumping in to help on this project is also jumping in to learn. This is an opportunity to work with world-class developers on a project that is striving to have great architecture. It runs on the cloud in cloud-like ways and uses technology that is going to be used for the next 5-10 years and beyond. 
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/11/image_thumb2.png "image")](http://jameschambers.com/wp-content/uploads/2015/11/image2.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/11/image_thumb2.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/11/image2.png)
 
 After the weekend, we drew to a close by having a retrospective where we worked through the next steps and where this project is headed. It’s exciting to see the momentum building as more community members come on board and start making commits.
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/11/image_thumb3.png "image")](http://jameschambers.com/wp-content/uploads/2015/11/image3.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/11/image_thumb3.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/11/image3.png)
 
 We’ve got a lot done in just a few weeks, and I’m excited to see it moving forward _daily_.&nbsp; 
 
@@ -69,4 +69,4 @@ The best part about the software is that everyone can contribute. I’m not goin
 
 If you have questions, reach out to me [<u>on Twitter</u>](http://twitter.com/CanadianJames) and I’ll help to get you started. 
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/11/wlEmoticon-smile1.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/11/wlEmoticon-smile1.png)

@@ -12,9 +12,9 @@ date: 2015-05-04 12:58:48
 
 Things, they are a-changing!
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/05/image_thumb.png "image")](http://jameschambers.com/wp-content/uploads/2015/05/image.png)If you’ve played with different versions of ASP.NET 5 and MVC 6 along the way and have recently updated to the RC build of Visual Studio 2015 you’ll likely have noticed a few changes.&nbsp; Just a couple.
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/05/image_thumb.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/05/image.png)If you’ve played with different versions of ASP.NET 5 and MVC 6 along the way and have recently updated to the RC build of Visual Studio 2015 you’ll likely have noticed a few changes.&nbsp; Just a couple.
 
-I found that I’ve been mostly able to survive the transition with a few questions around runtimes and where things have moved, but not all the bits are obvious. Here’s a list of some things that you’ll likely want to know as you navigate the M-V-Seas.&nbsp; (See what I did there? ![Smile with tongue out](http://jameschambers.com/wp-content/uploads/2015/05/wlEmoticon-smilewithtongueout.png) )
+I found that I’ve been mostly able to survive the transition with a few questions around runtimes and where things have moved, but not all the bits are obvious. Here’s a list of some things that you’ll likely want to know as you navigate the M-V-Seas.&nbsp; (See what I did there? ![Smile with tongue out](https://jcblogimages.blob.core.windows.net/img/2015/05/wlEmoticon-smilewithtongueout.png) )
 
 A big thanks goes out to fellow Canadian [Simon Timms](https://twitter.com/stimms) and beach bum [Dave Paquette](https://twitter.com/Dave_Paquette) for stumbling through these bits with and for me. #experts
 
@@ -193,4 +193,4 @@ Voila! You should be good to go! Navigate to your **project directory** and hack
 
 So, go grab Visual Studio 2015! If you run into trouble there is a wealth of information out there (albeit, much of it is quickly becoming outdated or conflicting). As I already mentioned, [Jabbr](https://jabbr.net/#/rooms/EntityFramework) is a great place to ask questions, as are Twitter and Stack Overflow. [Brice Lambson](https://twitter.com/bricelambs) periodically posts updates on his [blog](http://www.bricelam.net/). I have found that the documentation for Asp.Net 5 has also been kept fairly up-to-date, which you can [read here](http://docs.asp.net/en/latest/).
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/05/wlEmoticon-smile.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/05/wlEmoticon-smile.png)

@@ -16,7 +16,7 @@ Getting started in MVC is the easiest it’s ever been, and it’s even easier t
 
 First off, select File –&gt; New Project from the Visual Studio 2013 menu.&nbsp; If you select the “Web” category you’ll see only one type of project, an “Asp.Net Web Application”. All web projects have been consolidated under the “One Asp.Net” banner, so the project type is an easy selection. The next dialog that pops up gets a little more interesting:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image.png "image")
 
 You’ll note that there are a few more options here. Click around on the project templates to see the description (we’re going to be focusing here on MVC). The notable options outside of your template selection are the Authentication, Core References and Azure options.
 
@@ -30,7 +30,7 @@ You’ll note that there are a few more options here. Click around on the projec
 
 Well, don’t wait! Just run the site! You’ll land on a welcome page (just a static HTML page in your project) but you can hit CTRL+F5 to see your wonderful new digital bits running locally.
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image1.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image1.png)
 
 Bang. You got yourself a web site. Let’s pause to consider what’s going on.
 

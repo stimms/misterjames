@@ -20,7 +20,7 @@ While we’ve had a number of options over the years as the Asp.Net templates ha
 
 You’ll include two resources in a page that you want to build off of Bootstrap, the style sheet and the JavaScript library that make it work.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image8.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image8.png "image")
 
 The CSS aspect gives you a stock option with fonts, colors and components that work well together, a responsive layout grid, and the flexibility to completely modify the framework’s default colors, spacing and other variables. You can see how diverse things are at the [Bootstrap expo site](http://expo.getbootstrap.com/), and build your own theme variant using the [tools online](http://getbootstrap.com/customize/). You can also download freely available themes from various sites on the interwebs.
 
@@ -30,7 +30,7 @@ The JavaScript library introduces a number of behaviors and widgets that augment
 
 The next aspect to be aware of is that the framework relies on several custom HTML attributes to kick up the juice. The JavaScript library looks for these attributes to append functionality, help with layout and behaviors and attach events. 
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb1.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image9.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb1.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image9.png)
 
 The above example, from the docs site, shows how to create a “scroll spy” with no code. Note that all things you can do via attributes can be done with JavaScript as well, so you’re not locked into a model.
 
@@ -40,7 +40,7 @@ What I really like about this approach is that the framework isn’t as opiniona
 
 As of version 5, Microsoft has elected to make Bootstrap the framework of choice in every non-blank web application, making it easy to start working with.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image10.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image10.png "image")
 
 It’s included in the bundles, configured at app startup, and it’s included on all child pages that leverage the default layout, located in your Views\Shared folder.
 
@@ -48,7 +48,7 @@ It’s included in the bundles, configured at app startup, and it’s included o
 
 Once you get your head around the opinions that Bootstrap _does_ have, you’ll find that creating a toggle button styled in the same way as everything else on your site becomes quite trivial.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image12.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image12.png "image")
 
 Of course, there is more to Bootstrap than just toggle buttons, and there is more to the MVC Framework than spitting out static HTML, so we have some work to do to finish exploring this dynamic duo.
 

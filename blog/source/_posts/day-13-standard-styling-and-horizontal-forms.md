@@ -158,7 +158,7 @@ We are able to check ModelState.IsValid because we setup our model to require ce
 
 Now, you’ve done this before but we’re going to approach it a little differently today. This time, when you right-click on the Create method in the controller, be sure to select the correct template and options.
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb11.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image23.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb11.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image23.png)
 
 It’s a Create template, with the Person class as the model. You’ll want to clear the partial checkbox if it’s selected and make sure you “Include Script Libraries”.&nbsp; Remember that leaving the name of the view as Create allows the framework to pick it up on it’s own.
 
@@ -166,7 +166,7 @@ It’s a Create template, with the Person class as the model. You’ll want to c
 
 The default view actually looks pretty good, in fact, you’d have to remove the form-horizontal style from the class attribute of the div (in the root of the form that is generated) to get the “standard” look-and-feel, which would be like this:
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb12.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image24.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb12.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image24.png)
 
 But you’ll notice that we’re missing something in particular: a way to add skills to our person. Also, it looks way better with that form-horizontal in there!
 
@@ -223,7 +223,7 @@ So, if you removed that form-horizontal, add it back. Then we’re going to add 
 
 You’ll notice that we don’t actually have any new form elements here that will submit with the form (the input there doesn’t have a name and won’t appear in the submitted form collection), but we have a textbox that lets you enter some text.
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb13.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image25.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb13.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image25.png)
 
 There is an empty DIV there that we’ll use to add hidden text inputs to the form via jQuery. We also have a styled UL list in there that we’ll use to display what has already been added.
 
@@ -275,7 +275,7 @@ The comments in the script lay out the goal here, essentially that we’re going
 
 Here it is in action!
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb14.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image26.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb14.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image26.png)
 
 ## I Really Like This Part
 

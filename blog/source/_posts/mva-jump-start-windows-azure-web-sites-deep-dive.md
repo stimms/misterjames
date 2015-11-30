@@ -45,7 +45,7 @@ You can watch it on [Microsoft Virtual Academy](http://www.microsoftvirtualacade
 
 ## Next Steps…More MVA!
 
-If you haven’t already done so you can [register for Microsoft Virtual Academy here](http://www.microsoftvirtualacademy.com/?prid=ca_mvpjc&amp;mtag=MVP4038205). As well, here are some courses I recommend ([along with my session](http://www.microsoftvirtualacademy.com/training-courses/windows-azure-web-sites-deep-dive-jump-start?prid=ca_mvpjc&amp;mtag=MVP4038205), of course ![Winking smile](http://jameschambers.com/wp-content/uploads/2014/01/wlEmoticon-winkingsmile.png) ):
+If you haven’t already done so you can [register for Microsoft Virtual Academy here](http://www.microsoftvirtualacademy.com/?prid=ca_mvpjc&amp;mtag=MVP4038205). As well, here are some courses I recommend ([along with my session](http://www.microsoftvirtualacademy.com/training-courses/windows-azure-web-sites-deep-dive-jump-start?prid=ca_mvpjc&amp;mtag=MVP4038205), of course ![Winking smile](https://jcblogimages.blob.core.windows.net/img/2014/01/wlEmoticon-winkingsmile.png) ):
 
 *   [Developing ASP.NET MVC4 Web Applications Jump Start](http://www.microsoftvirtualacademy.com/training-courses/developing-asp-net-mvc-4-web-applications-jump-start?prid=ca_mvpjc&amp;mtag=MVP4038205)
 *   [HTML5 &amp; CSS3 Fundamentals: Development for Absolute Beginners](http://www.microsoftvirtualacademy.com/training-courses/html5-css3-fundamentals-development-for-absolute-beginners?prid=ca_mvpjc&amp;mtag=MVP4038205)

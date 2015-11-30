@@ -16,7 +16,7 @@ I hope you’re enjoying the series so far, I’m certainly enjoying creating it
 
 ## Announcing Microsoft Virtual Academy’s Introduction to MVC
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image33.png "image")](http://www.microsoftvirtualacademy.com/liveevents/introduction-to-asp-net-mvc?prid=ca_mvpjc)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image33.png "image")](http://www.microsoftvirtualacademy.com/liveevents/introduction-to-asp-net-mvc?prid=ca_mvpjc)
 
 Join Jon Galloway, Christopher Harrison in live video training, along with a handful of experts in the chat room, including yours truly, for a full day event on Microsoft Virtual Academy.
 

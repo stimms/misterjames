@@ -9,7 +9,7 @@ date: 2015-07-29 09:32:00
 
 I am super geeked to be heading down to Austin, TX to speak at [Measure Up](http://measureup.io/) this coming September 26th. Measure Up 2015 is the inaugural skills and career development conference put on by the folks at [Clear Measure](http://clear-measure.com/).
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/07/image24.png "image")](http://measureup.io/)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image24.png "image")](http://measureup.io/)
 
 This conference is packed with all kinds of great speakers and covers a variety of topics related to business development, dev ops, personal growth and, of course, how to be mind-bendingly awesome at making software. I am going to be talking about the things you need to know when [you’re moving to MVC 6](http://measureup2015.azurewebsites.net/mvc6/), and sharing about my experiences as [a remote worker](http://measureup2015.azurewebsites.net/success-as-a-remote-worker/).
 
@@ -27,4 +27,4 @@ This conference is packed with all kinds of great speakers and covers a variety 
 
 **Register for the event**. Seriously, [ten bucks](https://www.eventbrite.com/e/measureup-2015-tickets-16666653409?ref=ecount)_. _
 
-See you in September! ‘Til then, happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/07/wlEmoticon-smile6.png)
+See you in September! ‘Til then, happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/07/wlEmoticon-smile6.png)

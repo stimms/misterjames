@@ -17,11 +17,11 @@ Had a bit of a frustrating morning, one of those times when your tools work agai
 
 Here’s another hint as to why this went south on me:
 
-![image](http://jameschambers.com/wp-content/uploads/2013/02/image1.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2013/02/image1.png "image")
 
 I was a little quick on the CTRL + . this morning, and since the first item in the list was System.Web.WebPages.Html, the tools didn’t help me out much at all.&nbsp; But hey…shouldn’t ReSharper be able to figure this one out for me and give me the light bulb of awesome?&nbsp; 
 
-[![image](http://jameschambers.com/wp-content/uploads/2013/02/image_thumb1.png "image")](http://jameschambers.com/wp-content/uploads/2013/02/image2.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2013/02/image_thumb1.png "image")](https://jcblogimages.blob.core.windows.net/img/2013/02/image2.png)
 
 I digress…
 

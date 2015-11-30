@@ -28,7 +28,7 @@ So, today, we’re going to fix that Session access with a permanent, more relia
 
 Since you’ve already [created an account](http://jameschambers.com/2014/06/day-22-sprucing-up-identity-for-logged-in-users/), you technically have some profile information already stored in your site’s database. We’re going to leverage the identity infrastructure of our project and extend the class that keeps track of our data, adding in the user’s selected theme. In your Solution Explorer, locate the ApplicationUser class under Models. The easiest way is usually just through the search box at the top:
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb21.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image42.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb21.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image42.png)
 
 Add the following property to your ApplicationUser class:
 <pre class="csharpcode"><span class="kwrd">public</span> <span class="kwrd">string</span> CssTheme { get; set; }</pre>
@@ -203,7 +203,7 @@ Our other line of code – to actually render the bundle – will remain the sam
 
 I know, I know, it’s hard to put time into something when it seems that nothing really changed. Our functionality is identical and users still have the same options as they did before.
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb22.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image43.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb22.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image43.png)
 
 But technically our solution is a little more sound.&nbsp; Here’s what we did again as a bit of a recap:
 

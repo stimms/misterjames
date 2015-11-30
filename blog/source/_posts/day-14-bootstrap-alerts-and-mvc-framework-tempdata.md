@@ -18,7 +18,7 @@ This is an installment in a 30 day series on Bootstrap and the MVC Framework. To
 * * *
    <p>Something may go wrong, or it may go right. It may go smooth or go bump in the night. And, at various times, your application will want to let the user know about it. **Bootstrap** has a component called an Alert that works quite nicely for these types of information.
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb16.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image27.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb16.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image27.png)
 
 Likewise, the **MVC Framework** has a great place where we can store these messages without having to worry about postbacks, short term storage or the like. Pairing these two features up makes a great way to relay information to the user.
 
@@ -288,7 +288,7 @@ Now update your _Layout.cshtml to include the call to render the partial view. Y
 
 And now, after you add a new person to the list, you’ll see a nicely formatted, dismissable alert at the top of the page.
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb17.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image28.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb17.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image28.png)
 
 ## Next Steps
 

@@ -20,7 +20,7 @@ Forms will need a few cues on how to properly render themselves and take part in
 
 There are actually a few styles of forms that you can get going. A standard styling gives you label-over-control type layout, horizontal forms give you label-beside-control layout and inline styling gives you controls without labels side-by-each continuously in the row. That’s the one we’ll go with to generate our simple search form:
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb6.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image20.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb6.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image20.png)
 
 Create a partial view under the Views\Person folder. You can make it an empty one, and call it _PersonSearchForm.cshtml.&nbsp; Paste in the following code:
 <pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">hr</span><span class="kwrd">/&gt;</span>
@@ -189,7 +189,7 @@ Back in Views\Person\Index.cshtml there isn’t a lot we have to do to get our f
 
 I have updated the view from yesterday by wrapping the data with a DIV that acts as a container. We’ll use that later when we AJAX up the page. Press CTRL+F5 to see the updated view in action.
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb8.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image21.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb8.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image21.png)
 
 This handles the display aspect, but we need some script in place to handle the button click and make the AJAX call, finally updating the page with the search results. Add a script section to the bottom of the page as follows:
 <pre class="csharpcode">@section scripts
@@ -271,7 +271,7 @@ If you’re not familiar with JavaScript or the patterns that jQuery uses, here�
 
 Try typing in some search terms from your Person\Index page.
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb9.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image22.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb9.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image22.png)
 
 Bazinga!
 

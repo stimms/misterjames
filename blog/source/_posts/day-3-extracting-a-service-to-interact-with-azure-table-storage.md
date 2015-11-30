@@ -285,4 +285,4 @@ Just a few things to note:
 
 With the repository in place we can now lighten the load on the controller and more easily implement features with our concerns more clearly separated. In the next couple of posts, we’re going to start allowing the user to manipulate the entities in the table.
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/07/wlEmoticon-smile.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/07/wlEmoticon-smile.png)

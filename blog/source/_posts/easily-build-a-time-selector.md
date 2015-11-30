@@ -9,7 +9,7 @@ date: 2013-03-13 01:40:05
 
 I’m working on a project where I need the user to select a time in 24 hour format.&nbsp; It would have taken me a couple of minutes to punch out the lines to build a select option for each of the items that were to appear in the drop down list, but I elected to use the Enumerable.Range method instead and build the list dynamically.
 
-[![image](http://jameschambers.com/wp-content/uploads/2013/03/image_thumb.png "image")](http://jameschambers.com/wp-content/uploads/2013/03/image.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2013/03/image_thumb.png "image")](https://jcblogimages.blob.core.windows.net/img/2013/03/image.png)
 
 Why approach it this way?&nbsp; Well, if the requirements change, for example, and I need to change that to every 10 minutes instead of every 30 minutes, I don’t need to go and write another 96 lines of code. All I have to do is change the call the select projection where I compute the minutes (right now at the top and bottom of the hour).
 

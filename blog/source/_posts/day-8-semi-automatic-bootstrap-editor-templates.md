@@ -139,7 +139,7 @@ To see this new template in action we’ll have to get a Create view set up and 
 
 Now, right-click on the name of the method, and select “Add View…”, then set it up to use the Create template for the Person class.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image16.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image16.png "image")
 
 Visual Studio will throw you into the editor for your new view, and you can press CTRL+F5 to see your new default control for Boolean values, or navigate to <a>http://localhost:_port_/Simple/Create</a> to see the page. 
 
@@ -175,7 +175,7 @@ As well, the templates are rendered on the fly by the view engine (just like all
 
 Note that our Person class doesn’t have a nullable Boolean value, but it if did, it would render like so because of our evaluation of the ModelMetadata in the template above:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image17.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image17.png "image")
 
 ## Controlling the Use of Custom Templates
 

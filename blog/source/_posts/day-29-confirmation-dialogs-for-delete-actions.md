@@ -14,7 +14,7 @@ This is an installment in a 30 day series on Bootstrap and the MVC Framework. To
 
 We just gave our users the ability to delete a record from the database in [Day 28](http://jameschambers.com/2014/07/day-28-doing-more-interesting-things-with-buttons/), but a single click does the deed without confirmation. It would likely be better to at least give them a little prompt to confirm that this is what they were trying to do in the first place.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/07/image11.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image11.png "image")
 
 Let’s first talk about how dialogs are composed and how to display them in a page.
 
@@ -258,7 +258,7 @@ Remember the note about keeping the modal as close to the document root as possi
 
 It should appear right after the BODY tag, first thing in the document, like this.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/07/image12.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image12.png "image")
 
 Now, whenever you have something that will be injected from a view into the page in this topLevel section, you will be able to put elements directly into the root of the document.
 
@@ -389,7 +389,7 @@ Immediately after that, we update our scripts section to include the JS we need 
 
 Because we’ve kept things fairly organized along the way, changes to our view are minimal but at the same time we’re able to improve the user experience a fair bit. We’ve added an easy way to get content into the root of our document and simplified our partial views. And look…
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/07/image_thumb3.png "image")](http://jameschambers.com/wp-content/uploads/2014/07/image13.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image_thumb3.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/07/image13.png)
 
 …we even managed to keep our related files in one place in the solution explorer.&nbsp; <style type="text/css">.csharpcode, .csharpcode pre
 {

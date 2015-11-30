@@ -171,11 +171,11 @@ The MVC Framework has some great scaffolding capabilities, as we’ve explored i
 
 This time ‘round, use the Scaffold for the “MVC5 Controller with views, using Entity Framework”. Fill out the options as follows:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/07/image.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image.png "image")
 
 You are selecting the Notification model, checking off “Generate views” and “Use a layout page”. The controller name should automatically be set to NotificationsController for you. Click Add to finish it out.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/07/image1.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image1.png "image")
 
 One more thing: you’re going to want an easy way to get your UserId – it’s what we’re using to match the notifications – so add the following to your Create view in Views\Notifications\Create.cshtml:
 <pre class="csharpcode">@<span class="kwrd">if</span> (User.Identity.IsAuthenticated)
@@ -212,7 +212,7 @@ That will output your UserId (which is a Guid) so that you can create notificati
 
 Now when you run the site, sign in and navigate to the /Notifications path. This will show you an empty list, but you’ll have a link to create some new records. Add some to the site, using your UserId, and watch the navbar light up.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/07/image2.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image2.png "image")
 
 ## Next Steps
 

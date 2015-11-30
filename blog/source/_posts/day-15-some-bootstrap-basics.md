@@ -31,11 +31,11 @@ JavaScript isn’t a requirement for your site, but anything beyond the basic CS
 Imagine dividing your page up into 12 columns, and using a row to hold those columns, and putting all your rows into a container. Then, you choose if you want to assume a series of “responsive” widths, or a fluid width that is calculated on the fly to control the size of your columns.&nbsp; In a nutshell, that is what a grid layout system is doing for you. 
 
 Check out these samples from the template. Your home page looks like this in a desktop browser on a larger screen resolution:
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb18.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image29.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb18.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image29.png)
 
 But when you scale it down, you get the following without having to completely design an alternate site:
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb19.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image30.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb19.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image30.png)
 
 The grid capabilities give you many options for how you want to tackle your layout regardless of the user’s viewport.&nbsp; **This is significant because you don’t have to write your site twice**. There was previous emphasis on making a “mobile friendly version” of your site, but the Bootstrap opinion on design is that you should be mobile first. If you’re choosing to build a new site on some greenfield project it is worth spending some time on how the grid breaks down.
 
@@ -45,7 +45,7 @@ The best way to do this is to visit the [Grid Template](http://getbootstrap.com/
 
 Consider those images above from your project’s home page, and have a look at what’s going on. There is a menu at the top of the page that automatically collapses into a mobile-friendly arrangement when the screen size gets smaller.
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb20.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image31.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb20.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image31.png)
 
 The code for this navbar control is in the _Layout.cshtml file.
 <pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">div</span> <span class="attr">class</span><span class="kwrd">="navbar navbar-inverse navbar-fixed-top"</span><span class="kwrd">&gt;</span>
@@ -135,7 +135,7 @@ While I’m assuming they could have used an image or something from Glyphicon h
 
 The rest of the content on the page is rendered in Index.cshtml inside the Views\Home folder.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image32.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image32.png "image")
 
 There are two parts in play here, a jumbotron component and a row with three equally-sized columns.&nbsp; The jumbotron is the grey area with the larger title. It assumes the full width of the container it resides in, and gives a few extra style classes to help make content stand out.
 <pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">div</span> <span class="attr">class</span><span class="kwrd">="jumbotron"</span><span class="kwrd">&gt;</span>

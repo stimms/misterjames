@@ -20,11 +20,11 @@ In any case, if the goal is to try to render something that the user is going to
 
 As we already discussed, we will follow the conventions that have been laid out so that we can leverage the built in tooling. To get started, right-click on the Controllers folder in the solution explorer and follow the context menu to “Add –&gt; Controller…”.&nbsp; This is the process for using the scaffolding exposed by the framework, launching a dialog that prompts you for the information it needs to build out a starting point. There are a number of options, but let’s just look at first one for now: the Empty Controller.
 
-[![image_thumb[4]](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb4_thumb.png "image_thumb[4]")](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb4.png)
+[![image_thumb[4]](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb4_thumb.png "image_thumb[4]")](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb4.png)
 
 This gives you a simple option to name a controller when selected.
 
-[![image_thumb[7]](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb7_thumb.png "image_thumb[7]")](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb7.png)
+[![image_thumb[7]](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb7_thumb.png "image_thumb[7]")](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb7.png)
 
 I called mine “SimpleController”, which you’ll see has some significance in a moment.&nbsp; As a class, future James will know exactly what present James means by this name.&nbsp; Here’s the class that is generated for me.
 <pre class="csharpcode"><span class="kwrd">public</span> <span class="kwrd">class</span> SimpleController : Controller
@@ -69,7 +69,7 @@ Unfortunately, that view doesn’t yet exist. Thankfully, this isn’t hard to d
 
 In the code editor window, right-click on the Index method (right on the name of the method itself) to invoke the context menu. Select “Add View…” to get the dialog open to create your view.
 
-[![image_thumb[10]](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb10_thumb.png "image_thumb[10]")](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb10.png)
+[![image_thumb[10]](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb10_thumb.png "image_thumb[10]")](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb10.png)
 
 The nice thing here is that you don’t have to type in the name of your view. The tooling just assumes the name from the method.
 
@@ -109,7 +109,7 @@ The @{ … } notation is Razor syntax to say, “here’s a code block”. This 
 
 With your cursor in the Razor editor, run your application by pressing CTRL+F5 (run without debugger), and navigate to your newly created page. For me, my application started up on port 48995 and the full URL was <font color="#0000ff">**[http://localhost:48995/Simple/Index](http://localhost:48995/Simple/Index)**</font>. You can think of that address as <font color="#0000ff">**http://host/Controller/View**</font> for any page that is following the default convention for routing.
 
-[![image_thumb[15]](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb15_thumb.png "image_thumb[15]")](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb15.png)
+[![image_thumb[15]](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb15_thumb.png "image_thumb[15]")](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb15.png)
 
 New page for the win!
 
@@ -117,4 +117,4 @@ New page for the win!
 
 A page that says index will really only hold you over for so long, so up next we’ll find out how to send along more meaningful information to our client.
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2014/06/wlEmoticon-smile.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2014/06/wlEmoticon-smile.png)

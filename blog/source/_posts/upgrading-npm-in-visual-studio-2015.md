@@ -19,7 +19,7 @@ Waiting for updates is no fun. Let’s hack a little.
 
 ## Wait a minute! Why are we doing this?
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/09/image_thumb.png "image")](http://jameschambers.com/wp-content/uploads/2015/09/image.png)For me the primary motivator was the path length limitations in Windows. Nested node_modules folders buried 19 levels deep is no fun when you hit the max path length. For me, I was trying to share the files on OneDrive and hit 255 characters pretty quickly.
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/09/image_thumb.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/09/image.png)For me the primary motivator was the path length limitations in Windows. Nested node_modules folders buried 19 levels deep is no fun when you hit the max path length. For me, I was trying to share the files on OneDrive and hit 255 characters pretty quickly.
 
 Older versions of npm resolved package dependencies by pulling in a package, creating a node_modules folder inside of it, then putting all the packages in there. Except, of course, if one of those packages contained more dependencies, then we were into the recursive bits of package resolution and very deep paths, ultimately toppling a lot of Windows tooling.
 
@@ -97,7 +97,7 @@ This one is pretty straightforward as well, and can be done by right-clicking on
 
 From here, just add a new entry and move it to the top. For me, npm is located in the nodejs install directory, and this is good enough to get VS to see it first.
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/09/image_thumb1.png "image")](http://jameschambers.com/wp-content/uploads/2015/09/image1.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/09/image_thumb1.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/09/image1.png)
 
 Note, I did seem to have some issues with caching and/or gremlins here, so you may need to restart Visual Studio for the tooling paths to be picked up.
 
@@ -114,4 +114,4 @@ Not too much to do, but if you run into long paths, nested node_modules kicking 
 
 Make sure you grab your <u>[copy of VS 2015](https://www.visualstudio.com/?Wt.mc_id=DX_MVP4038205)</u> and start diving into the next phase of our careers!
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/09/wlEmoticon-smile.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/09/wlEmoticon-smile.png)

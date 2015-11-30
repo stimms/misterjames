@@ -19,7 +19,7 @@ If you need to run some kind of process on a regular interval a solution might b
 
 I have a console app for the purpose of this article that I’ve created that runs some reports.&nbsp; You’ll see later similar output as the logs from the cloud-run copy of this application.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image8.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image8.png "image")
 
 Yes, my reports start at 0\. Don’t judge, my brothers and sisters.
 
@@ -33,35 +33,35 @@ Your script or executable needs to be in a ZIP file which can also include any o
 
 Click on the Web Jobs tab in the web site’s dashboard, then click “Add” from the command bar at the bottom of the site or from the dashboard page that loads up.
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/02/image_thumb1.png "image")](http://jameschambers.com/wp-content/uploads/2014/02/image9.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image_thumb1.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/02/image9.png)
 
 If you haven’t already signed up for the Schedule preview program, you’ll not yet be able to create scheduled jobs, but’s it’s trivial to setup and the link is provided on the Web Job screen.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image10.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image10.png "image")
 
 Follow the link and complete the sign up; it’s a straightforward button click.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image11.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image11.png "image")
 
 With that in place you can continue with creating the job. I wrap up all my needed files into a zip, and then I pick my options on the first page of the job setup:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image12.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image12.png "image")
 
 Finally, I create my schedule and configure it to run every day for a year:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image13.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image13.png "image")
 
 Your job is added to the list and then runs on schedule, or you can run it on demand from the command bar. After executing, logs are added to your account:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image14.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image14.png "image")
 
 Clicking the link brings you to the history of job runs where any console output is available for viewing. Error logs, should any rise, are also saved out here. 
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image15.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image15.png "image")
 
 You can see the output by drilling into the log, which is unsurprisingly similar to what we saw from our console&nbsp; output at the start of this article.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image16.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image16.png "image")
 
 ## Understanding Job Storage Requirements
 
@@ -82,7 +82,7 @@ There is a great – and growing – administrative back door called Kudu to you
 
 It’s basically the URL that you use to access the host on azurewebsites.net, but you plug in the scm.&nbsp; There is a debug console that gives you the ability to plug away through your files in the Kudu menu.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/02/image17.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image17.png "image")
 
 ## Wrapping Up &amp; Next Steps
 

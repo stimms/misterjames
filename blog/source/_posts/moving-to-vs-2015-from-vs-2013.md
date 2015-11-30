@@ -17,11 +17,11 @@ _In this series we’re working through the conversion of an MVC 5-based applica
 
 First, a bit about our application. I said this was a real-world application, and it is. You can [clone the repo](https://github.com/ClearMeasureLabs/ClearMeasureBootcamp) and run it locally if you like.
 
-![image](http://jameschambers.com/wp-content/uploads/2015/07/image10.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image10.png "image")
 
 What we have is an expense report application, albeit a little on the light side for features. No worries, though, that is the intent! But the real pieces of an application sporting [Onion Architecture](http://jeffreypalermo.com/blog/the-onion-architecture-part-1/) are in place, and there’s quite a bit of commonly-used tech in this bad boy that you would likely find in any real-world app:
 
-*   [![image](http://jameschambers.com/wp-content/uploads/2015/07/image_thumb4.png "image")](http://jameschambers.com/wp-content/uploads/2015/07/image11.png)Separate projects for separate concerns
+*   [![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image_thumb4.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/07/image11.png)Separate projects for separate concerns
 *   A UI Project that stands with only a single reference (to Core)
 *   An older version of NHibernate
 *   Unit tests
@@ -39,7 +39,7 @@ The first issue we’re going to address is the fact that our solution and proje
 
 In the case of Bootcamp, our project opens cleanly and builds as we would expect. But you’ll notice right away a change in the repo.
 
-![image](http://jameschambers.com/wp-content/uploads/2015/07/image12.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image12.png "image")
 
 Visual Studio 2015 runs IIS Express in a more specific context than previous versions, which is a huge win. The applicationhost.config is basically everything you need to get the web server up locally while you develop, debug and test, and it replaces what we would used to use for IIS Express for machine-wide configuration.
 
@@ -62,4 +62,4 @@ I’ve been running different incarnations of VS 2015 on my machine alongside Vi
 
 While this is a short and single-focused post, I hope you see that opening the project in VS 2015 may yield no negative side effects. Heck, if you’re not sure you want to try it on your metal, you can even jump on a free trial of Azure and attempt to open your project on a VM running 2015.
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/07/wlEmoticon-smile2.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/07/wlEmoticon-smile2.png)

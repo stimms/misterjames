@@ -34,9 +34,9 @@ I have a plethora of USB cables from a variety of sources. I have noticed that t
 
 This part’s pretty easy, just pop open Visual Studio, select File –&gt; New Project, and then switch to the Store Apps/Windows Phone Apps category. From there, Pick the Blank App template and name your project **AliveAndSafe**.
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/04/image_thumb2.png "image")](http://jameschambers.com/wp-content/uploads/2015/04/image2.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/04/image_thumb2.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/04/image2.png)
 
-We’ll talk more about the application we’re creating next time, but if you’ve read my [previous post](http://jameschambers.com/2015/03/iot-for-humans-and-developers-getting-started-with-my-microsoft-band/) you know where I’m going with this. ![Winking smile](http://jameschambers.com/wp-content/uploads/2015/04/wlEmoticon-winkingsmile.png)
+We’ll talk more about the application we’re creating next time, but if you’ve read my [previous post](http://jameschambers.com/2015/03/iot-for-humans-and-developers-getting-started-with-my-microsoft-band/) you know where I’m going with this. ![Winking smile](https://jcblogimages.blob.core.windows.net/img/2015/04/wlEmoticon-winkingsmile.png)
 
 ## Adding the Band SDK
 
@@ -51,7 +51,7 @@ As expected, this pulls down the DLLs needed for our app and adds references to:
 *   Microsoft.Band.Store
 Having a peek inside, we can see a number of interesting objects that we can create, collections to iterate over, sensors to subscribe to and states that we can inspect.
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/04/image_thumb3.png "image")](http://jameschambers.com/wp-content/uploads/2015/04/image3.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/04/image_thumb3.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/04/image3.png)
 
 We’re going to dive into these in more detail as we build out our app.
 
@@ -70,4 +70,4 @@ Okay…easy lifting today, here’s what we did:
 *   Added the Microsoft.Band pre-release package from Nuget to pull in our dependencies.
 In the next article we’re going to talk a little bit more about our application that we’re building and get a tile onto the Band to represent our application.
 
-Happy Coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/04/wlEmoticon-smile3.png)
+Happy Coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/04/wlEmoticon-smile3.png)

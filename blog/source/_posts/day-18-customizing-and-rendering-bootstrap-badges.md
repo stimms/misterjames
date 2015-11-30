@@ -46,11 +46,11 @@ Badges are pretty easy to render. You mark up a SPAN with the “badge” class 
 
 That ends up looking something like this:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image34.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image34.png "image")
 
 And if you put it in a navbar, it looks like this:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image35.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image35.png "image")
 
 So it’s an easy way to convey that the user has _something_ that needs to be done, check unread messages, complete some kind of task or, say, approve People registrations. But the white-on-grey is a little bland.
 
@@ -60,7 +60,7 @@ I wouldn’t recommend modifying the base Bootstrap.css class itself. If there a
 
 What we’d like to do is to get a palette of options like so:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image36.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image36.png "image")
 
 Let’s start by adding a new CSS file to the project. Expand the Content folder in your solution and you should see bootstrap.css. Right-click on the Content folder, and add a new Style Sheet called “bootstrap.custom.css”, then paste in the following code:
 <pre class="csharpcode">.badge-danger {

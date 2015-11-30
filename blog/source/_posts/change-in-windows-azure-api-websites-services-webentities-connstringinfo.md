@@ -54,4 +54,4 @@ Then I noticed that the script really mustn’t have been run in some time, as t
 
 Websites was moved in late 2013 to the Commands namespace. You won’t likely run into it unless you dig up an old script that hasn’t run in a while, but the difference is subtle and might be tricky to spot.
 
-Hope this helps, and happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/04/wlEmoticon-smile.png)
+Hope this helps, and happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/04/wlEmoticon-smile.png)

@@ -82,10 +82,10 @@ Oh, yes, rest is important. And I don’t just mean sleep. No athlete worth her 
 
 My morning ritual is easy: I get up, put the coffee on, do a quick workout (sometimes as short as 10 minutes), shower, grab my cup of joe and get to work. This takes less than 20 minutes, so I get up about an hour before the rest of the household. Want to know something crazy? I don’t even set an alarm. But, more on that in a future post.
 
-[![legocreative](http://jameschambers.com/wp-content/uploads/2015/03/legocreative_thumb.jpg "legocreative")](http://jameschambers.com/wp-content/uploads/2015/03/legocreative.jpg)
+[![legocreative](https://jcblogimages.blob.core.windows.net/img/2015/03/legocreative_thumb.jpg "legocreative")](https://jcblogimages.blob.core.windows.net/img/2015/03/legocreative.jpg)
 
 My 11 year old son loves Lego and Dr. Who. He wakes up a couple of times a week and spends 10-15 minutes or so looking at online projects that other Lego-Whovians have built, and then tries to re-create them, or just builds his own, even recently getting into painting his own characters. He gets it: if he wants to learn how to do something, he’s got to put some time into it. He’s got school during the day, homework and music lessons during the evenings, and his parents make him get a reasonable sleep in each night. When else can he do this?
 
 So, wake up early, close down your unnecessary browser tabs (Twitter, Facebook, email) and get some real s#@t done. Spend your early mornings on yourself, your daytime on your job, your evenings with the people you care about most and get a good night’s sleep. It will change your life for the better, guaranteed, or I’ll double your money back. 
 
-And happy coding. ![Smile](http://jameschambers.com/wp-content/uploads/2015/03/wlEmoticon-smile1.png)
+And happy coding. ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/03/wlEmoticon-smile1.png)

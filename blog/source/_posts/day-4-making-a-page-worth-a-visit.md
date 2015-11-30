@@ -101,15 +101,15 @@ We are initializing a new Person object and updating the call to View() to pass 
 
 Now, as nice as that [Index page was](http://jameschambers.com/2014/06/day-3-adding-a-controller-and-view/) that we created in the Simple view folder, it’s just got to go! Select it from the Solution Explorer and delete it, then return to your SimpleController code file and create a new view in a similar fashion. This time, however, when you’re creating the view, you’ll need to select the “Details” template and the “Person” class.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image5.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image5.png "image")
 
 Now when you run your application and navigate to Simple/Index, you’ll see something like the following:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image6.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image6.png "image")
 
 …which is more interesting, but it just doesn’t sing.&nbsp; We need it to look more like…
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image7.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image7.png "image")
 
 Bang! Now we’re snapping!&nbsp; Let’s see how that breaks down.
 

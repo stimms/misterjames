@@ -24,7 +24,7 @@ When a document exists in CouchDb you send updates to the document URL with a PU
 
 Here is a generic method to update a document from c#:
 
-![image](http://jameschambers.com/wp-content/uploads/2013/04/image.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2013/04/image.png "image")
 
 Via Gist:
 <script src="https://gist.github.com/MisterJames/5413118.js"></script>

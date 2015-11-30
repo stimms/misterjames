@@ -52,11 +52,11 @@ So what else does it offer?&nbsp; A bunch of common things that you might try to
 
 All in all, it’s a clean looking table that will suit most needs and fit in with the rest of the site.
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/07/image_thumb1.png "image")](http://jameschambers.com/wp-content/uploads/2014/07/image4.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image_thumb1.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/07/image4.png)
 
 Another important aspect of the Bootstrap table is the ability to easily make a table responsive. I don’t have the answer as to why this isn’t the default, but it’s easily added with a DIV wrapper that has the table-responsive class. This adds horizontal scroll bars to your tables, when needed, when they are viewed on smaller screens to ensure that the data doesn’t end up in some non-accessible, off-device part of the screen.
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/07/image_thumb2.png "image")](http://jameschambers.com/wp-content/uploads/2014/07/image5.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image_thumb2.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/07/image5.png)
 
 That wrapper looks like the following:
 <pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">div</span> <span class="attr">class</span><span class="kwrd">="table-responsive"</span><span class="kwrd">&gt;</span>
@@ -250,7 +250,7 @@ I will perhaps one day sit down and hash through the AccountController, but need
 
 Now on our end, we’ve done some off-script things as well, namely putting direct database access in a controller (and filter),&nbsp; pushing database models directly up to the view and leaning on those ViewBag properties to shuffle data around. So, yes, kettle, meet teapot.
 
-All of these things are leading up to another set of posts on best practices ![Smile](http://jameschambers.com/wp-content/uploads/2014/07/wlEmoticon-smile.png).
+All of these things are leading up to another set of posts on best practices ![Smile](https://jcblogimages.blob.core.windows.net/img/2014/07/wlEmoticon-smile.png).
 
 ## Next Steps
 

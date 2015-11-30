@@ -15,7 +15,7 @@ I’m continuing my series in exploring Bootstrap integration with the Mvc Frame
 
 ## Getting the Latest Stable Bits
 
-One thing I didn’t mention in the video is that you don’t have to build the packages locally to get the latest versions. Eric Hexter has a MyGet feed setup to help you out in this regard. [![image](http://jameschambers.com/wp-content/uploads/2013/02/image_thumb.png "image")](http://jameschambers.com/wp-content/uploads/2013/02/image.png)From the Package Manager Console in Visual Studio, simply pop open the options and add a new package feed:
+One thing I didn’t mention in the video is that you don’t have to build the packages locally to get the latest versions. Eric Hexter has a MyGet feed setup to help you out in this regard. [![image](https://jcblogimages.blob.core.windows.net/img/2013/02/image_thumb.png "image")](https://jcblogimages.blob.core.windows.net/img/2013/02/image.png)From the Package Manager Console in Visual Studio, simply pop open the options and add a new package feed:
  > [http://www.myget.org/F/erichexter/](http://www.myget.org/F/erichexter/ "http://www.myget.org/F/erichexter/") 
 
 This lets you install the package from MyGet if you want to expose features not yet posted to the primary NuGet feed.

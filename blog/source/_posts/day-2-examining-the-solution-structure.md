@@ -20,7 +20,7 @@ One of the things that the MVC Frameworks does reasonably well is to follow conv
 
 Thankfully, controllers and views are easy pieces, you can find them in the apt-named folders, “Controllers” and “Views”, respectfully and consistently across most projects. 
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image2.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image2.png "image")
 
 Each controller has a corresponding folder inside of Views to help keep things organized further. If you’re generating views from the built-in tooling, they are created here as well. As the MVC Framework tries to find the view you would like rendered it checks here first and then falls back to the “shared” folder, also part of convention.
 
@@ -46,7 +46,7 @@ In these folders you’ll find the requisite pieces needed to ship a web site th
 
 ## Application Building Blocks
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image3.png "image")The App_Start folder is likely the most interesting from a code perspective as it provides the wiring to pull your application together. Bundles are a way to reduce and compress script and style resources in a non-lossy fashion (as far as the browser is concerned). Filters allow you to modify the execution pipeline of your application. Identity is the implementation of the built-in local user account manager. Routing allows friendly URLs and custom mapping of resources. And the Startup.Auth file (a partial class) is used to tell your app which types of user identies you’ll be using to pair with your local user accounts.
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image3.png "image")The App_Start folder is likely the most interesting from a code perspective as it provides the wiring to pull your application together. Bundles are a way to reduce and compress script and style resources in a non-lossy fashion (as far as the browser is concerned). Filters allow you to modify the execution pipeline of your application. Identity is the implementation of the built-in local user account manager. Routing allows friendly URLs and custom mapping of resources. And the Startup.Auth file (a partial class) is used to tell your app which types of user identies you’ll be using to pair with your local user accounts.
 
 There’s a lot in that last little paragraph, but we’ll unpack it as we go.
 
@@ -58,7 +58,7 @@ At the top of the solution explorer you’ll see “Properties” and “Referen
 
 Towards the bottom of the list you’ll see a couple of files that are common on all Asp.Net sites, Global.asax and Web.Config. These give instructions to the MVC Framework, to the Asp.Net runtimes and to IIS itself as to how to execute requests and make use of resources. They allow you to store settings and provide values to libraries and assemblies you might be using. You’ll note that Global’s startup method calls out to some of the startup classes we covered in the last section as well.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image4.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image4.png "image")
 
 Favicon.ico is the image that will be displayed in a browser tab when someone visits your site.
 

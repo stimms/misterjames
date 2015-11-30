@@ -35,7 +35,7 @@ But we’re here to do Bootstrappy things, right? So let’s spruce up that top 
 
 The CSS library gives us a few easy-to-use helpers to make our images look consistent. Here’s a sample from the [Bootstrap site](http://getbootstrap.com/css/#images):
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image38.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image38.png "image")
 
 The classes are as follows:
 
@@ -205,7 +205,7 @@ using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFo
 
 And now we’re rockin’ head shots in our navbar!
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image39.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image39.png "image")
 
 ## Next Steps
 

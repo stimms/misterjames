@@ -14,7 +14,7 @@ This is an installment in a 30 day series on Bootstrap and the MVC Framework. To
 
 Yesterday we added some good-looking notification badges to our site using our [customized Bootstrap badges](http://jameschambers.com/2014/06/day-18-customizing-and-rendering-bootstrap-badges/). Now we need to take care of this nonsense where we need to put the same code into _every single method and every single controller _that we write.
 
-[![image[5]](http://jameschambers.com/wp-content/uploads/2014/06/image5_thumb.png "image[5]")](http://jameschambers.com/wp-content/uploads/2014/06/image51.png)
+[![image[5]](https://jcblogimages.blob.core.windows.net/img/2014/06/image5_thumb.png "image[5]")](https://jcblogimages.blob.core.windows.net/img/2014/06/image51.png)
 
 Yay for the badges, boo for the code. To get around this, we’ll explore one of many different ways we solve this problem of repeating ourselves by writing an action filter.
 

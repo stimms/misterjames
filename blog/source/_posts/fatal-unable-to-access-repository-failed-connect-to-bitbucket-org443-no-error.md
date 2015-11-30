@@ -81,4 +81,4 @@ fatal: unable to access 'https://{account}@bitbucket.org/{project}/{repo-name}.g
 
 Then I noticed the Cisco VPN client icon in the taskbar…I was connected to a VPN. Disconnected, and the push was successful. Hope this helps someone else out there.
 
-Haping coding. ![Smile](http://jameschambers.com/wp-content/uploads/2015/03/wlEmoticon-smile.png)
+Haping coding. ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/03/wlEmoticon-smile.png)

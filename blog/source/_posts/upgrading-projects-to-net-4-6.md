@@ -27,26 +27,26 @@ Every project we create references a specific version of the .NET Framework. Thi
 
 For now, you can simply open the properties tab for your project and change the target Framework.
 
-![image](http://jameschambers.com/wp-content/uploads/2015/07/image18.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image18.png "image")
 
 You will be prompted to let you know that some changes may be required.
 
-![image](http://jameschambers.com/wp-content/uploads/2015/07/image19.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image19.png "image")
 
 Note that in my case, I had 7 projects with varying types of references and dependencies, and no modifications were required to the code. Your mileage may vary, of course, but this is a simple change and one that you can test quickly. With proper source control in place, this is a zero-risk test that should take only a moment or two.
 
 Now, if you were to try to build the Bootcamp project when you’re only partway through the upgrade, you’d see something similar to the following:
 
-![image](http://jameschambers.com/wp-content/uploads/2015/07/image20.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image20.png "image")
 
 With a message that reads:
 > The primary reference “x” could not be resolved because it was built against the “.NETFramework,Version=v4.6” framework. The is a higher version than the currently targeted framework “.NETFramework,Version=4.5.1”.
 
 You may run into this in other scenarios, as well, especially if you you have references to packages or libraries that get out of sync in your upgrade process. **A project that takes on dependencies must be at (or higher than) the target framework of the compiled dependencies**. To remedy this, we simply need to complete the upgrade process on the rest of the projects.
 
-![image](http://jameschambers.com/wp-content/uploads/2015/07/image21.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image21.png "image")
 
-This was pretty painless. ![Smile](http://jameschambers.com/wp-content/uploads/2015/07/wlEmoticon-smile5.png)
+This was pretty painless. ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/07/wlEmoticon-smile5.png)
 
 ## Reasons to Upgrade?
 
@@ -60,4 +60,4 @@ However, there are a couple of other points that we should note, namely that our
 
 But what if we have different projects across our organization, or we have external teams using our libraries? The answer lies in multi-targeting, which is what we’ll address in the next post in this series.
 
-Until then, happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/07/wlEmoticon-smile5.png)
+Until then, happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/07/wlEmoticon-smile5.png)

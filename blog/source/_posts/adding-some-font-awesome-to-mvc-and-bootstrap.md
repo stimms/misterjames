@@ -17,7 +17,7 @@ _[See more tips, tricks and tutorials like this in my book, Bootstrapping MVC.](
 
 ## A Bit About Font Awesome
 
-![A Picture of a Heart Icon](http://jameschambers.com/wp-content/uploads/2014/08/image.png "Heart")Font Awesome is a font and CSS toolkit that was created by Dave Gandy, originally designed to be a compliment to the Bootstrap library. There is no JavaScript component to it and it does not add any new behaviors to your site, but it does have some great-looking, scalable icons that you’ll likely love.&nbsp; See what I did there, with the heart? ![Winking smile](http://jameschambers.com/wp-content/uploads/2014/08/wlEmoticon-winkingsmile.png)
+![A Picture of a Heart Icon](https://jcblogimages.blob.core.windows.net/img/2014/08/image.png "Heart")Font Awesome is a font and CSS toolkit that was created by Dave Gandy, originally designed to be a compliment to the Bootstrap library. There is no JavaScript component to it and it does not add any new behaviors to your site, but it does have some great-looking, scalable icons that you’ll likely love.&nbsp; See what I did there, with the heart? ![Winking smile](https://jcblogimages.blob.core.windows.net/img/2014/08/wlEmoticon-winkingsmile.png)
 
 There are two core elements to using the library: the font files themselves and the CSS classes that wire things up for use on your site. With the library in place, you can get the above heart icon to appear simply by adding the following syntax:
 <pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">i</span> <span class="attr">class</span><span class="kwrd">="fa fa-heart"</span><span class="kwrd">&gt;&lt;/</span><span class="html">i</span><span class="kwrd">&gt;</span></pre>
@@ -115,7 +115,7 @@ While these display classes are all built to work with Bootstrap natively, the C
 
 The icons tend to be aptly named and terse, so you’re not typing a metric tonne of code. I’m using Visual Studio 2013 and working with the library is a breeze because of the automatic syntax completion offered through IntelliSense.
 
-![HTML Code: &lt;i class=&quot;fa fa-heart&quot;&gt;&lt;/i&gt;](http://jameschambers.com/wp-content/uploads/2014/08/image1.png "Intellisense sample")
+![HTML Code: &lt;i class=&quot;fa fa-heart&quot;&gt;&lt;/i&gt;](https://jcblogimages.blob.core.windows.net/img/2014/08/image1.png "Intellisense sample")
 
 If you download the ZIP from the [Font Awesome](http://fontawesome.io) site, you’ll get the CSS (and minified version), the font files for multi-platform and multi-browser support as well as the LESS and SCSS files to customize things should you so need.
 
@@ -155,7 +155,7 @@ From the docs on the site, the easiest way to start using Font Awesome is just t
 
 Using the CDN version may help improve load times, especially when your users are spread out over multiple geographic regions. Not all corporate policies allow for public CDN use for in-house projects, however, so you still have the option to download and use Font Awesome as an asset in your deployment.
 
-![Solution structure for typical installation of Font Awesome](http://jameschambers.com/wp-content/uploads/2014/08/image2.png "Solution structure for typical installation of Font Awesome")If you do download the ZIP, you’ll need to execute a couple of familiar and straightforward tasks to use the toolkit:
+![Solution structure for typical installation of Font Awesome](https://jcblogimages.blob.core.windows.net/img/2014/08/image2.png "Solution structure for typical installation of Font Awesome")If you do download the ZIP, you’ll need to execute a couple of familiar and straightforward tasks to use the toolkit:
 
 *   Copy the CSS and Fonts folder into your project, likely under the Content folder
 *   Add a new bundle to your site and include the CSS in your _Layout (or modify an existing, in-use bundle to include the CSS).
@@ -166,7 +166,7 @@ The only thing to watch for is that you’re going to need to honor the relative
 
 There’s always an easier way to do it, and usually the way to do that with .NET is going to involve a little bit of NuGet.
 
-I found no fewer than half a dozen packages on NuGet for Font Awesome. While they all seem to list Mr. Gandy as the author, none of them appear to be officially part of the project. So, for better or for worse, there’s no officially sanctioned project here. Just the same, the packages are there if you want to use them and I have my opinions on them. ![Smile](http://jameschambers.com/wp-content/uploads/2014/08/wlEmoticon-smile.png)
+I found no fewer than half a dozen packages on NuGet for Font Awesome. While they all seem to list Mr. Gandy as the author, none of them appear to be officially part of the project. So, for better or for worse, there’s no officially sanctioned project here. Just the same, the packages are there if you want to use them and I have my opinions on them. ![Smile](https://jcblogimages.blob.core.windows.net/img/2014/08/wlEmoticon-smile.png)
 
 The package I recommend is [FontAwesome.MVC](https://www.nuget.org/packages/FontAwesome.MVC/) by JiveCode aka [JustLikeIcarus](https://github.com/JustLikeIcarus). This package takes a dependency on his Font Awesome package containing the CSS and fonts, then it adds a class (FontAwesomeBundleConfig) that registers a style bundle for you. 
 
@@ -207,4 +207,4 @@ With a groovy new set of icons now available to my site, my next post will be on
 _Like this post? You can [see more tips, tricks and tutorials ](http://jameschambers.com/bootstrapping-mvc/)
 __like this in my book, Bootstrapping MVC._
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2014/08/wlEmoticon-smile.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2014/08/wlEmoticon-smile.png)

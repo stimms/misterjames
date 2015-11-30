@@ -14,7 +14,7 @@ While these are going to seem obvious at first, I want to make the point that th
 
 ## Your Co-Workers
 
-[![office_relationships](http://jameschambers.com/wp-content/uploads/2015/07/office_relationships_thumb.jpg "office_relationships")](http://jameschambers.com/wp-content/uploads/2015/07/office_relationships.jpg)In the movie _Office Space_, the main character Peter Gibbons pines that his motivation to work, or rather, to “work just hard enough not to get fired,” stems from unhealthy relationships with management. This **cannot** be your reality as a remote worker, and you need to make efforts to establish (and maintain) trust with your boss and teammates.
+[![office_relationships](https://jcblogimages.blob.core.windows.net/img/2015/07/office_relationships_thumb.jpg "office_relationships")](https://jcblogimages.blob.core.windows.net/img/2015/07/office_relationships.jpg)In the movie _Office Space_, the main character Peter Gibbons pines that his motivation to work, or rather, to “work just hard enough not to get fired,” stems from unhealthy relationships with management. This **cannot** be your reality as a remote worker, and you need to make efforts to establish (and maintain) trust with your boss and teammates.
 
 I have worked in blended environments where there was a head office with regular staff, but many remote workers and many office workers who had the option to work from home as they elected to do so. Being a permanent remote with very little office time (averaging about a day a month in the office) it was harder to get to know folks, but I knew it was really on me to own it.
 

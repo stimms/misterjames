@@ -295,7 +295,7 @@ Update your Index() action to be the following:
 .csharpcode .lnum { color: #606060; }
 </style>
 
-We’re getting the list of notifications out of the DB, grouping them by type, specifying the style class to use and counting them op.&nbsp; We then set that information in the ViewBag, which is accessible from our views. Note that this approach _only_ works for now in our Index method, and _only_ on the HomeController. Don’t worry, we’ll take care of that tomorrow. ![Smile](http://jameschambers.com/wp-content/uploads/2014/06/wlEmoticon-smile2.png)
+We’re getting the list of notifications out of the DB, grouping them by type, specifying the style class to use and counting them op.&nbsp; We then set that information in the ViewBag, which is accessible from our views. Note that this approach _only_ works for now in our Index method, and _only_ on the HomeController. Don’t worry, we’ll take care of that tomorrow. ![Smile](https://jcblogimages.blob.core.windows.net/img/2014/06/wlEmoticon-smile2.png)
 
 ## Lighting up Notifications in the View
 
@@ -332,7 +332,7 @@ Find the UL element with the class “nav navbar-nav” that contains the LI ele
 
 We’ve got some more work to do to fully get these working, but you will likely see the direction this is moving in by now, and users will see that something needs to be done about all those…notifications.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image37.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image37.png "image")
 
 ## Next Steps
 

@@ -35,4 +35,4 @@ Check back for more on the series in the days ahead, all the links will be poste
 
 And hey, if you’d like to ramp up in your MVC skills, please check out my recent book:
 
-[![banner5](http://jameschambers.com/wp-content/uploads/2014/09/banner5.png "banner5")](https://leanpub.com/bootstrappingmvc "Bootstrapping MVC - THE eBook for developers using Bootstrap on MVC")
+[![banner5](https://jcblogimages.blob.core.windows.net/img/2014/09/banner5.png "banner5")](https://leanpub.com/bootstrappingmvc "Bootstrapping MVC - THE eBook for developers using Bootstrap on MVC")

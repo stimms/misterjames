@@ -20,7 +20,7 @@ So, we aren’t headed down a slippery slope here, we just need to make a little
 
 There are some great, free alternatives located at [Bootswatch.com](http://bootswatch.com/). So, start there and pick one or two to download, I chose Amelia and Darkly. We need to create a folder structure to organize our themes, and move the CSS into those folders. Mine ended up working like this:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image40.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image40.png "image")
 
 Note that I also pushed a copy of the stock CSS for bootstrap into this structure. This allows us to simplify our code for theme switching, allowing users to pick the base theme if they like.
 
@@ -155,7 +155,7 @@ What we really need to do here is just a quick update to figure out the user’s
 .csharpcode .lnum { color: #606060; }
 </style>
 
-I’m using Session for now, but I’ll explain why in a bit that is bad idea. ![Smile](http://jameschambers.com/wp-content/uploads/2014/06/wlEmoticon-smile3.png)
+I’m using Session for now, but I’ll explain why in a bit that is bad idea. ![Smile](https://jcblogimages.blob.core.windows.net/img/2014/06/wlEmoticon-smile3.png)
 
 Note that, at this point, you could set that theme default – right now set to Bootstrap.Theme.Stock – to whichever theme you like and run your app. The mechanics of building the bundle and the class to resolve it are all in place.
 
@@ -247,12 +247,12 @@ If we have a referring URL we can push the user back to the same page, otherwise
 
 And there you have it: users can now pick their own theme on your site:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image41.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image41.png "image")
 
 ## Next Steps
 
 This data doesn’t really belong in the user’s session…whenever the app pool is recycled or the website or IIS is restarted or their session expires they will lose this choice. Even worse, session and Identity aren’t on the same lifecycle, so when they log out the session persists and they’ll still see the theme they chose when they logged in.
 
-So, where should it be stored? Tune in next time as we answer this question and more. ![Smile with tongue out](http://jameschambers.com/wp-content/uploads/2014/06/wlEmoticon-smilewithtongueout.png)
+So, where should it be stored? Tune in next time as we answer this question and more. ![Smile with tongue out](https://jcblogimages.blob.core.windows.net/img/2014/06/wlEmoticon-smilewithtongueout.png)
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2014/06/wlEmoticon-smile3.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2014/06/wlEmoticon-smile3.png)

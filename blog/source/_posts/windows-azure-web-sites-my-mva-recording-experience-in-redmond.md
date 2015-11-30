@@ -10,7 +10,7 @@ categories:
 date: 2013-12-12 05:45:00
 ---
 
-Today I had the pleasure and privilege of recording a session – 7 modules altogether – covering Windows Azure Web Sites with [Tejaswi Redkar](http://www.twitter.com/tejaswiredkar). The material was for a course [![image](http://jameschambers.com/wp-content/uploads/2013/12/image.png)](http://www.microsoftvirtualacademy.com/liveevents/windows-azure-web-sites-deep-dive-jump-start#?fbid=iakxSr9rHuj&amp;prid=ca_mvpjc&amp;mtag=MVP4038205)provided by Microsoft Virtual Academy and recorded live in front of a virtual audience of nearly 1,000 folks from 82 countries around the world. MVA has over 1.5 million subscribers worldwide, so this was a big audience!
+Today I had the pleasure and privilege of recording a session – 7 modules altogether – covering Windows Azure Web Sites with [Tejaswi Redkar](http://www.twitter.com/tejaswiredkar). The material was for a course [![image](https://jcblogimages.blob.core.windows.net/img/2013/12/image.png)](http://www.microsoftvirtualacademy.com/liveevents/windows-azure-web-sites-deep-dive-jump-start#?fbid=iakxSr9rHuj&amp;prid=ca_mvpjc&amp;mtag=MVP4038205)provided by Microsoft Virtual Academy and recorded live in front of a virtual audience of nearly 1,000 folks from 82 countries around the world. MVA has over 1.5 million subscribers worldwide, so this was a big audience!
 
 I had excellent support from Sangeeta who lined up our session, a great time with Tej who co-presented with me, and tons of help and feedback from Danny and Garry who produced the whole event and gave us wonderful feedback throughout the whole day. It was a great time and I learned a ton in the process _about_ the process and can’t wait for another opportunity to do another session.
 
@@ -20,15 +20,15 @@ I couldn’t believe the participation from the virtual audience! There were twe
 
 Help from the audience came in all kinds of forms. When I asked folks to fill out a survey with me to demonstrate SignalR running in the cloud, we had over 200 responses!
 
-![survey](http://jameschambers.com/wp-content/uploads/2013/12/survey.png "survey")
+![survey](https://jcblogimages.blob.core.windows.net/img/2013/12/survey.png "survey")
 
-Even when I wasn’t asking for help, the viewers were sharp enough (and paying close enough attention!) to catch URLs that were being used and jump into the demos themselves. #Awesomesauce. ![Smile](http://jameschambers.com/wp-content/uploads/2013/12/wlEmoticon-smile.png)
+Even when I wasn’t asking for help, the viewers were sharp enough (and paying close enough attention!) to catch URLs that were being used and jump into the demos themselves. #Awesomesauce. ![Smile](https://jcblogimages.blob.core.windows.net/img/2013/12/wlEmoticon-smile.png)
 
-[![chat](http://jameschambers.com/wp-content/uploads/2013/12/chat_thumb.png "chat")](http://jameschambers.com/wp-content/uploads/2013/12/chat.png)
+[![chat](https://jcblogimages.blob.core.windows.net/img/2013/12/chat_thumb.png "chat")](https://jcblogimages.blob.core.windows.net/img/2013/12/chat.png)
 
 And when things went wrong – we only had one demo that didn’t work! – people were _still_ giving me a hand _after_ the session. I had a Node.js + Mongo DB setup that gave me a 500 when I deployed as one of the last demos of the day, but before I got back to the hotel, someone had found the cure and posted the details – refreshing the page! 
 
-[![todo](http://jameschambers.com/wp-content/uploads/2013/12/todo_thumb.png "todo")](http://jameschambers.com/wp-content/uploads/2013/12/todo.png)
+[![todo](https://jcblogimages.blob.core.windows.net/img/2013/12/todo_thumb.png "todo")](https://jcblogimages.blob.core.windows.net/img/2013/12/todo.png)
 
 ## The Studio Staff Were a Treat to Work With
 
@@ -40,7 +40,7 @@ As presenters we got to use a couple of ginormous multi-touch screens and had to
 
 Best part of the experience was walking around knowing that everyone there was smarter than me. Very humbling to get to mix with the folks that develop the tools upon which I make my bread and butter, so I soaked in as much as I could. Lunch at The Commons (actually, I think it was called The Mixer), a lap around the Visitor Center, a trip to the company store and of course getting into the recording studio in downtown Redmond.
 
-![image](http://jameschambers.com/wp-content/uploads/2013/12/image1.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2013/12/image1.png "image")
 
 The Commons (or Mixer?) is a collection of shops, services, food courts and lounge areas for people to relax. There was a live jazz band playing at one end of the building which was pretty cool, and a great selection of eats to choose from.
 

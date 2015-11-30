@@ -24,7 +24,7 @@ Also, let’s not confuse things here: In more cases than not, your ViewModel is
 
 ## But, doesn't it break the design of MVC?
 
-[caption id="attachment_6491" align="alignright" width="300"][![Source: http://www.nv.doe.gov/library/photos/](http://jameschambers.com/wp-content/uploads/2015/06/nuke-300x188.jpg)](http://jameschambers.com/wp-content/uploads/2015/06/nuke.jpg) Sometimes things blow up when you try them out, but you still gotta try.[/caption]
+[caption id="attachment_6491" align="alignright" width="300"][![Source: http://www.nv.doe.gov/library/photos/](https://jcblogimages.blob.core.windows.net/img/2015/06/nuke-300x188.jpg)](https://jcblogimages.blob.core.windows.net/img/2015/06/nuke.jpg) Sometimes things blow up when you try them out, but you still gotta try.[/caption]
 
 Perhaps. Maybe, if you want to say, "The only definition valid for any framework is the original definition." But we have more tools today to do our job, and in particular for this case dependency injection which has become a first-class citizen in ASP.NET. So, let's rewind a bit and ask, why is it a bad practice to give a component the pieces it needs to do its work?
 
@@ -74,6 +74,6 @@ I highly encourage you to do your own reading on this and explore the feature in
 *   View components and Inject in [ASP.NET MVC 6](http://www.asp.net/vnext/overview/aspnet-vnext/vc)
 *   Simon Timms: [Getting Lookup Data Into You View ASP.net MVC 6 Version](http://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/)
 *   The ASP.NET [MVC 6 repo on GitHub](https://github.com/aspnet/Mvc)
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/06/wlEmoticon-smile.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/06/wlEmoticon-smile.png)
 
 <span style="color: #999999;">_Image credit: http://www.nv.doe.gov/library/photos/_</span>

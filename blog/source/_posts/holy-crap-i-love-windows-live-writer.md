@@ -15,4 +15,4 @@ C:\Users\_user_name_\AppData\Local\Windows Live Writer\AutoRecover
 
 If Windows Live Writer crashes you can recover most of your work, even if you don’t have autosave enabled. This has got me out of the woods a couple of times.
 
-Happy blogging. ![Smile](http://jameschambers.com/wp-content/uploads/2014/06/wlEmoticon-smile1.png)
+Happy blogging. ![Smile](https://jcblogimages.blob.core.windows.net/img/2014/06/wlEmoticon-smile1.png)

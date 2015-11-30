@@ -35,11 +35,11 @@ For each change to your database tracked with with a migration, a hash represent
 
 When you attempt to access your data through the DbContext and you’re using, for example, an initializer such as MigrateDatabaseToLatestVersion, the Framework will attempt to play catch-up and make sure the database reflects the current model in your application. To do this, it queries the database to see where the database thinks it’s at, and it uses both reflection over and information from your configuration and context classes. You can see the queries that run if you capture the chatter with SQL Profiler:
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/02/image_thumb2.png "image")](http://jameschambers.com/wp-content/uploads/2014/02/image18.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image_thumb2.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/02/image18.png)
 
 And if you drill into the details you’ll see something like the following as the Framework tries to figure out where you’re at:
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/02/image_thumb3.png "image")](http://jameschambers.com/wp-content/uploads/2014/02/image19.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/02/image_thumb3.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/02/image19.png)
 
 I’ve dashed out my namespace as this was work for a client, but you can see the root of the problem here. The Configuration class is in the <font face="Lucida Console">Root_Namespace.Migrations</font> namespace; if you move the class to a new namespace, this query is modified to reflect it, but previous migrations stored in the database are not.
 

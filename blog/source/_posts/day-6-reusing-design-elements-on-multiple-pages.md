@@ -26,7 +26,7 @@ At the other end of the layout page is the concept of a partial view – a templ
 
 Let’s consider for a moment the section of labels that is rendered at the bottom of our person page that lists the skills.
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/06/image_thumb2.png "image")](http://jameschambers.com/wp-content/uploads/2014/06/image13.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image_thumb2.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/06/image13.png)
 
 That block of skills is really just a collection of strings that we are displaying as labels decorated with Bootstrap styling.  I could imagine that would be handy to have in other places on my site as well.
 

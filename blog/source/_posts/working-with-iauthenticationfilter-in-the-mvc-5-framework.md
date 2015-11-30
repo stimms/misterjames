@@ -208,7 +208,7 @@ Next, we have to deal with the fact that someone who is unauthenticated tried to
 
 …the user will keep that 401 state through, and will ultimately be bounced back to the site’s login page.
 
-[![image](http://jameschambers.com/wp-content/uploads/2013/11/image_thumb.png "image")](http://jameschambers.com/wp-content/uploads/2013/11/image1.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2013/11/image_thumb.png "image")](https://jcblogimages.blob.core.windows.net/img/2013/11/image1.png)
 
 So, in it’s simplest form as we’ve done above, authentication filters give us a way to remove Authorize attributes (separation of concerns) and mimic the behavior we were previously leveraging to force users to log in. But there’s more, right?
 

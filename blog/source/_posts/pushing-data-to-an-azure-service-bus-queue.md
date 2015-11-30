@@ -17,7 +17,7 @@ This is a simple example of what you need to get data into a queue in Azure Serv
 
 First, we’re going to create a new Service Bus Queue through the portal. This is pretty easy, just select New –&gt; App Services –&gt; Queue and pick Custom Create.
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/04/image_thumb1.png "image")](http://jameschambers.com/wp-content/uploads/2015/04/image1.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/04/image_thumb1.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/04/image1.png)
 
 Punch in a name, create a new namespace then click next. You can use the default settings, just hit confirm. Note that if you use Quick Create, it assumes you have a namespace already setup, if that’s the case, you can use that as well.
 
@@ -165,4 +165,4 @@ In the next post I’ll show you how to pop stuff off the queue and do something
 
 Make sure you [pop into Azure](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200575119) and give this a try! There is an amount of free credits that you get during your trial period. If you want to extend that, consider [getting into MSDN](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200575136) (or getting your boss to) for other cool things as well, like VS Online and access to over a terabyte of development assets &amp; software.
 
-Happy Coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/04/wlEmoticon-smile2.png)
+Happy Coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/04/wlEmoticon-smile2.png)

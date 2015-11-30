@@ -62,7 +62,7 @@ I’ve run into 500’s a couple times, no information, just “internal server 
 
 If you get 404.3, this is likely related to missing either the correct .Net components or the WCF Activation components (see [MSDN article](http://msdn.microsoft.com/en-us/library/ms731053.aspx)).
 
-401’s that I’ve seen have been permissions related, naturally as they’re 401’s. ![Smile](http://jameschambers.com/wp-content/uploads/2013/11/wlEmoticon-smile.png) Check your directory permissions if you’re doing something on the file system, and your DB credentials in your web.config. Remember that those EDMX’s have some [funky formatting](http://msdn.microsoft.com/en-us//library/cc716756.aspx).
+401’s that I’ve seen have been permissions related, naturally as they’re 401’s. ![Smile](https://jcblogimages.blob.core.windows.net/img/2013/11/wlEmoticon-smile.png) Check your directory permissions if you’re doing something on the file system, and your DB credentials in your web.config. Remember that those EDMX’s have some [funky formatting](http://msdn.microsoft.com/en-us//library/cc716756.aspx).
 
 ## Learn More
 

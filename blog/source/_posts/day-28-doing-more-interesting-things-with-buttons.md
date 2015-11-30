@@ -18,7 +18,7 @@ Using the styling of Bootstrap or a replacement theme is a great way to make you
 
 If you don’t style your buttons, they’re going to kinda suck. Well…it’s not that they won’t work or anything, but you will just get the boring old browser-styled version of a button.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/07/image6.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image6.png "image")
 
 And because each browser has it’s own default stylesheet, you can’t be guaranteed that any user will see the same font, layout or spacing. Thankfully, enforcing these attributes across clients is only an attribute away.
 <pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">button</span> <span class="attr">type</span><span class="kwrd">="button"</span> <span class="attr">class</span><span class="kwrd">="btn btn-primary btn-sm"</span><span class="kwrd">&gt;</span>A button<span class="kwrd">&lt;/</span><span class="html">button</span><span class="kwrd">&gt;</span>
@@ -52,11 +52,11 @@ And because each browser has it’s own default stylesheet, you can’t be guara
 
 You’ll notice that I used the btn-sm class in the source above, there are large (btn-lg), regular (no class needed), small (btn-sm) and extra-small (btn-xs) to choose from. And now my buttons look like so, in every browser:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/07/image7.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image7.png "image")
 
 If I want them to be the same width, I can also use the grid system for sizing, dropping, say, a col-md-4 into the class attribute to get the following result:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/07/image8.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image8.png "image")
 
 ## Grouping Things Together
 
@@ -91,7 +91,7 @@ The buttons look better now, but they’re bumping up against each other. They�
 .csharpcode .lnum { color: #606060; }
 </style>
 
-![image](http://jameschambers.com/wp-content/uploads/2014/07/image9.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image9.png "image")
 
 I changed the text here because this is the code that I’ll be working into my partial for the notifications.&nbsp; I also made the buttons the same color – from a design stand point I think it looks better (and, heck, I’m even color blind) – and I removed the grid sizing on the buttons to allow them to group properly without having to add custom CSS styles. 
 
@@ -99,7 +99,7 @@ I changed the text here because this is the code that I’ll be working into my 
 
 Chances are we could get away here with the two buttons side-by-each, but in the event that we need to add more actions the page is going to start to get a little wide. An improvement we can make here is to give the users a default action, but then to put the rest of the less-commonly accessed actions into a dropdown to look like this:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/07/image10.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image10.png "image")
 
 This is called a split button dropdown, where a clickable action is available and additional commands are tucked into the drop down. Rather than wrapping the buttons in just a DIV, we also introduce a caret for the dropdown and have a UL to act as a container for the non-visible actions.
 <pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">div</span> <span class="attr">class</span><span class="kwrd">="btn-group"</span><span class="kwrd">&gt;</span>

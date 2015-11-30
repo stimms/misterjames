@@ -37,7 +37,7 @@ The Beta 6 release of ASP.NET 5 is now available. Run the following command to u
 .csharpcode .lnum { color: #606060; }
 </style>After that, a “dnvm list” command will give you the following:
 
-![image](http://jameschambers.com/wp-content/uploads/2015/07/image22.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image22.png "image")
 
 You can also upgrade dnvm itself with the following command:
 <pre class="csharpcode">dnvm update-self</pre><style type="text/css">.csharpcode, .csharpcode pre
@@ -66,7 +66,7 @@ You can also upgrade dnvm itself with the following command:
 .csharpcode .lnum { color: #606060; }
 </style>Which will get you up to the beta 7 version (build 10400) of DNVM.
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/07/image_thumb6.png "image")](http://jameschambers.com/wp-content/uploads/2015/07/image23.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image_thumb6.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/07/image23.png)
 
 You’ll also need the updated VS 2015 tooling, which is available here (along with the DNVM update tools if you want them seperately): [Microsoft Visual Studio 2015 Beta 6 Tooling Download](http://www.microsoft.com/en-us/download/details.aspx?id=48222).
 
@@ -86,4 +86,4 @@ This is still a beta, and there are many moving parts.
 
 Be sure to check out the [community standup today](https://live.asp.net/) and head over to [GitHub](https://github.com/aspnet/) for the announcements on [breaking changes](https://github.com/aspnet/Announcements/issues).
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/07/wlEmoticon-smile4.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/07/wlEmoticon-smile4.png)

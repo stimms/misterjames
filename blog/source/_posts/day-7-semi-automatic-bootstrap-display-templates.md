@@ -68,11 +68,11 @@ The rest of the code is fairly straightforward, just determine if there’s a va
 
 Because we named it “Boolean.cshtml”, the MVC Framework will use our template in favor of the built-in template for Booleans, which you’ll recall from [Day 4](http://jameschambers.com/2014/06/day-4-making-a-page-worth-a-visit/) was simply a checkbox. We saw something like this:
 
-&nbsp;![image](http://jameschambers.com/wp-content/uploads/2014/06/image14.png "image")
+&nbsp;![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image14.png "image")
 
 But with the new template in place, we’ll see this:
 
-![image](http://jameschambers.com/wp-content/uploads/2014/06/image15.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/06/image15.png "image")
 
 You can modify your Index.cshtml at this point to see this in action by adding the following line of code:
 <pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">p</span><span class="kwrd">&gt;</span>Likes Music: @Html.DisplayFor(model =<span class="kwrd">&gt;</span> model.LikesMusic)<span class="kwrd">&lt;/</span><span class="html">p</span><span class="kwrd">&gt;</span></pre>

@@ -10,7 +10,7 @@ If you haven’t yet started your free trial of Azure Websites – or even if it
 
 [Register For The Free, Live Event Here!](http://bit.ly/websiteslap)
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/01/image.png "image")](http://bit.ly/websiteslap)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/01/image.png "image")](http://bit.ly/websiteslap)
 
 I am thrilled to be joining the two excellent presenters – [Jon Galloway](https://twitter.com/jongalloway) and [Cory Fowler](https://twitter.com/cfowlerMSFT) – on Microsoft Virtual Academy as a Community Expert to help answer questions through the day. You’ll find me in the chat room, directing you to resources, answering questions and, heck, I might even craft up a sample or two along the way. :)
 

@@ -10,7 +10,7 @@ date: 2015-01-13 23:49:23
 
 Students, especially, take note of this because you can get all the tools for free, so this is a great way to kick-start your career. This kind of learning was not available, much less for free when I was a kid.
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/01/image3.png "image")](http://bit.ly/learnGameDev)
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/01/image3.png "image")](http://bit.ly/learnGameDev)
 
 That’s it. An email address. That’s all you need to get started.
 

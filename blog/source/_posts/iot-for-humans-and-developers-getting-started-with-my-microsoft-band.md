@@ -53,7 +53,7 @@ Remember that some of these become quite interesting when you consider the fact 
 
 ## So What Now?
 
-These are exciting times, and I’m having fun exploring practical and completely impractical uses and applications. My kids, 13, 11 and 5, are infinite sources of hilarity in discussing what we can do with it. My wife, too, and I’ve found all of a sudden that without talking about “consumer applications”, “big data” and “interconnected devices” I have completely engaged the entire family in the “Internet of Things”. Oh, and I had to order my wife a Band as well. ![Smile](http://jameschambers.com/wp-content/uploads/2015/03/wlEmoticon-smile2.png)
+These are exciting times, and I’m having fun exploring practical and completely impractical uses and applications. My kids, 13, 11 and 5, are infinite sources of hilarity in discussing what we can do with it. My wife, too, and I’ve found all of a sudden that without talking about “consumer applications”, “big data” and “interconnected devices” I have completely engaged the entire family in the “Internet of Things”. Oh, and I had to order my wife a Band as well. ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/03/wlEmoticon-smile2.png)
 
 I’m going to start sharing my experiences while developing an application in the weeks ahead, delving into the use of the sensors on the Band, exploring interactions and trying to test it in real-world scenarios. Stay tuned to follow my path. My next post will be a “Hello World” app that introduces you to the tooling and SDK.
 

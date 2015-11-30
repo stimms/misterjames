@@ -124,4 +124,4 @@ While this _is_ here and you _can _use it, it’s also likely a good time to eva
 
 ## Next Steps
 
-Make sure you’ve got [Visual Studio 2015](https://www.visualstudio.com/?Wt.mc_id=DX_MVP4038205), you have [the latest beta installed](http://docs.asp.net/en/latest/getting-started/installing-on-windows.html) (at time of writing, beta 8), and give it a try. Happy coding ![Smile](http://jameschambers.com/wp-content/uploads/2015/11/wlEmoticon-smile.png)
+Make sure you’ve got [Visual Studio 2015](https://www.visualstudio.com/?Wt.mc_id=DX_MVP4038205), you have [the latest beta installed](http://docs.asp.net/en/latest/getting-started/installing-on-windows.html) (at time of writing, beta 8), and give it a try. Happy coding ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/11/wlEmoticon-smile.png)

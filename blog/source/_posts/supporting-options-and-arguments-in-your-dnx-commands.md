@@ -19,7 +19,7 @@ In my [<u>previous post</u>](http://jameschambers.com/2015/08/writing-custom-com
 
 Consider Entity Framework, where you can access a number of different commands. It provides tooling to your application by making a number of commands related to your project, your entities, your database and your context available from the command line. This is great, because it also means that you can use it in automation tasks.
 
-![image](http://jameschambers.com/wp-content/uploads/2015/09/image2.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/09/image2.png "image")
 
 Here’s the command as executed from the command line, followed by a call to get the help on a specific command, migration:
 <pre class="csharpcode">dnx . ef
@@ -196,7 +196,7 @@ Here is a bare-bones application that just displays it’s own help message:
 
 You can see that our Main method is basically creating an instance of the CommandLineApplication class, initializing some properties and finally wiring up a Func to be executed at some point in the future.&nbsp; Main returns the result of app.Execute, which in turn handles the processing of anything passed in and itself returns the appropriate value (0 for success, anything else for non-success).&nbsp; Here it is in action (the completed version), simply by typing dnx . sample-fu at the commandline:
 
-![image](http://jameschambers.com/wp-content/uploads/2015/09/image3.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/09/image3.png "image")
 
 A quick note here as well…the OnExecute() is called if no other command turns out to be appropriate to run, as determined by the internal handling in CommandLineApplication. In effect, we’re saying, “If the user passes nothing in, show the help.” Help is derived from the configuration of commands, so to illustrate that, we need to add one.
 
@@ -332,4 +332,4 @@ Taking it to the next level, you may wish to encapsulate your code in a class, o
 
 Be sure to grab [<u>Visual Studio 2015</u>](https://www.visualstudio.com/?Wt.mc_id=DX_MVP4038205) and then start experimenting with commands. You can have a look at some of the other repos/projects that leverage CommandLineUtils, or check out the <u>[completed project from this post on GitHub](https://github.com/MisterJames/DnxCommandsWithOptsArgs/)</u>.
 
-Happy Coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/09/wlEmoticon-smile1.png)
+Happy Coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/09/wlEmoticon-smile1.png)

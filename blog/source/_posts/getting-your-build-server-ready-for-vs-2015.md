@@ -31,7 +31,7 @@ I engaged my teammate [James Allen](http://www.clear-measure.com/our-team/) here
 
 Next, we needed to move to version 9.1 of TeamCity, so we ran the [upgrade process](https://confluence.jetbrains.com/display/TCD9/Upgrade) via the web site. This is a painless task and takes only a fraction of the time it took to back up the data. Failing any troubles (we saw none), your build server should be back online in no time, and the build agents were notified (and complied!) to update themselves as well.
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/07/image_thumb5.png "image")](http://jameschambers.com/wp-content/uploads/2015/07/image13.png)Next, I downloaded and installed the .NET 4.6 installer and the VS 2015 tooling, which can be found on the [VS 2015 download page](https://www.visualstudio.com/downloads/download-visual-studio-vs). You’ll need to explore through the available downloads on the page, as you can see on this screenshot, to grab the relevant files. 
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image_thumb5.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/07/image13.png)Next, I downloaded and installed the .NET 4.6 installer and the VS 2015 tooling, which can be found on the [VS 2015 download page](https://www.visualstudio.com/downloads/download-visual-studio-vs). You’ll need to explore through the available downloads on the page, as you can see on this screenshot, to grab the relevant files. 
 
 These installs will need to be run on every build agent.
 
@@ -43,23 +43,23 @@ UPDATE: With the availability of the MS Build Tools for Visual Studio 2015 you n
 
 You’ll know the tools have been installed correctly if you return to the build configuration settings and add a new build step for msbuild (you don’t have to save it). You’ll see that you’ll have the new options in place:
 
-![image](http://jameschambers.com/wp-content/uploads/2015/07/image14.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image14.png "image")
 
 The build server should be good to go now! For us, we’re not using an MSBuild build runner, our application is build with a PowerShell script via a batch file. This allows our build to be executed locally with only a small parameter change, and the CI process is entirely encapsulated in code (and under source control).
 
 Provided your project is pointing at the repository, you’ll have a good shot at running the build at this point. For our project, everything worked as expected.
 
-![image](http://jameschambers.com/wp-content/uploads/2015/07/image15.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image15.png "image")
 
 ## Showing Some Bling
 
 Now it’s time to beef up our repo, at least a little. What I’m talking about is wearing our CI on our sleeve, letting everyone on the team (or other watchers of the repository) that our builds are healthy or, perhaps, needing some love; let’s display the build status indicator on our readme, like this:
 
-![image](http://jameschambers.com/wp-content/uploads/2015/07/image16.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image16.png "image")
 
 First, drill into the build configuration and locate the advanced options under “General Settings”. You need to enable the status widget. 
 
-![image](http://jameschambers.com/wp-content/uploads/2015/07/image17.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/07/image17.png "image")
 
 Also, from this screen, take note of your Build Configuration ID. This is important because you’ll need to include it in the server request to generate the badge.
 
@@ -96,4 +96,4 @@ Finally, include the following markdown, which is essentially a formatted link w
 
 With our build server updated and our builds back online, it’s time to start shifting our targets. In the next post, we’re going to update our projects and recover from any errors/challenges we may discover along the way.
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/07/wlEmoticon-smile3.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/07/wlEmoticon-smile3.png)

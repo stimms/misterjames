@@ -54,7 +54,7 @@ There are two main elements you’ll need to get the tabs going correctly, a UL 
 
 Visually, you can link those elements as illustrated below:
 
-[![image](http://jameschambers.com/wp-content/uploads/2014/07/image_thumb.png "image")](http://jameschambers.com/wp-content/uploads/2014/07/image3.png)
+[![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image_thumb.png "image")](https://jcblogimages.blob.core.windows.net/img/2014/07/image3.png)
 
 Because our site includes the JavaScript library for Bootstrap our tabs will automatically render and behave correctly. The classes help with the visuals, and the JS takes care of the behavior.
 

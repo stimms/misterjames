@@ -10,7 +10,7 @@ categories:
 date: 2014-07-20 05:58:00
 ---
 
-This is **the final** installment in a 30 day series on Bootstrap and the MVC Framework. To see the rest of the series be sure to check out [Day 0 for an index](http://jameschambers.com/2014/06/day-0-boothstrapping-mvc-for-the-next-30-days/). I hope you have enjoyed following along! ![Smile](http://jameschambers.com/wp-content/uploads/2014/07/wlEmoticon-smile1.png)
+This is **the final** installment in a 30 day series on Bootstrap and the MVC Framework. To see the rest of the series be sure to check out [Day 0 for an index](http://jameschambers.com/2014/06/day-0-boothstrapping-mvc-for-the-next-30-days/). I hope you have enjoyed following along! ![Smile](https://jcblogimages.blob.core.windows.net/img/2014/07/wlEmoticon-smile1.png)
 
 Here in our last post in the series we’re going to revisit our modal dialog confirmation box that pops up when a user tries to delete a record. At this point, regardless of the notification selected for delete, the user will see the same static dialog.
 
@@ -34,7 +34,7 @@ If, however, you have a use case that doesn’t involve refreshing the dialog, I
 
 Rather than just giving a generic message, we’re going to instead load some content via AJAX. This will give us a chance to put a visual preview of the data that will be deleted in front of the user.
 
-![image](http://jameschambers.com/wp-content/uploads/2014/07/image14.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2014/07/image14.png "image")
 
 To accomplish this we’re going to need to make small change to our modal markup (in Views\Account\_RenderNotifications.Modal.cshtml), as follows:
 <pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">div</span> <span class="attr">class</span><span class="kwrd">="modal-body"</span> <span class="attr">id</span><span class="kwrd">="notificationPreview"</span><span class="kwrd">&gt;</span>
@@ -230,4 +230,4 @@ Wow! Thirty days of Bootstrap and MVC! It’s been a long 30 days…50 days actu
 
 I have a few more things to add to this series, but for now we’ll call it a wrap. Thanks for your questions, suggestions, feedback and comments along the way!
 
-Happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2014/07/wlEmoticon-smile1.png)
+Happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2014/07/wlEmoticon-smile1.png)

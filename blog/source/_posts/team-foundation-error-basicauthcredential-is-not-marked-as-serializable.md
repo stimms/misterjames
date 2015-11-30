@@ -12,7 +12,7 @@ I was working on a project hosted in a git repo in Team Foundation and wanted to
 
 When I navigated to the step to configure the process template parameters, I ran into the following error:
 
-![image](http://jameschambers.com/wp-content/uploads/2015/01/image4.png "image")
+![image](https://jcblogimages.blob.core.windows.net/img/2015/01/image4.png "image")
 
 The text was:
  > Team Foundation Error – Type ‘Microsoft.TeamFoundation.Client.BasicAuthCredential’ in assembly ‘Microsoft.TeamFoundation.Client, Version=12.0.0.0, Culture=neutral, PublicKeyToken=’[token] is not marked as serializable. 
@@ -32,7 +32,7 @@ Rather than removing the account, I wanted to first try to just poke it by re-en
 
 ## Solution 2 – Delete the Credentials from Windows
 
-[![image](http://jameschambers.com/wp-content/uploads/2015/01/image_thumb.png "image")](http://jameschambers.com/wp-content/uploads/2015/01/image5.png)If the reset doesn’t work, you can try this instead. 
+[![image](https://jcblogimages.blob.core.windows.net/img/2015/01/image_thumb.png "image")](https://jcblogimages.blob.core.windows.net/img/2015/01/image5.png)If the reset doesn’t work, you can try this instead. 
 
 1.  Close all instances of Visual Studio.
 2.  Tap your Windows key, then type “Credentials”. The Credential Manager app link should show up in your list.
@@ -42,4 +42,4 @@ Rather than removing the account, I wanted to first try to just poke it by re-en
 
 Whichever solution you have to go with, this should fix things up. Note that in solution 2, you’ll be prompted for your credentials when you open up Visual Studio and try to navigate to a team project.
 
-Cheers, and happy coding! ![Smile](http://jameschambers.com/wp-content/uploads/2015/01/wlEmoticon-smile.png)
+Cheers, and happy coding! ![Smile](https://jcblogimages.blob.core.windows.net/img/2015/01/wlEmoticon-smile.png)

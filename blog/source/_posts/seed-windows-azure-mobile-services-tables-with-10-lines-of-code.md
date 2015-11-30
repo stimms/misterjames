@@ -77,6 +77,6 @@ Good luck!
 [3]: https://github.com/MisterJames/AngelaSmith
 [4]: https://twitter.com/Dave_Paquette
 [5]: https://twitter.com/canadianjames
-[6]: http://jameschambers.com/wp-content/uploads/2012/12/image5.png "image"
+[6]: https://jcblogimages.blob.core.windows.net/img/2012/12/image5.png "image"
 [7]: http://jameschambers.com/2012/12/introducing-angelasmith-the-object-initializing-smartypants/
   </leaderboardentry></leaderboardentry></person></person></person></person>
