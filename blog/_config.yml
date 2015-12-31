@@ -20,7 +20,7 @@ since: 1999 # The start year showing in your copyright section.
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://jameschambers.com/
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :year/:month/:title/
 permalink_defaults:
 
 # Directory
@@ -71,7 +71,7 @@ pagination_dir: page
 theme: icarus
 
 # Disqus
-# disqus_shortname: hexo-theme-icarus
+disqus_shortname: jameschambers
 
 # DuoShuo
 # duoshuo_shortname: hexo-theme-icarus
