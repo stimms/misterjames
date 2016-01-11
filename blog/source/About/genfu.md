@@ -1,17 +1,22 @@
-title: GenFu
+title: GenFu - Kung Fu for Sample Data Generation
 description: GenFu is a library you can use to generate realistic test data. It is composed of several property fillers that can populate commonly named properties through reflection using an internal database of values or randomly created data. You can override any of the fillers, give GenFu hints on how to fill them. 
 r: true
+hidedate: true
 ---
 
-http://genfu.io/ 
+> **GenFu** is a library you can use to generate realistic test data. It is composed of 
+> several *property fillers* that can populate commonly named properties through reflection 
+> using an internal database of values or randomly created data. You can override any of 
+> the fillers, give **GenFu** hints on how to fill them.
 
-> **GenFu** is a library you can use to generate realistic test data. It is composed of several *property fillers* that can populate commonly named properties through reflection using an internal database of values or randomly created data. You can override any of the fillers, give **GenFu** hints on how to fill them.
-
-GenFu is all about _smartly_ building up objects to use for test and prototype data. It will walk your object graph and fill in the properties on your type with realistic looking data.  
+GenFu is all about _smartly_ building up objects to use for test and prototype data. It will walk 
+your object graph and fill in the properties on your type with realistic looking data.  
 
 Use GenFu's static methods to new up new objects for testing, design-time data or seeding a database. 
 
 **GenFu** runs on AspNetCore50 and can run anywhere core can run.
+
+Want to see it in action? [Try it out yourself](http://genfu.io/).
 
 Installation
 ===========
@@ -51,7 +56,7 @@ Tada!  Your `person` is now filled with all the data you could ever dream of!
 
 ## But Wait!
 
->"I don't need no stickin' person! I need a whole list of them! 
+>"I don't need no stinkin' person! I need a whole list of them! 
 
 Easy-peasy lemon squeezy, my friend!  Ask for a list instead of a single instance like so:
 

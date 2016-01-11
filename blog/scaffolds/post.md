@@ -1,4 +1,7 @@
 title: {{ title }}
-date: {{ date }}
 tags:
+  - 
+categories:
+  - Code Dive
+date: {{ date }}
 ---

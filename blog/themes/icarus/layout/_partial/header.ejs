@@ -6,6 +6,7 @@
         <% for (var i in theme.menu){ %>
           <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
         <% } %>
+        <a class="main-nav-link main-nav-link-highlight" href="https://hireme.jameschambers.com" target="_blank">Hire Me</a>
       </nav>
       <% if(theme.profile) { %>
         <nav id="sub-nav">

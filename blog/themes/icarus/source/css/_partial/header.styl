@@ -1,13 +1,16 @@
 #header
   @extend $block
-  background: white
-  position: relative
+  background: #251C65
+  position: fixed
+  width: 100%
+  top: 0
   a, a:visited
     white-space: nowrap
     transition: 0.2s ease
-    color: color-default
+    color: #9BB0CA
   a:hover
-    color: color-link
+    color: white
+  z-index: 4000
 
 $header-block
   height: logo-size
@@ -37,6 +40,7 @@ $header-block-right
       display: inline-block
       vertical-align: top
       font-weight: 600
+      color: white
 
 #header-title
   text-align: center
@@ -102,6 +106,12 @@ $nav-link
   @extend $nav-link
   font-weight: 300
 
+.main-nav-link-highlight
+  -webkit-border-radius: 3px
+  -moz-border-radius: 3px
+  border-radius: 3px
+  background-color: #3F4671
+
 #sub-nav
   @media mq-normal
     display: none
@@ -131,6 +141,7 @@ $nav-link
     position: relative
     .search-form-input
       width: 100%
+      color: white
       height: logo-size
       padding: 0 30px 0 10px
       line-height: logo-size

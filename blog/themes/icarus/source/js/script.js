@@ -91,13 +91,13 @@
     if ($(document).width() >= 800) {
       if($(this).scrollTop() > toTop) {
         $('#toTop').addClass('fix');
-        $('#toTop').css('left', $('#sidebar').offset().left);
+        $('#toTop').css('left', 20);
       } else {
         $('#toTop').removeClass('fix');
       }
     } else {
       $('#toTop').addClass('fix');
-      $('#toTop').css('right', 20);
+      $('#toTop').css('left', 20);
     }
   }).on('click', '#toTop', function () {
     $(document).scrollTop(0);

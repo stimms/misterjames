@@ -11,6 +11,8 @@ date: 2015-09-08 13:00:00
 
 Grab yourself your copy of [<u>Visual Studio 2015</u>](https://www.visualstudio.com/?Wt.mc_id=DX_MVP4038205) and buckle up! Today we’re going to create our own dnx command with support for options and arguments.
 
+<!-- more -->
+
 In my [<u>previous post</u>](http://jameschambers.com/2015/08/writing-custom-commands-for-dnx-with-asp-net-5-0/) on dnx commands I showed how you could create your own command as part of your project that could be invoked via the .Net Execution Environment, a.k.a., dnx. While this works fine in simple scenarios, chances are you might need to have more than one “command” embedded in your tooling. Right away you have concerns for parsing the arguments and options that are passed in, which will quickly lead to a more complex application than you were originally intending.
 
 **Important Note**&nbsp; I am building the samples here in this post on Beta 6, knowing that there are two changes coming in, the first is that they are dropping the project path argument to dnx (the period, or “current directory”), and the second being the high likelihood that there will continue to be refinements in the namespaces of these libraries. I’ll update these when I complete my upgrade to Beta 7.

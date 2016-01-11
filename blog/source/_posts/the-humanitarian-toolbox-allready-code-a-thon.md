@@ -13,6 +13,8 @@ I was recently in Seattle for the MVP Summit, one of the best ways to connect to
 
 But this year, the MVP Summit was trumped in awesomeness as quickly at it came to a close as the very next morning the code-a-thon for the Humanitarian Toolbox kicked into high gear.
 
+<!-- more -->
+
 **<font color="#333333">Want to join the cause?</font>** The easiest way to get started is to join our weekly Saturday morning call. We are online from 10AM CST to Noon CST every Saturday. [Watch Twitter –&gt;](http://twitter.com/CanadianJames) for the link just before 10AM. 
 
 There are a lot of great projects out there. AllReady is great software with great purpose as well.

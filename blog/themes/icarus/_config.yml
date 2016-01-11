@@ -1,13 +1,13 @@
 # Logo
-logo: css/images/logo.png # Empty this to unset logo and show site title in the same place
+logo: /content/logo_round.png # Empty this to unset logo and show site title in the same place
 
 # Header
 menu:
   Home: .
+  "Boostrapping MVC": about/bootstrapping-mvc.html 
   Archives: archives
-  Categories: categories
-  Tags: tags
-  About: about
+  Testimonials: about
+  GenFu: about/genfu.html
 
 # Content
 excerpt_link: Read More
@@ -21,11 +21,10 @@ gravatar: false # Whether to use gravatar with the email. If you do, put your em
 sidebar: right # set to false if you don't want a sidebar
 widgets:
 - recent_posts
-- category
-- tag
+- coffee
 - tagcloud
 - archive
-thumbnail: true
+thumbnail: false
 
 # Contacts
 contacts:
@@ -33,6 +32,7 @@ contacts:
   github: http://github.com/MisterJames
   rss: atom.xml
   linkedin: https://ca.linkedin.com/in/canadianjames
+  youtube: https://www.youtube.com/user/CodingMisterJames/
   
 # Links
 links:
@@ -46,8 +46,8 @@ cdn: # You can choose "useso" instead of "google apis"(default).
 
 # Miscellaneous
 google_site_verification:
-google_analytics:
-favicon: favicon.png
+google_analytics: UA-2868185-6
+favicon: content/avatar.png
 twitter: CanadianJames
 google_plus:
 fb_admins:

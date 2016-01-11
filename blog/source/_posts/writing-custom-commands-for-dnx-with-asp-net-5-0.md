@@ -10,6 +10,8 @@ date: 2015-08-11 02:30:07
 
 If you are a developer on the .NET stack, you’ve now got access to a great new extension to your development environment. DNX, or the .NET Execution Environment, is a powerful new extensibility point that you can leverage to build project extensions, cross-platform utilities, build-time extensions and support for automation. In this article I’ll walk you through the process of building your own custom DNX command on top of ASP.NET 5.0.
 
+<!-- more -->
+
 ## Where You’ve Seen It
 
 DNX has the ability to scan a project.json and look for commands that you install as packages or that you create yourself. If you’ve started following the examples of the MVC Framework or perhaps with Entity Framework, you may have seen things like this in your project.json:
@@ -135,7 +137,7 @@ So far things really aren’t too different from any other console app you might
 
 But here’s the winner-winner-chicken-dinner bits: did you notice the “.” that is passed into DNX? That is actually the path to the project.json file, and this is important. 
 
-**Important Note**: From beta 7 onward (or already if you’re on the nightly builds) DNX will implicitly run with an appbase of the current directory, removing the need for the “.” in the command. I’ll try to remember to come back to this post to correct that when beta 7 is out in the wild. Read more about the change on the [ASP.NET Announcement repo](https://github.com/aspnet/Announcements/issues/52) on GitHub.
+*Important Note*: From beta 7 onward (or already if you’re on the nightly builds) DNX will implicitly run with an appbase of the current directory, removing the need for the “.” in the command. I’ll try to remember to come back to this post to correct that when beta 7 is out in the wild. Read more about the change on the [ASP.NET Announcement repo](https://github.com/aspnet/Announcements/issues/52) on GitHub.
 
 DNX doesn’t actually do a lot on its own, not other than providing an execution context under which you can run your commands. But this is a good thing! By passing in the path to a project.json, you feed DNX the command mappings that you want to use, and in turn, DNX provides you with all of the benefits of running inside of the ASP.NET 5.0 bits. Your console app just got access to Dependency Injection as a first-class citizen in your project, with access to information about whichever app it was that contained that project.json file.&nbsp; 
 
@@ -156,7 +158,7 @@ This is actually super easy!&nbsp; Here’s what you need to do:
 
 From there, you can drop to a command line and run your command. That’s it!
 
-**Pro Tip** You can easily get a command line in your project folder by right-clicking on the project in Solution Explorer and selecting “Open Folder in File Explorer”. When File Explorer opens, simply type in “cmd” or “powershell” in the location bar and you’ll get your shell.
+*Pro Tip* You can easily get a command line in your project folder by right-clicking on the project in Solution Explorer and selecting “Open Folder in File Explorer”. When File Explorer opens, simply type in “cmd” or “powershell” in the location bar and you’ll get your shell.
 
 The secret as to why it works from the console can be found in your project.json: when you create a console app from the project templates, the command alias mapping for your project is automatically added to your project.&nbsp; In this same way, along with referencing your new command project, _other projects_ can now consume your command.
 
@@ -165,6 +167,7 @@ The secret as to why it works from the console can be found in your project.json
 It is far more likely that you’re going to need to do something in the context of the project which uses your command. Minimally, you’re likely going to need some configuration drawn in as a default or as a parameter in your command. Let’s look at how you would take that hello world app you created in three steps and do something a little more meaningful with it.
 
 First, let’s add some dependencies to your project.json:
+
 <pre class="csharpcode">  <span class="str">"dependencies"</span>: {
     <span class="str">"Microsoft.Framework.Runtime.Abstractions"</span>: <span class="str">"1.0.0-beta6"</span>,
     <span class="str">"Microsoft.Framework.Configuration.Abstractions"</span>: <span class="str">"1.0.0-beta6"</span>,
@@ -198,6 +201,7 @@ First, let’s add some dependencies to your project.json:
 </style>
 
 Now let’s add a new JSON file to our project called config.json with the following contents:
+
 <pre class="csharpcode">{
   <span class="str">"command-text"</span>: <span class="str">"Say hello to my little DNX"</span>
 }</pre><style type="text/css">.csharpcode, .csharpcode pre
@@ -227,6 +231,7 @@ Now let’s add a new JSON file to our project called config.json with the follo
 </style>
 
 Getting there. Next, let’s bulk up the constructor of the Program class, add a private member and a Configuration property:
+
 <pre class="csharpcode"><span class="kwrd">private</span> <span class="kwrd">readonly</span> IApplicationEnvironment _appEnv;
 
 <span class="kwrd">public</span> Program(IApplicationEnvironment appEnv)

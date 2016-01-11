@@ -11,6 +11,8 @@ date: 2015-11-02 22:39:31
 
 If you’re developing in ASP.NET Web API you are familiar with the concept of inheriting from the base ApiController class. This class is still around in ASP.NET 5, but it is likely not meant for you to use.&nbsp; Here’s why your cheese has moved.
 
+<!-- more -->
+
 **TL;DR**: Going forward, you’re going to inherit from Controller instead of ApiController, or from nothing at all. 
 
 ## How We Used to Do It

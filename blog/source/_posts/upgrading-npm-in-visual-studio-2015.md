@@ -9,7 +9,7 @@ categories:
 date: 2015-09-02 03:15:17
 ---
 
-Visual Studio 2015 (<u>[download here](https://www.visualstudio.com/?Wt.mc_id=DX_MVP4038205)</u>) ships with it’s own version of several external tools, such as grunt, node and npm.&nbsp; If you are wanting to take advantage of newer versions of these tools, you have three options:
+Visual Studio 2015 (<u>[download here](https://www.visualstudio.com/?Wt.mc_id=DX_MVP4038205)</u>) ships with it’s own version of several external tools, such as grunt, node and npm.&nbsp; Typically, you'd have to wait for newer versions of VS to ship if you want them updated. <!-- more -->If you are wanting to take advantage of newer versions of these tools, you have three options:
 
 1.  Wait for VS 2015 to upgrade the tooling and ship an update.
 2.  Hack the tooling proxies used by Visual Studio.
