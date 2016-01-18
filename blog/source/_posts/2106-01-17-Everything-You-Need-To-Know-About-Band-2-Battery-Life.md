@@ -27,6 +27,10 @@ Under normal usage, your Band will deplete about 30% per day. This includes gett
 
 Adding workouts to your day will drive the battery down a little more quickly, and I seem to burn about 10% of my battery when I go for a 30 min run with GPS turned on. 
 
+## Watch Mode
+
+One feature that I really do enjoy about the Band 2 is the glance mode that allows you to turn your arm up as a cue for the Band to display the time. While this is super handy - the gesture replaces the need the press a button to see the time - it is also taxing on your battery life. With this feature one, I was losing more than 55% of my battery's charge each day, meaning it was impossible to keep it running for the week. I, therefore, disabled the feature and have reverted to clicking the primary button to call up the time.
+
 ## Charge Time
 
 The "bottom half" of the battery seems to charge a little quicker than the "top half". What I mean is that going from 0%  to 50% seems to take about 40 minutes or so whereas from the 50% mark and higher, the Band 2 charges at a rate of about 1% per minute. 
