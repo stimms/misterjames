@@ -15,6 +15,8 @@ I've worn it every day since November 2, 2015 and here's what I've learned about
 
 <!-- more -->
 
+_ **Updated Jan 19**: Added info about the battery and links to resources based on feedback on Reddit._
+
 ## Charging the Microsoft Band 2
 
 The Band is easily charged by unhinging the clasp and sliding the device off your wrist, then attaching the magnetized charger, which snaps automatically in place. A full charge for a fully depleted battery should run you less than two hours.
@@ -37,7 +39,7 @@ The "bottom half" of the battery seems to charge a little quicker than the "top 
  
 ## My Routine
 
-The battery on my Band 2 lasts me through the week.  While it depletes every day about 30%, I also charge it every day during my daily routine and after workouts while I shower.  Here's a log from my last week of use starting with a full charge on Saturday:
+The battery on my Band 2 lasts me through the week.  While it depletes every day about 30%, I also charge it every day during my daily routine and after workouts while I shower, and I never let it run all the way to 0% if I can help it.  Here's a log from my last week of use starting with a full charge on Saturday:
 
  - Sunday AM: 72%, charged to 91%
  - Monday AM: 66%, charged to 83%
@@ -53,7 +55,13 @@ Basically, I'm charging it when I get ready in the AM, which doesn't quite catch
 
 ## Cylcing the Charge
 
-Most Saturdays I actually wear my Band until the battery warning goes off, then I plug it in until fully charged. I called into the Microsoft support line and asked if this was a good practice for using and charging the Band 2 - essentially letting it run down through the week and then giving it a complete charge on the weekend. The support technician on the call agreed that this was a good strategy and commented that she has a similar routine. In the two-and-a-half months of use, I have not seen depreciating performance on the battery life.
+Most Saturdays I actually wear my Band until the battery warning goes off, then I plug it in until fully charged. I called into the Microsoft support line and asked if this was a good practice for using and charging the Band 2 - essentially letting it run down to about 10% through the week and then giving it a complete charge on the weekend. The support technician on the call agreed that this was a good strategy and commented that she has a similar routine. In the two-and-a-half months of use, I have not seen depreciating performance on the battery life.
+
+There is a great resource on lithium batteries that supports most of this approach [located here](http://www.batteryuniversity.com/learn/article/how_to_prolong_lithium_based_batteries). Frequent charging and the occasional charge to capacity will help extend the life of your battery and keep the meter accurate:
+
+> If at all possible, avoid full discharges and charge the battery more often between uses. Partial discharge on Li-ion is fine. There is no memory and the battery does not need periodic full discharge cycles to prolong life. The exception may be a periodic calibration of the fuel gauge on a smart battery or intelligent device. 
+
+Of course, an important note there is that the "depth of discharge" is a factor in the logevity of your battery. Allowing the Band to get down too low may impact it over the longer term, so charging often to keep your charge up seems to be a benefit.
 
 ## Charging Tips
 
@@ -61,7 +69,7 @@ Here's a few things you can do to keep your Band 2 running all week:
 
  - Keep your charger plugged in where you get ready in the AM
  - Clean the contacts before you attach the charger, and thouroughly after a workout
- - Try to let it run down once a week and give it a full charge
+ - Let it run down without completely depleting and give it a full charge occasionally to help keep the meter accurate
  - Buy a second charger if you need one, for example if you walk or ride to work
  
 Happy fitnessing!
