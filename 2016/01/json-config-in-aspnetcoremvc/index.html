@@ -3,24 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Adding Some (Font) Awesome to MVC and Bootstrap | They Call Me Mister James</title>
+  <title>JSON Configuration in ASP.NET Core MVC | They Call Me Mister James</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="While Bootstrap includes many great icons from Glyphicons baked right in, I’m often left looking for That One Missing Graphic when I try to put a project together. In this post we’ll look at the open">
+  <meta name="description" content="Structured data in earlier versions of ASP.NET meant creating and registering custom types and configuration sections for our applications. In ASP.NET Core and in Core MVC, structured configuration is">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Adding Some (Font) Awesome to MVC and Bootstrap">
-<meta property="og:url" content="http://jameschambers.com/2014/08/adding-some-font-awesome-to-mvc-and-bootstrap/index.html">
+<meta property="og:title" content="JSON Configuration in ASP.NET Core MVC">
+<meta property="og:url" content="http://jameschambers.com/2016/01/json-config-in-aspnetcoremvc/index.html">
 <meta property="og:site_name" content="They Call Me Mister James">
-<meta property="og:description" content="While Bootstrap includes many great icons from Glyphicons baked right in, I’m often left looking for That One Missing Graphic when I try to put a project together. In this post we’ll look at the open">
-<meta property="og:image" content="https://jcblogimages.blob.core.windows.net/img/2014/08/image.png">
-<meta property="og:image" content="https://jcblogimages.blob.core.windows.net/img/2014/08/wlEmoticon-winkingsmile.png">
-<meta property="og:image" content="https://jcblogimages.blob.core.windows.net/img/2014/08/image1.png">
-<meta property="og:image" content="https://jcblogimages.blob.core.windows.net/img/2014/08/image2.png">
-<meta property="og:image" content="https://jcblogimages.blob.core.windows.net/img/2014/08/wlEmoticon-smile.png">
-<meta property="og:image" content="https://jcblogimages.blob.core.windows.net/img/2014/08/wlEmoticon-smile.png">
-<meta property="og:updated_time" content="2016-01-20T03:26:03.992Z">
+<meta property="og:description" content="Structured data in earlier versions of ASP.NET meant creating and registering custom types and configuration sections for our applications. In ASP.NET Core and in Core MVC, structured configuration is">
+<meta property="og:image" content="https://jcblogimages.blob.core.windows.net:443/img/2016/01/json-structured-data.png">
+<meta property="og:updated_time" content="2016-01-22T04:01:37.026Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Adding Some (Font) Awesome to MVC and Bootstrap">
-<meta name="twitter:description" content="While Bootstrap includes many great icons from Glyphicons baked right in, I’m often left looking for That One Missing Graphic when I try to put a project together. In this post we’ll look at the open">
+<meta name="twitter:title" content="JSON Configuration in ASP.NET Core MVC">
+<meta name="twitter:description" content="Structured data in earlier versions of ASP.NET meant creating and registering custom types and configuration sections for our applications. In ASP.NET Core and in Core MVC, structured configuration is">
 <meta name="twitter:creator" content="@CanadianJames">
 <meta name="twitter:site" content="CanadianJames">
   
@@ -155,7 +150,7 @@ ga('send', 'pageview');
 </aside>
 
       
-      <section id="main"><article id="post-adding-some-font-awesome-to-mvc-and-bootstrap" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-json-config-in-aspnetcoremvc" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -164,7 +159,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      Adding Some (Font) Awesome to MVC and Bootstrap
+      JSON Configuration in ASP.NET Core MVC
     </h1>
   
 
@@ -172,8 +167,8 @@ ga('send', 'pageview');
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2014/08/adding-some-font-awesome-to-mvc-and-bootstrap/">
-      <time datetime="2014-08-25T03:19:26.000Z" itemprop="datePublished">2014-08-24</time>
+    <a href="/2016/01/json-config-in-aspnetcoremvc/">
+      <time datetime="2016-01-22T03:36:09.000Z" itemprop="datePublished">2016-01-21</time>
     </a>
   </div>
 
@@ -190,183 +185,32 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <p>While Bootstrap includes many great icons from <strong>Glyphicons</strong> baked right in, I’m often left looking for <em>That One Missing Graphic</em> when I try to put a project together. In this post we’ll look at the open source <strong>Font Awesome</strong> collection of images that serve as a wonderful addition to your site in the form of a font and CSS toolkit.</p>
-<p><em><a href="http://jameschambers.com/bootstrapping-mvc/">See more tips, tricks and tutorials like this in my book, Bootstrapping MVC.</a></em></p>
-<p><strong>Just a quick note</strong>: If you already know what Font Awesome is and just want my advice on how to add it to your project via NuGet, skip to the end of the post. If you want more background on what Font Awesome is and why you might want to use it, grab a coffee and have a read!</p>
-<h2 id="A_Bit_About_Font_Awesome"><a href="#A_Bit_About_Font_Awesome" class="headerlink" title="A Bit About Font Awesome"></a>A Bit About Font Awesome</h2><p><img src="https://jcblogimages.blob.core.windows.net/img/2014/08/image.png" alt="A Picture of a Heart Icon" title="Heart">Font Awesome is a font and CSS toolkit that was created by Dave Gandy, originally designed to be a compliment to the Bootstrap library. There is no JavaScript component to it and it does not add any new behaviors to your site, but it does have some great-looking, scalable icons that you’ll likely love.&nbsp; See what I did there, with the heart? <img src="https://jcblogimages.blob.core.windows.net/img/2014/08/wlEmoticon-winkingsmile.png" alt="Winking smile"></p>
-<p>There are two core elements to using the library: the font files themselves and the CSS classes that wire things up for use on your site. With the library in place, you can get the above heart icon to appear simply by adding the following syntax:</p>
-<pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">i</span> <span class="attr">class</span><span class="kwrd">="fa fa-heart"</span><span class="kwrd">&gt;&lt;/</span><span class="html">i</span><span class="kwrd">&gt;</span></pre>
-
-<p>Because it’s implemented as a scalable vector-based font, rather than raster images, the icons look great on any screen type and at any size. You get the base styling, margins, sizing and the like by attributing the &lt;I&gt; element with the fa class, then select your icon by name. There are CSS classes for creating variant sizes (twice as large):</p>
-<p><pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">i</span> <span class="attr">class</span><span class="kwrd">=”fa fa-camera-retro fa-2x”</span><span class="kwrd">&gt;&lt;/</span><span class="html">i</span><span class="kwrd">&gt;</span></pre></p>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>…adding spinner effects (here, a spinning cog):</p>
-<p><pre class="csharpcode">&lt;i <span class="kwrd">class</span>=<span class="str">“fa fa-cog fa-spin”</span>&gt;&lt;/i&gt;</pre></p>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>…or stacking images together to make composite icons, like a flag on a circle:</p>
-<p><pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">span</span> <span class="attr">class</span><span class="kwrd">=”fa-stack fa-lg”</span><span class="kwrd">&gt;</span><br>  <span class="kwrd">&lt;</span><span class="html">i</span> <span class="attr">class</span><span class="kwrd">=”fa fa-circle fa-stack-2x”</span><span class="kwrd">&gt;&lt;/</span><span class="html">i</span><span class="kwrd">&gt;</span><br>  <span class="kwrd">&lt;</span><span class="html">i</span> <span class="attr">class</span><span class="kwrd">=”fa fa-flag fa-stack-1x fa-inverse”</span><span class="kwrd">&gt;&lt;/</span><span class="html">i</span><span class="kwrd">&gt;</span><br><span class="kwrd">&lt;/</span><span class="html">span</span><span class="kwrd">&gt;</span></pre></p>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>…as well as other options, like rotating and flipping, adding borders and pulling the icons to the left or right. You can find the complete source on the <a href="http://fortawesome.github.io/Font-Awesome/examples/" target="_blank" rel="external">Font Awesome examples page</a>.</p>
-<p>While these display classes are all built to work with Bootstrap natively, the CSS for Font Awesome also includes everything it needs class-wise (such as pull-left) to work independently of Bootstrap.</p>
-<p>The icons tend to be aptly named and terse, so you’re not typing a metric tonne of code. I’m using Visual Studio 2013 and working with the library is a breeze because of the automatic syntax completion offered through IntelliSense.</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2014/08/image1.png" alt="HTML Code: &lt;i class=&quot;fa fa-heart&quot;&gt;&lt;/i&gt;" title="Intellisense sample"></p>
-<p>If you download the ZIP from the <a href="http://fontawesome.io" target="_blank" rel="external">Font Awesome</a> site, you’ll get the CSS (and minified version), the font files for multi-platform and multi-browser support as well as the LESS and SCSS files to customize things should you so need.</p>
-<h2 id="A_Note_on_Accessibility"><a href="#A_Note_on_Accessibility" class="headerlink" title="A Note on Accessibility"></a>A Note on Accessibility</h2><p>Though the icons and images of Font Awesome are indeed implemented as a font, it’s not like wingdings or anything where a letter becomes repurposed. The author elected to use the standards-based Private Use Area mapping from Unicode, meaning screen readers for accessibility will ignore the characters of the font and not attempt to read random characters off.</p>
-<h2 id="The_Naked__u201CInstallation_u201D"><a href="#The_Naked__u201CInstallation_u201D" class="headerlink" title="The Naked “Installation”"></a>The Naked “Installation”</h2><p>From the docs on the site, the easiest way to start using Font Awesome is just to use the CDN version of the toolkit.</p>
-<p><pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">link</span> <span class="attr">href</span><span class="kwrd">=”//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css”</span> <span class="attr">rel</span><span class="kwrd">=”stylesheet”</span><span class="kwrd">&gt;</span></pre></p>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>Using the CDN version may help improve load times, especially when your users are spread out over multiple geographic regions. Not all corporate policies allow for public CDN use for in-house projects, however, so you still have the option to download and use Font Awesome as an asset in your deployment.</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2014/08/image2.png" alt="Solution structure for typical installation of Font Awesome" title="Solution structure for typical installation of Font Awesome">If you do download the ZIP, you’ll need to execute a couple of familiar and straightforward tasks to use the toolkit:</p>
-<ul>
-<li>Copy the CSS and Fonts folder into your project, likely under the Content folder</li>
-<li>Add a new bundle to your site and include the CSS in your _Layout (or modify an existing, in-use bundle to include the CSS).</li>
-</ul>
-<p>The only thing to watch for is that you’re going to need to honor the relative path structure of the CSS and Fonts to avoid any rendering problems. The CSS assumes the fonts are in a folder called Fonts at the same level in the path.</p>
-<h2 id="Using_a_NuGet_Package"><a href="#Using_a_NuGet_Package" class="headerlink" title="Using a NuGet Package"></a>Using a NuGet Package</h2><p>There’s always an easier way to do it, and usually the way to do that with .NET is going to involve a little bit of NuGet.</p>
-<p>I found no fewer than half a dozen packages on NuGet for Font Awesome. While they all seem to list Mr. Gandy as the author, none of them appear to be officially part of the project. So, for better or for worse, there’s no officially sanctioned project here. Just the same, the packages are there if you want to use them and I have my opinions on them. <img src="https://jcblogimages.blob.core.windows.net/img/2014/08/wlEmoticon-smile.png" alt="Smile"></p>
-<p>The package I recommend is <a href="https://www.nuget.org/packages/FontAwesome.MVC/" target="_blank" rel="external">FontAwesome.MVC</a> by JiveCode aka <a href="https://github.com/JustLikeIcarus" target="_blank" rel="external">JustLikeIcarus</a>. This package takes a dependency on his Font Awesome package containing the CSS and fonts, then it adds a class (FontAwesomeBundleConfig) that registers a style bundle for you. </p>
-<p>All that’s left to do is to modify your _Layout, adding the following line of code to your HEAD:</p>
-<p><pre class="csharpcode">@Styles.Render(<span class="str">“~/Content/fontawesome”</span>)</pre></p>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>There are other packages that use Font Awesome and try to augment MVC giving your Razor helper methods, but I’ve got mixed feelings on this approach. A Razor helper that requires me to type more code and allows me to know less about the CSS I’m using doesn’t feel quite right. With IntelliSense support for CSS in VS, I’m not sure I see the need for Razor helpers, and I really like learning the classes I’m using. </p>
-<h2 id="Next_Steps"><a href="#Next_Steps" class="headerlink" title="Next Steps"></a>Next Steps</h2><p>With a groovy new set of icons now available to my site, my next post will be on leveraging those to create something interesting with the MVC Framework.</p>
-<p><em>Like this post? You can <a href="http://jameschambers.com/bootstrapping-mvc/">see more tips, tricks and tutorials </a><br>__like this in my book, Bootstrapping MVC.</em></p>
-<p>Happy coding! <img src="https://jcblogimages.blob.core.windows.net/img/2014/08/wlEmoticon-smile.png" alt="Smile"></p>
+        <p>Structured data in earlier versions of ASP.NET meant creating and registering custom types and configuration sections for our applications. In ASP.NET Core and in Core MVC, structured configuration is a breeze with support for JSON documents as the storage mechanism and the ability to flatten hierarchies into highly portable keys.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/01/json-structured-data.png" alt="Structured JSON Configuration"></p>
+<a id="more"></a>
+<p>You can see from the document snippet above, taken from the default project template, that we can easily achieve a well-structured, human-readible set of data.  Where we used to do something the the following:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;appSettings&#62;&#10;  &#60;add key=&#34;Logging-IncludeScopes&#34; value=&#34;false&#34; /&#62;&#10;  &#60;add key=&#34;Logging-Level-Default&#34; value=&#34;verbose&#34; /&#62;&#10;  &#60;add key=&#34;Logging-Level-System&#34; value=&#34;Information&#34; /&#62;&#10;  &#60;add key=&#34;Logging-Level-Microsoft&#34; value=&#34;Information&#34; /&#62;&#10;&#60;/appSettings&#62;</span><br></pre></td></tr></table></figure>
+<p>Our other option, of course, is going the custom object route, but that has always been a pain in the rear. Today we can do this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#34;Logging&#34;: &#123;&#10;  &#34;IncludeScopes&#34;: false,&#10;  &#34;LogLevel&#34;: &#123;&#10;    &#34;Default&#34;: &#34;Verbose&#34;,&#10;    &#34;System&#34;: &#34;Information&#34;,&#10;    &#34;Microsoft&#34;: &#34;Information&#34;&#10;  &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>Now the data that we have related to logging can be grouped into a logical fragment of the configuration file and can grow as required. </p>
+<h2 id="Exploring_a_Common_Example"><a href="#Exploring_a_Common_Example" class="headerlink" title="Exploring a Common Example"></a>Exploring a Common Example</h2><p>This organization is great and comes along with the benefit of being collapsable into a key-value pair.  We see evidence of this in the connection string, which is also located in the <code>appsettings.json</code> file:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#34;Data&#34;: &#123;&#10;  &#34;DefaultConnection&#34;: &#123;&#10;    &#34;ConnectionString&#34;: &#34;Server=(localdb)\\mssqllocaldb;Database=aspnet5-ConfigurationSample-ad90971f-6620-4bc1-ad28-650c59478cc1;Trusted_Connection=True;MultipleActiveResultSets=true&#34;&#10;  &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>And when you want to pull it out of the stored configuration, you do so like this example from <code>startup.cs</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">services.AddEntityFramework()&#10;    .AddSqlServer()&#10;    .AddDbContext&#60;ApplicationDbContext&#62;(options =&#62;&#10;        options.UseSqlServer(Configuration[&#34;Data:DefaultConnection:ConnectionString&#34;]));</span><br></pre></td></tr></table></figure>
+<p>Notice how the value of the <code>ConnectionString</code> property of the <code>DefaultConnection</code> object within the <code>Data</code> object at the root was stored as the key <code>Data:DefaultConnection:ConnectionString</code>. This is perfect for allowing overrides, such as using environment variables. This is further made handy by the fact that your settings in Azure are automatically loaded as environment variables into your application execution process at startup.</p>
+<p>In your Azure Web App configuration, you would simply need to add a key named <code>Data:DefaultConnection:ConnectionString</code> and set the value accordingly. This means that developers can use LocalDB locally, and the app automatically lights up in the cloud with the real database.</p>
+<h2 id="Next_Up"><a href="#Next_Up" class="headerlink" title="Next Up"></a>Next Up</h2><p>These key-value pairs are great, but in your application it would be a bother to have to load out each property by hand. In my next post I’m going to show you how to take a configuration section and turn it into a set of typed configuration options that can be used throughout your project. </p>
+<p>Happy coding!</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2014/08/adding-some-font-awesome-to-mvc-and-bootstrap/" data-id="cijp5nnv700q2v8yydxdc33v6" class="article-share-link">Share</a>
+      <a data-url="http://jameschambers.com/2016/01/json-config-in-aspnetcoremvc/" data-id="cijp5nnl200dfv8yyldgahrur" class="article-share-link">Share</a>
       
-        <a href="http://jameschambers.com/2014/08/adding-some-font-awesome-to-mvc-and-bootstrap/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://jameschambers.com/2016/01/json-config-in-aspnetcoremvc/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Asp-Net-MVC/">Asp.Net MVC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FontAwesome/">FontAwesome</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ASP-NET-5/">ASP.NET 5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ASP-NET-Core/">ASP.NET Core</a></li></ul>
 
     </footer>
   </div>
@@ -374,19 +218,10 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
   
-    <a href="/2014/09/using-font-awesome-in-an-accessible-bindable-star-rating-control/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Using Font Awesome in an Accessible, Bindable Star Rating Control
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/08/30-days-of-bootstrap-and-asp-net-mvc-5/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/01/Configuration-in-ASP-NET-Core-MVC/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">30 Days of Bootstrap and Asp.Net MVC 5</div>
+      <div class="article-nav-title">Configuration in ASP.NET Core MVC</div>
     </a>
   
 </nav>

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Building the Web and Other Musings]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jameschambers.com/"/>
-  <updated>2016-01-21T03:13:48.000Z</updated>
+  <updated>2016-01-22T04:01:37.026Z</updated>
   <id>http://jameschambers.com/</id>
   
   <author>
@@ -15,11 +15,48 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[JSON Configuration in ASP.NET Core MVC]]></title>
+    <link href="http://jameschambers.com/2016/01/json-config-in-aspnetcoremvc/"/>
+    <id>http://jameschambers.com/2016/01/json-config-in-aspnetcoremvc/</id>
+    <published>2016-01-22T03:36:09.000Z</published>
+    <updated>2016-01-22T04:01:37.026Z</updated>
+    <content type="html"><![CDATA[<p>Structured data in earlier versions of ASP.NET meant creating and registering custom types and configuration sections for our applications. In ASP.NET Core and in Core MVC, structured configuration is a breeze with support for JSON documents as the storage mechanism and the ability to flatten hierarchies into highly portable keys.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/01/json-structured-data.png" alt="Structured JSON Configuration"></p>
+<a id="more"></a>
+<p>You can see from the document snippet above, taken from the default project template, that we can easily achieve a well-structured, human-readible set of data.  Where we used to do something the the following:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;appSettings&#62;&#10;  &#60;add key=&#34;Logging-IncludeScopes&#34; value=&#34;false&#34; /&#62;&#10;  &#60;add key=&#34;Logging-Level-Default&#34; value=&#34;verbose&#34; /&#62;&#10;  &#60;add key=&#34;Logging-Level-System&#34; value=&#34;Information&#34; /&#62;&#10;  &#60;add key=&#34;Logging-Level-Microsoft&#34; value=&#34;Information&#34; /&#62;&#10;&#60;/appSettings&#62;</span><br></pre></td></tr></table></figure>
+<p>Our other option, of course, is going the custom object route, but that has always been a pain in the rear. Today we can do this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#34;Logging&#34;: &#123;&#10;  &#34;IncludeScopes&#34;: false,&#10;  &#34;LogLevel&#34;: &#123;&#10;    &#34;Default&#34;: &#34;Verbose&#34;,&#10;    &#34;System&#34;: &#34;Information&#34;,&#10;    &#34;Microsoft&#34;: &#34;Information&#34;&#10;  &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>Now the data that we have related to logging can be grouped into a logical fragment of the configuration file and can grow as required. </p>
+<h2 id="Exploring_a_Common_Example"><a href="#Exploring_a_Common_Example" class="headerlink" title="Exploring a Common Example"></a>Exploring a Common Example</h2><p>This organization is great and comes along with the benefit of being collapsable into a key-value pair.  We see evidence of this in the connection string, which is also located in the <code>appsettings.json</code> file:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#34;Data&#34;: &#123;&#10;  &#34;DefaultConnection&#34;: &#123;&#10;    &#34;ConnectionString&#34;: &#34;Server=(localdb)\\mssqllocaldb;Database=aspnet5-ConfigurationSample-ad90971f-6620-4bc1-ad28-650c59478cc1;Trusted_Connection=True;MultipleActiveResultSets=true&#34;&#10;  &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>And when you want to pull it out of the stored configuration, you do so like this example from <code>startup.cs</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">services.AddEntityFramework()&#10;    .AddSqlServer()&#10;    .AddDbContext&#60;ApplicationDbContext&#62;(options =&#62;&#10;        options.UseSqlServer(Configuration[&#34;Data:DefaultConnection:ConnectionString&#34;]));</span><br></pre></td></tr></table></figure>
+<p>Notice how the value of the <code>ConnectionString</code> property of the <code>DefaultConnection</code> object within the <code>Data</code> object at the root was stored as the key <code>Data:DefaultConnection:ConnectionString</code>. This is perfect for allowing overrides, such as using environment variables. This is further made handy by the fact that your settings in Azure are automatically loaded as environment variables into your application execution process at startup.</p>
+<p>In your Azure Web App configuration, you would simply need to add a key named <code>Data:DefaultConnection:ConnectionString</code> and set the value accordingly. This means that developers can use LocalDB locally, and the app automatically lights up in the cloud with the real database.</p>
+<h2 id="Next_Up"><a href="#Next_Up" class="headerlink" title="Next Up"></a>Next Up</h2><p>These key-value pairs are great, but in your application it would be a bother to have to load out each property by hand. In my next post I’m going to show you how to take a configuration section and turn it into a set of typed configuration options that can be used throughout your project. </p>
+<p>Happy coding!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Structured data in earlier versions of ASP.NET meant creating and registering custom types and configuration sections for our applications. In ASP.NET Core and in Core MVC, structured configuration is a breeze with support for JSON documents as the storage mechanism and the ability to flatten hierarchies into highly portable keys.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/01/json-structured-data.png" alt="Structured JSON Configuration"></p>]]>
+    
+    </summary>
+    
+      <category term="ASP.NET 5" scheme="http://jameschambers.com/tags/ASP-NET-5/"/>
+    
+      <category term="ASP.NET Core" scheme="http://jameschambers.com/tags/ASP-NET-Core/"/>
+    
+      <category term="Code Dive" scheme="http://jameschambers.com/categories/Code-Dive/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Configuration in ASP.NET Core MVC]]></title>
     <link href="http://jameschambers.com/2016/01/Configuration-in-ASP-NET-Core-MVC/"/>
     <id>http://jameschambers.com/2016/01/Configuration-in-ASP-NET-Core-MVC/</id>
     <published>2016-01-21T02:27:23.000Z</published>
-    <updated>2016-01-21T03:13:48.000Z</updated>
+    <updated>2016-01-22T03:58:44.761Z</updated>
     <content type="html"><![CDATA[<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/01/startup-config.png" alt="Config in Startup.cs"></p>
 <p>ASP.NET Core MVC introduces a new configuration system that adds flexibility and simultaneously enables cross-platform support (in a way that makes sense on other platforms). In this post we’re going to cover the basics of configuration and what you can expect as you look at the project template from File -&gt; New Project in Visual Studio 2015.</p>
 <a id="more"></a>
@@ -29,7 +66,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public Startup(IHostingEnvironment env)&#10;&#123;&#10;    // Set up configuration sources.&#10;    var builder = new ConfigurationBuilder()&#10;        .AddJsonFile(&#34;appsettings.json&#34;)&#10;        .AddJsonFile($&#34;appsettings.&#123;env.EnvironmentName&#125;.json&#34;, optional: true);&#10;&#10;    if (env.IsDevelopment())&#10;    &#123;&#10;        builder.AddUserSecrets();&#10;    &#125;&#10;&#10;    builder.AddEnvironmentVariables();&#10;    Configuration = builder.Build();&#10;&#125;</span><br></pre></td></tr></table></figure>
 <p>As you can see above, the first lines of code on the first bit of code our application contains what is needed to load our configuration.  </p>
 <h2 id="Configuration_Happens_Often_2C_if_You_Like"><a href="#Configuration_Happens_Often_2C_if_You_Like" class="headerlink" title="Configuration Happens Often, if You Like"></a>Configuration Happens Often, if You Like</h2><p>More importantly, we get a say in how and where the configuration is loaded from. A great example of this is that we can load a JSON file for the default config and then later use environment variables to overload those defaults. </p>
-<p>That code about  is the <code>Startup</code> method of the <code>Startup</code> class, and we’re very certain about when the config is loaded and where from. We even get to test if we’re in the development envionment.</p>
+<p>That code above is the <code>Startup</code> method of the <code>Startup</code> class, and we’re very certain about when the config is loaded and where from. We even get to test if we’re in the development envionment.</p>
 <p>This comes in handy when you’re deploying to Azure or would like to test with your own values instead of making changes to the JSON config file that would otherwise be checked in with the project.</p>
 <p>Speaking of which, you’re going to likely need to store some values in there that you <em>will never want to share</em>, and that you’ll never want to check into your repo. This would be things like API tokens for integration into third-party services and the like (think SendGrid, Twilio, PayPal and the like).</p>
 <h2 id="Configuration_Opens_Doors_for_Secrets"><a href="#Configuration_Opens_Doors_for_Secrets" class="headerlink" title="Configuration Opens Doors for Secrets"></a>Configuration Opens Doors for Secrets</h2><p>And that brings us to user secrets. It’s still not clear how these guys are going to shake down - there’s still active discussion about how it should be named and stored - but the idea is straightforward and lets you work locally with sensitive data without having to modify your config. You can think of them as “environment variables for your project”. </p>
@@ -1653,40 +1690,6 @@ Finally, we’ll add a little more meat to our our Main method:
     <summary type="html">
     <![CDATA[<p><em>In <a href="http://jameschambers.com/2015/01/day-0-8-days-of-working-with-azure-table-storage-from-asp-net-mvc-5/">this series</a> we]]>
     </summary>
-    
-      <category term="Uncategorized" scheme="http://jameschambers.com/categories/Uncategorized/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Three Types of Relationships You Need to Survive as a Remote Worker]]></title>
-    <link href="http://jameschambers.com/2015/07/three-types-of-relationships-you-need-to-survive-as-a-remote-worker/"/>
-    <id>http://jameschambers.com/2015/07/three-types-of-relationships-you-need-to-survive-as-a-remote-worker/</id>
-    <published>2015-07-14T17:02:00.000Z</published>
-    <updated>2016-01-20T03:26:07.435Z</updated>
-    <content type="html"><![CDATA[<p>Getting through your work day on your own is easy enough.&nbsp; Over the long run, though,&nbsp; you’re going to need to have some solid relationships in your life to help get you through the rough patches and pick you up from the falls, but more importantly, to be there when it’s time to celebrate the wins.</p>
-<p>While these are going to seem obvious at first, I want to make the point that they’re by no means effortless. In fact, some of the closest connections in your life can be the most affected by your choice to have your home serve also as your place of work.</p>
-<h2 id="Your_Co-Workers"><a href="#Your_Co-Workers" class="headerlink" title="Your Co-Workers"></a>Your Co-Workers</h2><p><a href="https://jcblogimages.blob.core.windows.net/img/2015/07/office_relationships.jpg" target="_blank" rel="external"><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/office_relationships_thumb.jpg" alt="office_relationships" title="office_relationships"></a>In the movie <em>Office Space</em>, the main character Peter Gibbons pines that his motivation to work, or rather, to “work just hard enough not to get fired,” stems from unhealthy relationships with management. This <strong>cannot</strong> be your reality as a remote worker, and you need to make efforts to establish (and maintain) trust with your boss and teammates.</p>
-<p>I have worked in blended environments where there was a head office with regular staff, but many remote workers and many office workers who had the option to work from home as they elected to do so. Being a permanent remote with very little office time (averaging about a day a month in the office) it was harder to get to know folks, but I knew it was really on me to own it.</p>
-<p>Before you start at a company as a remote worker, or before you start working from home, talk to the management and other staff that already work remotely to see what it is like. If the atmosphere supports it, flying solo can be a great experience, but you still need the support of ground control. If you work as the only remote worker, or if management doesn’t trust or understand how productivity can work remotely, it may not be the right time for you to engage in flight.</p>
-<h2 id="Fellow_Remote_Workers"><a href="#Fellow_Remote_Workers" class="headerlink" title="Fellow Remote Workers"></a>Fellow Remote Workers</h2><p>These ones are pretty important, especially in a company where there is a block of folks that work full-time at the office and a group that works remotely. Why are these folks good to know?</p>
-<p>Because they <em>get ya</em>. They’re on the Skypes. They’re on the Slack. </p>
-<p>They are trying to do the same things that you are doing and likely face the same challenges as you do. They look for solutions and have found tools that help them avoid the pitfalls. You’ve likely had to work through something that they haven’t yet, you have it figured out and it’s great to be able to share that with them. </p>
-<p>Don’t be afraid to share your failures or ask for help! Being a good remote worker means mentoring and being mentored by other remote workers so that collectively we can all be really good at it. </p>
-<h2 id="People_With_Absolutely_Nothing_to_do_with_Work"><a href="#People_With_Absolutely_Nothing_to_do_with_Work" class="headerlink" title="People With Absolutely Nothing to do with Work"></a>People With Absolutely Nothing to do with Work</h2><p>Ahhh…five o’clock, am I right? It’s that time when you disconnect from work and start to enjoy the more meaningful things in life. Of course, that means that you have be successful in leaving work in the first place, which can be tricky, but <a href="http://jameschambers.com/2015/03/working-from-home-and-walking-to-work-surviving-remote-work/">isn’t impossible to do</a>, especially if you’ve <a href="http://jameschambers.com/2015/03/wake-up-and-get-st-done-a-practice-of-awesome/">put in a good day</a>.</p>
-<p>There a measure of counter-intuitiveness here that you’ll find. For example, keeping strong relationships in your own household is actually more about defining and maintaining boundaries during the workday than you might imagine. For example, if your office door is open as you’re working and your spouse, kids or roommates feel free to come and chat, you’re going to be less productive than you’d like to be. Over time, that loss of focus and reduced ability to create tangible outputs are going to start to turn into stress. Allowing the non-work relationships to bleed into your day can be a form of long term toxin that will erode your success as a remote worker.</p>
-<p>Likewise, allowing your work day to bleed into your evenings and weekends will rob you of the best part of your day. Maybe you’re married with kids, fiancéed, or perhaps single, but the fact holds true regardless of your situation: marginalizing your family and friends to try to improve things at work will yield exactly zero positive results for your personal life. If you don’t agree with that statement, it’s simply because Dr. Seuss got the idea of the Grinch’s heart being two sizes too small from your life story. </p>
-<p>There will be exceptions, where some rule-bending and time-bleeding will occur, but your job as a remote is to maintain that balance and be honest with yourself about how you’re doing in that regard.</p>
-<h2 id="An_Old_Adage"><a href="#An_Old_Adage" class="headerlink" title="An Old Adage"></a>An Old Adage</h2><p>I do have to admit that I’m quite fortunate in this regard, as I’ve been able to align with an employer who is very much accustomed to and accepting of remote work. Working remotely, while becoming more common, isn’t yet universally accepted and I know from personal experience that if the culture isn’t there in the company, it can’t work on the long term.</p>
-<p>It’s long and often been said that <strong>it takes a village to raise a child</strong>, and the reality of that statement is that at some point we have to grow up and be part of the village. As a remote worker, you need to remember that <strong>community isn’t going to just happen for you</strong>. Sure, you may not be raising kids, but the outcomes of your work efforts can only be best realized if you’re able to establish some great relationships along the way.</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Getting through your work day on your own is easy enough.&nbsp; Over the long run, though,&nbsp; you’re going to need to have some solid ]]>
-    </summary>
-    
-      <category term="Life Hacks" scheme="http://jameschambers.com/tags/Life-Hacks/"/>
-    
-      <category term="Remote Work" scheme="http://jameschambers.com/tags/Remote-Work/"/>
     
       <category term="Uncategorized" scheme="http://jameschambers.com/categories/Uncategorized/"/>
     
