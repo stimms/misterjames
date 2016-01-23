@@ -149,6 +149,79 @@ ga('send', 'pageview');
 
       
       <section id="main">
+      <article id="post-a-comparison-of-asp-net-mvc-templates" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/02/a-comparison-of-asp-net-mvc-templates/">A Comparison of Asp.Net MVC Templates</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2013/02/a-comparison-of-asp-net-mvc-templates/">
+      <time datetime="2013-02-06T20:11:06.000Z" itemprop="datePublished">2013-02-06</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Develop-Meta/">Develop Meta</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p>Visual Studio 2012 and the Asp.Net refresh (<a href="http://asp.net/vnext" target="_blank" rel="external">2012.2</a>) have introduced a number of new and refreshed templates to help bootstrap your project as you turn up a new MVC 4 site.&nbsp; This post breaks down the key items that are in each of the templates to help you get a better understanding of your starting point.</p>
+<h3 id="Structure_2C_Feature_and_Element_Comparison"><a href="#Structure_2C_Feature_and_Element_Comparison" class="headerlink" title="Structure, Feature and Element Comparison"></a>Structure, Feature and Element Comparison</h3><p>The template names are across the top, and the items included in the template in the leftmost column.<br> <table cellspacing="0" cellpadding="2" width="624" border="0"> <tbody> <tr height="20"> <td width="361" align="center">&nbsp;</td> <td width="52" align="center"><strong><font color="#000000" size="1">Empty</font></strong></td> <td width="56" align="center"><strong><font color="#000000" size="1">Basic</font></strong></td> <td width="55" align="center"><strong><font color="#000000" size="1">Internet</font></strong></td> <td width="51" align="center"><strong><font color="#000000" size="1">Intranet</font></strong></td> <td width="47" align="center"><strong><font color="#000000" size="1">Mobile</font></strong></td></tr> <tr> <td valign="top" width="361"><font color="#333333"><strong>Folder Structure</strong></font></td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;</td> <td valign="top" width="55">&nbsp;</td> <td valign="top" width="51">&nbsp;</td> <td valign="top" width="47">&nbsp;</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; Controllers, Models, Views, App_Start, App_Data</td> <td valign="top" width="52">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="56">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; Content, Scripts</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; Views\Shared</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361"><font color="#000000"><strong>Project Elements</strong></font></td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;</td> <td valign="top" width="55">&nbsp;</td> <td valign="top" width="51">&nbsp;</td> <td valign="top" width="47">&nbsp;</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; Global.asax, Web.Config, Packages.Config</td> <td valign="top" width="52">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="56">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; FilterConfig, RouteConfig, WebApiConfig</td> <td valign="top" width="52">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="56">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; BundleConfig</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; AuthConfig</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;</td> <td valign="top" width="47">&nbsp;</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; _ViewStart, _Layout and Error Pages</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; Sample Home Controller &amp; Views</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361"><font color="#000000"><strong>Notable Third-Party Features</strong></font></td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;</td> <td valign="top" width="55">&nbsp;</td> <td valign="top" width="51">&nbsp;</td> <td valign="top" width="47">&nbsp;</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; Packages Installed</td> <td valign="top" width="52">&nbsp;&nbsp;&nbsp; 11</td> <td valign="top" width="56">&nbsp;&nbsp;&nbsp; 23</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; 34</td> <td valign="top" width="51">&nbsp;&nbsp;&nbsp; 25</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; 28</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; jQuery, jQuery UI</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; jQuery Mobile</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;</td> <td valign="top" width="55">&nbsp;</td> <td valign="top" width="51">&nbsp;</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; KnockoutJS, Modernizer, Validation</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; EntityFramework</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361"><font color="#000000"><strong>Authentication and Authorization</strong></font></td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;</td> <td valign="top" width="55">&nbsp;</td> <td valign="top" width="51">&nbsp;</td> <td valign="top" width="47">&nbsp;</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; Sample Controller</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; Models, EF DbContext Samples</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; Supporting “Simple” Provider &amp; ActionFilter</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; Support for External OAuth</td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;</td> <td valign="top" width="55">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="51">&nbsp;</td> <td valign="top" width="47">&nbsp;&nbsp;&nbsp; X</td></tr> <tr> <td valign="top" width="361">&nbsp;&nbsp;&nbsp; Auth via Active Directory (Azure or Windows) </td> <td valign="top" width="52">&nbsp;</td> <td valign="top" width="56">&nbsp;</td> <td valign="top" width="55">&nbsp;</td> <td valign="top" width="51">&nbsp;&nbsp;&nbsp; X</td> <td valign="top" width="47">&nbsp;</td></tr></tbody></table> </p>
+<h3 id="And_Then_Again_2C_In_English"><a href="#And_Then_Again_2C_In_English" class="headerlink" title="And Then Again, In English"></a>And Then Again, In English</h3><p>Taking a look at the templates from a more pragmatic perspective, let’s consider how you’d actually use them and the situations where they’d be most appealing.</p>
+<ul>
+<li><strong>Empty</strong> – This is the barebones project with enough of the MVC bits wired so that you can work on the Asp.Net stack. If you are looking for a clean slate, this is it. You can leverage the conventions of the framework, choose your client-side libraries, build your own templates, and create your controllers and views from scratch.</li>
+<li><strong>Basic</strong> – If you’re good with the default selection of scripts and templates – jQuery and jQuery UI are installed for you – the rest of the pieces are in place for you to pick up and start developing. This project type adds a basic template (your layout page) and an error page with no styling.&nbsp; There’s more of a canvas here, with a little less legwork than the empty template.</li>
+<li><strong>Internet</strong> – This is the bells and whistles edition. Sample controllers, local accounts and third-party authentication, a complete style makeover and more. You can use this to build a decent looking CRUD site, just be prepared for 1984-style conformity.&nbsp; There’s also a wealth of JavaScript libraries to help build a great end-user experience as you learn the MVC Framework.</li>
+<li><strong>Intranet</strong> – The biggest differentiator for this template from the Internet version is the absence of accounts and authorization. Instead, the project ships with a read me with links on how to configure Active Directory and integrated sign on. This is especially great if you’re working with Azure and corporate accounts where users have IE installed – you get single sign-on to the app.</li>
+<li><strong>Mobile</strong> – While all the template types support alternate views which could be used for mobile support, this project comes ready to target mobile browsers. I won’t get into the debate of responsive design vs. dedicated sites here, but certainly if you are trying to create a context-centric, mobile-specific experience, this is the easiest place to start. </li>
+</ul>
+<h3 id="Not_Mentioned_In_Today_u2019s_Broadcast"><a href="#Not_Mentioned_In_Today_u2019s_Broadcast" class="headerlink" title="Not Mentioned In Today’s Broadcast"></a>Not Mentioned In Today’s Broadcast</h3><p>There are notably three project types missing from the mix: <strong>Single Page Application</strong>, <strong>Web API</strong> and the newly introduced <strong>Facebook Application</strong>. These each a have specific function in the web development world and are worth considering individually; I’ll break them down in another post.</p>
+<h3 id="What_u2019s_in_A_Name_3F"><a href="#What_u2019s_in_A_Name_3F" class="headerlink" title="What’s in A Name?"></a>What’s in A Name?</h3><p>While I’ve spelled out the features of MVC projects that are included in each of the templates, I want to also say that if there is something that you would like included in a template that doesn’t have it by default, it’s still pretty easy to add most in.&nbsp; Many of the items above can be added with a right-click –&gt; “New Something…” or by installing a package via NuGet.</p>
+<h3 id="And_2C_Next_on_the_Docket"><a href="#And_2C_Next_on_the_Docket" class="headerlink" title="And, Next on the Docket"></a>And, Next on the Docket</h3><p>All that’s left now to do is to poke around with the templates. Download Visual Studio 2012 from the <a href="http://asp.net/mvc" target="_blank" rel="external">Asp.Net MVC homepage</a> to get all the bits you need to start building sites. You can get the template refresh from the <a href="http://asp.net/vnext" target="_blank" rel="external">vNext site</a>. Finally, push through some of the tutorials and get an idea of what you can do with the MVC Framework!</p>
+<p>Diving deeper? Try these:</p>
+<ul>
+<li>Read up on <a href="http://jameschambers.com/2012/10/a-web-developer-s-look-at-the-mvc4-request-pipeline/">The MVC4 Request Pipeline</a> to learn more about how your</li>
+<li>Look for help on <a href="http://stackoverflow.com/questions/tagged/asp.net-mvc" target="_blank" rel="external">MVC on Stack Overflow</a></li>
+<li>A <a href="http://www.asp.net/mvc/tutorials/mvc-music-store/mvc-music-store-part-1" target="_blank" rel="external">10-part series</a> on building the Asp.Net MVC Music Store app</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jameschambers.com/2013/02/a-comparison-of-asp-net-mvc-templates/" data-id="cijrdvx7400qoxgyy3r7h47tv" class="article-share-link">Share</a>
+      
+        <a href="http://jameschambers.com/2013/02/a-comparison-of-asp-net-mvc-templates/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Asp-Net-MVC/">Asp.Net MVC</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-bootstrapping-asp-net-mvcintroduction-to-twitter-bootstrap-mvc4" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -203,7 +276,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2013/02/bootstrapping-asp-net-mvcintroduction-to-twitter-bootstrap-mvc4/" data-id="cijp5nntt00ohv8yy2a31yvc9" class="article-share-link">Share</a>
+      <a data-url="http://jameschambers.com/2013/02/bootstrapping-asp-net-mvcintroduction-to-twitter-bootstrap-mvc4/" data-id="cijrdvx5n00ohxgyy2xof2pto" class="article-share-link">Share</a>
       
         <a href="http://jameschambers.com/2013/02/bootstrapping-asp-net-mvcintroduction-to-twitter-bootstrap-mvc4/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -298,7 +371,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2013/01/jquery-script-map-causing-critical-error-in-jquery-1-9-0/" data-id="cijp5nnl200dlv8yy8qzt77ph" class="article-share-link">Share</a>
+      <a data-url="http://jameschambers.com/2013/01/jquery-script-map-causing-critical-error-in-jquery-1-9-0/" data-id="cijrdvwxr00dlxgyycs5mxo9u" class="article-share-link">Share</a>
       
         <a href="http://jameschambers.com/2013/01/jquery-script-map-causing-critical-error-in-jquery-1-9-0/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -365,7 +438,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2013/01/upgrading-to-jquery-1-9-0-starts-giving-you-unhandled-exception-errors/" data-id="cijp5nne90038v8yy7sq6gx9g" class="article-share-link">Share</a>
+      <a data-url="http://jameschambers.com/2013/01/upgrading-to-jquery-1-9-0-starts-giving-you-unhandled-exception-errors/" data-id="cijrdvwqb0038xgyyw8mak3zp" class="article-share-link">Share</a>
       
         <a href="http://jameschambers.com/2013/01/upgrading-to-jquery-1-9-0-starts-giving-you-unhandled-exception-errors/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -490,7 +563,7 @@ The fix is quite simple: rather than using the built-in “Insert Video” featu
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2012/12/embedding-videos-with-windows-live-writer-and-metropress/" data-id="cijp5nnnd00g5v8yyktnr7lra" class="article-share-link">Share</a>
+      <a data-url="http://jameschambers.com/2012/12/embedding-videos-with-windows-live-writer-and-metropress/" data-id="cijrdvwzo00g5xgyye9342zrw" class="article-share-link">Share</a>
       
         <a href="http://jameschambers.com/2012/12/embedding-videos-with-windows-live-writer-and-metropress/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -586,332 +659,12 @@ foreach (var entry in entries)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2012/12/seed-windows-azure-mobile-services-tables-with-10-lines-of-code/" data-id="cijp5nnh4007fv8yycborjzwb" class="article-share-link">Share</a>
+      <a data-url="http://jameschambers.com/2012/12/seed-windows-azure-mobile-services-tables-with-10-lines-of-code/" data-id="cijrdvwto007fxgyy0uv2f7vo" class="article-share-link">Share</a>
       
         <a href="http://jameschambers.com/2012/12/seed-windows-azure-mobile-services-tables-with-10-lines-of-code/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GenFu/">GenFu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows-Azure/">Windows Azure</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-introducing-angelasmith-the-object-initializing-smartypants" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/12/introducing-angelasmith-the-object-initializing-smartypants/">Introducing AngelaSmith - The Object Initializing Smartypants</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2012/12/introducing-angelasmith-the-object-initializing-smartypants/">
-      <time datetime="2012-12-24T23:09:00.000Z" itemprop="datePublished">2012-12-24</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Projects/">Projects</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-                
-        <p>Our tooling in the .Net space is getting better and better, as well as the ecosystem that we work in. Take for instance Windows Azure Mobile Services – when we are dealing with greenfield development having your backend services running in minutes is a Godsend and having it work over multiple devices is chocolate on the sundae.&nbsp; Your database is in place in minutes and you can easily access your data via REST.</p>
-<p>What is something that all data-based applications require?&nbsp; Data!&nbsp; But missing from the data equation in green field development are two key parts to new app development: sample data and design time data.&nbsp; If you understand those parts already and want to be able to fire up 250 persons like this:</p>
-<p><pre class="csharpcode">     var people = Angie<br>        .Configure()<br>        .ListCount(250)<br>        .MakeList&lt;Person&gt;();</pre></p>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>…then skip below to the juicy bits.&nbsp; For the rest of us, a quick primer.</p>
-<h2 id="Why_It_u2019s_Important"><a href="#Why_It_u2019s_Important" class="headerlink" title="Why It’s Important"></a>Why It’s Important</h2><p>For those of us building Windows Store or Windows 8 Phone apps, we have some incredible tools that make designing good looks apps super easy.</p>
-<p>First is the MvvmLight Toolkit from <a href="https://twitter.com/LBugnion" target="_blank" rel="external">Laurent Bugnion</a> that allows you to quickly (and selectively) build out bindable view models, complete with properties, commands and, of course, your data.&nbsp; If you haven’t worked with the data-binding approach, this is something you should be looking at if you use data at all in your apps.&nbsp; If you’re not working with data at all in your apps, this is something that you should be looking at if you want users at all in your apps.</p>
-<p>Second is the ability to use design time data through tools like Blend or Visual Studio 2012. Design time data sources usually provide static methods that can supply your IDE or editor of choice sample data while you’re designing your view.&nbsp; It’s tough to build out a good looking UI without having actual data in there to see what things will look like.</p>
-<p>When you put these two things together you get this great experience of seeing your app come together without having to build, deploy and run your app.</p>
-<p>In other environments (Android, XCode) there may be similar facilities for design, but on all platforms, there’s the actual execution of the app on the device, and you probably want to get some data up there.&nbsp; How do you test user-level security with only one user?&nbsp; How do you build a geolocation app presenting points of interest if you don’t have any POI data?&nbsp; View a contact list with no contacts?&nbsp; What about just seeing how you app performs under load?&nbsp; Build screen shots for your app store shots?&nbsp; </p>
-<p>You get the idea. You need data in there.</p>
-<h2 id="So_You_Want_to_Do_the_Data_Binding_Awesomeness"><a href="#So_You_Want_to_Do_the_Data_Binding_Awesomeness" class="headerlink" title="So You Want to Do the Data Binding Awesomeness"></a>So You Want to Do the Data Binding Awesomeness</h2><p>Great, so we agree that some measure of data is needed at some point of the app build process. You need a list of, say, 25 people, but how do you get those in there?&nbsp; This is how we used to do it:</p>
-<p><pre class="csharpcode">        List&lt;Person&gt; people = <span class="kwrd">new</span> List&lt;Person&gt;();<br>        people.Add(<span class="kwrd">new</span> Person { FirstName = <span class="str">“Angela”</span>, LastName = <span class="str">“Smith”</span>, Age = 24, PhoneNumber = <span class="str">“867-5309”</span> });<br>        <span class="rem">// …do this 23 times…</span><br>        people.Add(<span class="kwrd">new</span> Person { FirstName = <span class="str">“Susan”</span>, LastName = <span class="str">“Peters”</span>, Age = 22, PhoneNumber = <span class="str">“555-1234”</span> });<br></pre></p>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>But that sucks. Big time.&nbsp; Because you have to new up every object, and to make it look somewhat interesting, you have to also touch each row (not copy and paste). So you have to sift through 25 lines of code and try to come up with some believable objects. </p>
-<h2 id="A_Way_With_Way_More_Awesome"><a href="#A_Way_With_Way_More_Awesome" class="headerlink" title="A Way With Way More Awesome"></a>A Way With Way More Awesome</h2><p>How about this instead:</p>
-<p><pre class="csharpcode">        List&lt;Person&gt; people = Angie.FastList&lt;Person&gt;();</pre></p>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-Oh yeah. That's how AngelaSmith rolls. One line of code to get a list of 25 people (25 is the default list size).&nbsp; All the properties are filled in for you as Angie recognizes many common property names. 
-
-You can use Angie to build out a single object:
-<pre class="csharpcode">        var person = Angie.FastMake&lt;Person&gt;();</pre>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-Angie’s not alone; she has a friend who can also help fill in a single property: <pre class="csharpcode">        <span class="kwrd">string</span> firstName = Susan.FillFirstName();</pre>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>You can tell her how to build properties:</p>
-<p><pre class="csharpcode">    var blogTitle = <span class="str">“Angie”</span>;</pre></p>
-<pre><code>var post = Angie.Configure()
-    .FillBy(&lt;span class=&quot;str&quot;&gt;&quot;title&quot;&lt;/span&gt;, &lt;span class=&quot;kwrd&quot;&gt;delegate&lt;/span&gt;() { &lt;span class=&quot;kwrd&quot;&gt;return&lt;/span&gt; blogTitle; })
-    .Make&amp;lt;BlogPost&amp;gt;();&lt;/pre&gt;
-</code></pre><style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>Or, she can help you fill in properties (because she’s so smart):</p>
-<p><pre class="csharpcode">     var comments = Angie<br>        .Configure()<br>        .ListCount(1000)<br>        .FillBy(<span class="str">“CommentDate”</span>, <span class="kwrd">delegate</span>() { <span class="kwrd">return</span> Angie.MakeDate(DateRules.PastDates); })<br>        .MakeList&lt;BlogComment&gt;();</pre></p>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>And, you can chain it all together to do some cool things.&nbsp; Here, we’re building a blog post with 5 comments, all the dates are set to a date prior today, and the comments are created using an anonymous function:</p>
-<p><pre class="csharpcode">  var blogpost = Angie<br>    .Configure()<br>    .FillBy(<span class="str">“CreateDate”</span>, <span class="kwrd">delegate</span>() { <span class="kwrd">return</span> Susan.FillDate(DateRules.PastDate); })<br>    .FillBy(<span class="str">“Comments”</span>, <span class="kwrd">delegate</span>()<br>    {<br>      <span class="kwrd">return</span> Angie<br>          .Set()<br>          .ListCount(5)<br>          .FillBy(<span class="str">“CommentDate”</span>, <span class="kwrd">delegate</span>() { <span class="kwrd">return</span> Susan.FillDate(DateRules.PastDate); })<br>          .MakeList&lt;BlogComment&gt;();<br>    })<br>    .Make&lt;BlogPost&gt;();</pre></p>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>At the tail of that, we’re calling “Make” to get a single instance of BlogPost, but we could just as easily call “MakeList” to get a list of entities.</p>
-<h2 id="So_Get_Going_21"><a href="#So_Get_Going_21" class="headerlink" title="So Get Going!"></a>So Get Going!</h2><p>To install AngelaSmith, use the Package Manager Console:</p>
-<p><pre class="csharpcode">    install-package AngelaSmith</pre></p>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>For more information, check out the <a href="https://github.com/MisterJames/AngelaSmith" target="_blank" rel="external">AngelaSmith project on GitHub</a>. Of course, you’re welcome to fork and contribute!</p>
-<p>Stay tuned for great examples on how to seed data in Windows Azure Mobile Services, Entity Framework and more.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2012/12/introducing-angelasmith-the-object-initializing-smartypants/" data-id="cijp5nnlh00e1v8yyb2pfuxrp" class="article-share-link">Share</a>
-      
-        <a href="http://jameschambers.com/2012/12/introducing-angelasmith-the-object-initializing-smartypants/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngelaSmith/">AngelaSmith</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/open-source/">open source</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/seed-data/">seed data</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/testing/">testing</a></li></ul>
 
     </footer>
   </div>
@@ -933,6 +686,14 @@ Angie’s not alone; she has a friend who can also help fill in a single propert
     <h3 class="widget-title">recent</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-title"><a href="/2016/01/Strongly-Typed-Configuration-in-ASP-NET-Core-MVC/" class="title">Strongly-Typed Configuration in ASP.NET Core MVC</a></p>
+              <p class="item-date"><time datetime="2016-01-23T16:29:12.000Z" itemprop="datePublished">2016-01-23</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -966,14 +727,6 @@ Angie’s not alone; she has a friend who can also help fill in a single propert
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-title"><a href="/2015/11/the-humanitarian-toolbox-allready-code-a-thon/" class="title">The Humanitarian Toolbox AllReady Code-a-Thon</a></p>
-              <p class="item-date"><time datetime="2015-11-18T15:22:00.000Z" itemprop="datePublished">2015-11-18</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -991,7 +744,7 @@ Angie’s not alone; she has a friend who can also help fill in a single propert
   <div class="widget-wrap">
     <h3 class="widget-title">tag cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/30DaysMvcBootstrap/" style="font-size: 17.86px;">30DaysMvcBootstrap</a> <a href="/tags/8DaysOfTableStorage/" style="font-size: 11.43px;">8DaysOfTableStorage</a> <a href="/tags/ASP-NET/" style="font-size: 15px;">ASP.NET</a> <a href="/tags/ASP-NET-5/" style="font-size: 10.71px;">ASP.NET 5</a> <a href="/tags/ASP-NET-Core/" style="font-size: 10.71px;">ASP.NET Core</a> <a href="/tags/ActionFilters/" style="font-size: 10px;">ActionFilters</a> <a href="/tags/Android/" style="font-size: 10.71px;">Android</a> <a href="/tags/AngelaSmith/" style="font-size: 10px;">AngelaSmith</a> <a href="/tags/Asp-Net-MVC/" style="font-size: 20px;">Asp.Net MVC</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Azure/" style="font-size: 17.14px;">Azure</a> <a href="/tags/Azure-Web-Apps/" style="font-size: 10px;">Azure Web Apps</a> <a href="/tags/Azure-Websites/" style="font-size: 13.57px;">Azure Websites</a> <a href="/tags/BUILD/" style="font-size: 10px;">BUILD</a> <a href="/tags/BitBucket/" style="font-size: 10px;">BitBucket</a> <a href="/tags/Bootstrap/" style="font-size: 15.71px;">Bootstrap</a> <a href="/tags/CTT-NUG/" style="font-size: 10px;">CTT .NUG</a> <a href="/tags/Calgary/" style="font-size: 10px;">Calgary</a> <a href="/tags/Cisco-VPN/" style="font-size: 10px;">Cisco VPN</a> <a href="/tags/ClearMeasure/" style="font-size: 10.71px;">ClearMeasure</a> <a href="/tags/CodeProject/" style="font-size: 11.43px;">CodeProject</a> <a href="/tags/Conferences/" style="font-size: 10.71px;">Conferences</a> <a href="/tags/CouchDb/" style="font-size: 10px;">CouchDb</a> <a href="/tags/DNX/" style="font-size: 10px;">DNX</a> <a href="/tags/Dojo/" style="font-size: 10px;">Dojo</a> <a href="/tags/Email/" style="font-size: 10px;">Email</a> <a href="/tags/Entity-Framework/" style="font-size: 13.57px;">Entity Framework</a> <a href="/tags/Extension-Methods/" style="font-size: 10px;">Extension Methods</a> <a href="/tags/FontAwesome/" style="font-size: 10.71px;">FontAwesome</a> <a href="/tags/GenFu/" style="font-size: 10px;">GenFu</a> <a href="/tags/GetManifestResourceStream/" style="font-size: 10px;">GetManifestResourceStream</a> <a href="/tags/Git/" style="font-size: 11.43px;">Git</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HackAThon/" style="font-size: 10px;">HackAThon</a> <a href="/tags/HtmlHelper/" style="font-size: 10px;">HtmlHelper</a> <a href="/tags/IIS/" style="font-size: 10px;">IIS</a> <a href="/tags/JSON/" style="font-size: 10.71px;">JSON</a> <a href="/tags/Keynote/" style="font-size: 10px;">Keynote</a> <a href="/tags/Life-Hack/" style="font-size: 10px;">Life Hack</a> <a href="/tags/Life-Hacking/" style="font-size: 10.71px;">Life Hacking</a> <a href="/tags/Life-Hacks/" style="font-size: 12.14px;">Life Hacks</a> <a href="/tags/Linq/" style="font-size: 10px;">Linq</a> <a href="/tags/MIX11/" style="font-size: 10px;">MIX11</a> <a href="/tags/MVA/" style="font-size: 10.71px;">MVA</a> <a href="/tags/MVC/" style="font-size: 19.29px;">MVC</a> <a href="/tags/MVC5/" style="font-size: 18.57px;">MVC5</a> <a href="/tags/MVC6/" style="font-size: 13.57px;">MVC6</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/Make-Code-Not-War/" style="font-size: 10px;">Make Code Not War</a> <a href="/tags/MeasureUp/" style="font-size: 10px;">MeasureUp</a> <a href="/tags/Metro/" style="font-size: 10px;">Metro</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Microsoft-Band/" style="font-size: 12.14px;">Microsoft Band</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Mobile-Services/" style="font-size: 10px;">Mobile Services</a> <a href="/tags/Motivate/" style="font-size: 10px;">Motivate</a> <a href="/tags/MvcScaffolding/" style="font-size: 11.43px;">MvcScaffolding</a> <a href="/tags/Not-Coding-At-All/" style="font-size: 10px;">Not Coding At All</a> <a href="/tags/NuGet/" style="font-size: 15px;">NuGet</a> <a href="/tags/OData/" style="font-size: 10px;">OData</a> <a href="/tags/PayPal/" style="font-size: 10px;">PayPal</a> <a href="/tags/PostSharp/" style="font-size: 10px;">PostSharp</a> <a href="/tags/Practice/" style="font-size: 10.71px;">Practice</a> <a href="/tags/Practice-of-Awesome/" style="font-size: 10px;">Practice of Awesome</a> <a href="/tags/PrairieDevCon/" style="font-size: 16.43px;">PrairieDevCon</a> <a href="/tags/Queues/" style="font-size: 10px;">Queues</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/Radio/" style="font-size: 10px;">Radio</a> <a href="/tags/Razor/" style="font-size: 10.71px;">Razor</a> <a href="/tags/Real-Life/" style="font-size: 10px;">Real Life</a> <a href="/tags/Regina/" style="font-size: 10.71px;">Regina</a> <a href="/tags/Remote-Work/" style="font-size: 10.71px;">Remote Work</a> <a href="/tags/Resolve/" style="font-size: 10px;">Resolve</a> <a href="/tags/Rock-Paper-Scissors/" style="font-size: 10px;">Rock Paper Scissors</a> <a href="/tags/Routing/" style="font-size: 10px;">Routing</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 10px;">Ruby on Rails</a> <a href="/tags/SDEC/" style="font-size: 10px;">SDEC</a> <a href="/tags/SOAP/" style="font-size: 10px;">SOAP</a> <a href="/tags/SQL-Server/" style="font-size: 10px;">SQL Server</a> <a href="/tags/ServiceBus/" style="font-size: 10px;">ServiceBus</a> <a href="/tags/SignalR/" style="font-size: 11.43px;">SignalR</a> <a href="/tags/Speaking/" style="font-size: 11.43px;">Speaking</a> <a href="/tags/TFS/" style="font-size: 10px;">TFS</a> <a href="/tags/Table-Storage/" style="font-size: 10.71px;">Table Storage</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/Unit-Testing/" style="font-size: 10px;">Unit Testing</a> <a href="/tags/Visual-Studio/" style="font-size: 10.71px;">Visual Studio</a> <a href="/tags/Visual-Studio-11/" style="font-size: 11.43px;">Visual Studio 11</a> <a href="/tags/Visual-Studio-2010/" style="font-size: 16.43px;">Visual Studio 2010</a> <a href="/tags/Visual-Studio-2012/" style="font-size: 12.86px;">Visual Studio 2012</a> <a href="/tags/Visual-Studio-2013/" style="font-size: 10.71px;">Visual Studio 2013</a> <a href="/tags/Visual-Studio-2015/" style="font-size: 14.29px;">Visual Studio 2015</a> <a href="/tags/WCF/" style="font-size: 10.71px;">WCF</a> <a href="/tags/Web-API/" style="font-size: 10.71px;">Web API</a> <a href="/tags/Web-Development/" style="font-size: 10px;">Web Development</a> <a href="/tags/Web-Services/" style="font-size: 10.71px;">Web Services</a> <a href="/tags/Windows-8/" style="font-size: 11.43px;">Windows 8</a> <a href="/tags/Windows-Azure/" style="font-size: 10px;">Windows Azure</a> <a href="/tags/Windows-Phone/" style="font-size: 14.29px;">Windows Phone</a> <a href="/tags/Windws-Live-Writer/" style="font-size: 10px;">Windws Live Writer</a> <a href="/tags/Winnipeg/" style="font-size: 10.71px;">Winnipeg</a> <a href="/tags/c/" style="font-size: 11.43px;">c#</a> <a href="/tags/compiling/" style="font-size: 10px;">compiling</a> <a href="/tags/jQuery/" style="font-size: 12.14px;">jQuery</a> <a href="/tags/jQuery-UI/" style="font-size: 10.71px;">jQuery UI</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/open-source/" style="font-size: 10.71px;">open source</a> <a href="/tags/reflection/" style="font-size: 10px;">reflection</a> <a href="/tags/seed-data/" style="font-size: 10px;">seed data</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a>
+      <a href="/tags/30DaysMvcBootstrap/" style="font-size: 17.86px;">30DaysMvcBootstrap</a> <a href="/tags/8DaysOfTableStorage/" style="font-size: 11.43px;">8DaysOfTableStorage</a> <a href="/tags/ASP-NET/" style="font-size: 15px;">ASP.NET</a> <a href="/tags/ASP-NET-5/" style="font-size: 10.71px;">ASP.NET 5</a> <a href="/tags/ASP-NET-Core/" style="font-size: 11.43px;">ASP.NET Core</a> <a href="/tags/ActionFilters/" style="font-size: 10px;">ActionFilters</a> <a href="/tags/Android/" style="font-size: 10.71px;">Android</a> <a href="/tags/AngelaSmith/" style="font-size: 10px;">AngelaSmith</a> <a href="/tags/Asp-Net-MVC/" style="font-size: 20px;">Asp.Net MVC</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Azure/" style="font-size: 17.14px;">Azure</a> <a href="/tags/Azure-Web-Apps/" style="font-size: 10px;">Azure Web Apps</a> <a href="/tags/Azure-Websites/" style="font-size: 13.57px;">Azure Websites</a> <a href="/tags/BUILD/" style="font-size: 10px;">BUILD</a> <a href="/tags/BitBucket/" style="font-size: 10px;">BitBucket</a> <a href="/tags/Bootstrap/" style="font-size: 15.71px;">Bootstrap</a> <a href="/tags/CTT-NUG/" style="font-size: 10px;">CTT .NUG</a> <a href="/tags/Calgary/" style="font-size: 10px;">Calgary</a> <a href="/tags/Cisco-VPN/" style="font-size: 10px;">Cisco VPN</a> <a href="/tags/ClearMeasure/" style="font-size: 10.71px;">ClearMeasure</a> <a href="/tags/CodeProject/" style="font-size: 11.43px;">CodeProject</a> <a href="/tags/Conferences/" style="font-size: 10.71px;">Conferences</a> <a href="/tags/CouchDb/" style="font-size: 10px;">CouchDb</a> <a href="/tags/DNX/" style="font-size: 10px;">DNX</a> <a href="/tags/Dojo/" style="font-size: 10px;">Dojo</a> <a href="/tags/Email/" style="font-size: 10px;">Email</a> <a href="/tags/Entity-Framework/" style="font-size: 13.57px;">Entity Framework</a> <a href="/tags/Extension-Methods/" style="font-size: 10px;">Extension Methods</a> <a href="/tags/FontAwesome/" style="font-size: 10.71px;">FontAwesome</a> <a href="/tags/GenFu/" style="font-size: 10px;">GenFu</a> <a href="/tags/GetManifestResourceStream/" style="font-size: 10px;">GetManifestResourceStream</a> <a href="/tags/Git/" style="font-size: 11.43px;">Git</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HackAThon/" style="font-size: 10px;">HackAThon</a> <a href="/tags/HtmlHelper/" style="font-size: 10px;">HtmlHelper</a> <a href="/tags/IIS/" style="font-size: 10px;">IIS</a> <a href="/tags/JSON/" style="font-size: 10.71px;">JSON</a> <a href="/tags/Keynote/" style="font-size: 10px;">Keynote</a> <a href="/tags/Life-Hack/" style="font-size: 10px;">Life Hack</a> <a href="/tags/Life-Hacking/" style="font-size: 10.71px;">Life Hacking</a> <a href="/tags/Life-Hacks/" style="font-size: 12.14px;">Life Hacks</a> <a href="/tags/Linq/" style="font-size: 10px;">Linq</a> <a href="/tags/MIX11/" style="font-size: 10px;">MIX11</a> <a href="/tags/MVA/" style="font-size: 10.71px;">MVA</a> <a href="/tags/MVC/" style="font-size: 19.29px;">MVC</a> <a href="/tags/MVC5/" style="font-size: 18.57px;">MVC5</a> <a href="/tags/MVC6/" style="font-size: 13.57px;">MVC6</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/Make-Code-Not-War/" style="font-size: 10px;">Make Code Not War</a> <a href="/tags/MeasureUp/" style="font-size: 10px;">MeasureUp</a> <a href="/tags/Metro/" style="font-size: 10px;">Metro</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Microsoft-Band/" style="font-size: 12.14px;">Microsoft Band</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Mobile-Services/" style="font-size: 10px;">Mobile Services</a> <a href="/tags/Motivate/" style="font-size: 10px;">Motivate</a> <a href="/tags/MvcScaffolding/" style="font-size: 11.43px;">MvcScaffolding</a> <a href="/tags/Not-Coding-At-All/" style="font-size: 10px;">Not Coding At All</a> <a href="/tags/NuGet/" style="font-size: 15px;">NuGet</a> <a href="/tags/OData/" style="font-size: 10px;">OData</a> <a href="/tags/PayPal/" style="font-size: 10px;">PayPal</a> <a href="/tags/PostSharp/" style="font-size: 10px;">PostSharp</a> <a href="/tags/Practice/" style="font-size: 10.71px;">Practice</a> <a href="/tags/Practice-of-Awesome/" style="font-size: 10px;">Practice of Awesome</a> <a href="/tags/PrairieDevCon/" style="font-size: 16.43px;">PrairieDevCon</a> <a href="/tags/Queues/" style="font-size: 10px;">Queues</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/Radio/" style="font-size: 10px;">Radio</a> <a href="/tags/Razor/" style="font-size: 10.71px;">Razor</a> <a href="/tags/Real-Life/" style="font-size: 10px;">Real Life</a> <a href="/tags/Regina/" style="font-size: 10.71px;">Regina</a> <a href="/tags/Remote-Work/" style="font-size: 10.71px;">Remote Work</a> <a href="/tags/Resolve/" style="font-size: 10px;">Resolve</a> <a href="/tags/Rock-Paper-Scissors/" style="font-size: 10px;">Rock Paper Scissors</a> <a href="/tags/Routing/" style="font-size: 10px;">Routing</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 10px;">Ruby on Rails</a> <a href="/tags/SDEC/" style="font-size: 10px;">SDEC</a> <a href="/tags/SOAP/" style="font-size: 10px;">SOAP</a> <a href="/tags/SQL-Server/" style="font-size: 10px;">SQL Server</a> <a href="/tags/ServiceBus/" style="font-size: 10px;">ServiceBus</a> <a href="/tags/SignalR/" style="font-size: 11.43px;">SignalR</a> <a href="/tags/Speaking/" style="font-size: 11.43px;">Speaking</a> <a href="/tags/TFS/" style="font-size: 10px;">TFS</a> <a href="/tags/Table-Storage/" style="font-size: 10.71px;">Table Storage</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/Unit-Testing/" style="font-size: 10px;">Unit Testing</a> <a href="/tags/Visual-Studio/" style="font-size: 10.71px;">Visual Studio</a> <a href="/tags/Visual-Studio-11/" style="font-size: 11.43px;">Visual Studio 11</a> <a href="/tags/Visual-Studio-2010/" style="font-size: 16.43px;">Visual Studio 2010</a> <a href="/tags/Visual-Studio-2012/" style="font-size: 12.86px;">Visual Studio 2012</a> <a href="/tags/Visual-Studio-2013/" style="font-size: 10.71px;">Visual Studio 2013</a> <a href="/tags/Visual-Studio-2015/" style="font-size: 14.29px;">Visual Studio 2015</a> <a href="/tags/WCF/" style="font-size: 10.71px;">WCF</a> <a href="/tags/Web-API/" style="font-size: 10.71px;">Web API</a> <a href="/tags/Web-Development/" style="font-size: 10px;">Web Development</a> <a href="/tags/Web-Services/" style="font-size: 10.71px;">Web Services</a> <a href="/tags/Windows-8/" style="font-size: 11.43px;">Windows 8</a> <a href="/tags/Windows-Azure/" style="font-size: 10px;">Windows Azure</a> <a href="/tags/Windows-Phone/" style="font-size: 14.29px;">Windows Phone</a> <a href="/tags/Windws-Live-Writer/" style="font-size: 10px;">Windws Live Writer</a> <a href="/tags/Winnipeg/" style="font-size: 10.71px;">Winnipeg</a> <a href="/tags/c/" style="font-size: 11.43px;">c#</a> <a href="/tags/compiling/" style="font-size: 10px;">compiling</a> <a href="/tags/jQuery/" style="font-size: 12.14px;">jQuery</a> <a href="/tags/jQuery-UI/" style="font-size: 10.71px;">jQuery UI</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/open-source/" style="font-size: 10.71px;">open source</a> <a href="/tags/reflection/" style="font-size: 10px;">reflection</a> <a href="/tags/seed-data/" style="font-size: 10px;">seed data</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a>
     </div>
   </div>
 
@@ -1000,7 +753,7 @@ Angie’s not alone; she has a friend who can also help fill in a single propert
   <div class="widget-wrap">
     <h3 class="widget-title">archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">42</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/">2012</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">36</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">42</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/">2012</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">36</span></li></ul>
     </div>
   </div>
 
