@@ -65,6 +65,8 @@ With practices like these in place, you'll find that you actually have some peac
 
 By the way, the same is also true when starting your day: you should have an easy way to get going in the morning so that as soon as you sit down at your computer you are ready to be productive and get into your daily flow. As a software developer, I actually have a script that I run that spins up my tools and opens the folders that I need so that everything I'll be working on is in front of me. Even if my computer has rebooted or applied updates, I am ready to rock out on my project in just a few seconds.  If you're interested, here's an example of a script I use to get my day started.
 
+<script src="https://gist.github.com/MisterJames/8a1548564202a1b96d1a.js"></script>
+
 Finally, wind down! [I walk home](http://jameschambers.com/2015/03/working-from-home-and-walking-to-work-surviving-remote-work/) on most days to disconnect from work. I have friend who hits the gym and others for whom the timing works to break off at the end of the day and go pick up the kids.
 
 ## Where Does This Leave You?
