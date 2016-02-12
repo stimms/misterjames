@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Building the Web and Other Musings]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jameschambers.com/"/>
-  <updated>2016-02-12T04:55:57.224Z</updated>
+  <updated>2016-02-12T05:02:50.920Z</updated>
   <id>http://jameschambers.com/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Tips for Getting Visual Studio Running Quickly]]></title>
+    <title><![CDATA[Tips for Speeding Up Visual Studio]]></title>
     <link href="http://jameschambers.com/2016/02/building-your-project-should-be-pretty-quick/"/>
     <id>http://jameschambers.com/2016/02/building-your-project-should-be-pretty-quick/</id>
     <published>2016-02-12T04:12:54.000Z</published>
-    <updated>2016-02-12T04:55:57.224Z</updated>
+    <updated>2016-02-12T05:02:50.920Z</updated>
     <content type="html"><![CDATA[<p>People, this is 2016. If you’re waiting on your project to build or feel like your IDE is sluggish, it’s time to inventory and make sure you have the optimal configuraiton for development rig. Let’s talk quickly about the things that make your machine go fast (or slow) and some simple tweaks that can get your builds moving along more quickly.</p>
 <p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/02/safemode.png" alt="Launching VS in Safe Mode"></p>
 <a id="more"></a>
