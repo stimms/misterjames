@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Building the Web and Other Musings]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jameschambers.com/"/>
-  <updated>2016-02-01T02:19:48.052Z</updated>
+  <updated>2016-02-12T04:55:57.224Z</updated>
   <id>http://jameschambers.com/</id>
   
   <author>
@@ -13,6 +13,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Tips for Getting Visual Studio Running Quickly]]></title>
+    <link href="http://jameschambers.com/2016/02/building-your-project-should-be-pretty-quick/"/>
+    <id>http://jameschambers.com/2016/02/building-your-project-should-be-pretty-quick/</id>
+    <published>2016-02-12T04:12:54.000Z</published>
+    <updated>2016-02-12T04:55:57.224Z</updated>
+    <content type="html"><![CDATA[<p>People, this is 2016. If you’re waiting on your project to build or feel like your IDE is sluggish, it’s time to inventory and make sure you have the optimal configuraiton for development rig. Let’s talk quickly about the things that make your machine go fast (or slow) and some simple tweaks that can get your builds moving along more quickly.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/02/safemode.png" alt="Launching VS in Safe Mode"></p>
+<a id="more"></a>
+<p>In a recent ASP.NET Community Standup, the team quickly ran through a list of things that you can do to make sure that your environment is in check for building as quickly as possible and running a stable version of Visual Studio. These tips included:</p>
+<ul>
+<li>Start Visual Studio is Safe Mode</li>
+<li>Run on an SSD</li>
+<li>Exclude dev tools and folders from anti-virus software</li>
+<li>Use a RAM disk for your code</li>
+<li>Figure out _what is actually causing your </li>
+<li>Disabling features</li>
+</ul>
+<h2 id="Start_Visual_Studio_in_Safe_Mode"><a href="#Start_Visual_Studio_in_Safe_Mode" class="headerlink" title="Start Visual Studio in Safe Mode"></a>Start Visual Studio in Safe Mode</h2><p>This is an easy tip to try out and has no impact on your normal dev environment. It’s not as destructive as, say, resetting Visual Studio and nuking all your plugins. Just open a Visual Studio command prompt (I typically do so as admin) and launch the IDE like so:</p>
+<p>`devenv /SafeMode</p>
+<p>Many times extensions crap out and slow you down. There are some great ones out there, so I would never suggest removing them all. I have a love-hate relationship with ReSharper and often disable it, especially when I’m travelling and can’t be plugged in to step up my CPU speed.</p>
+<h2 id="Run_on_an_SSD"><a href="#Run_on_an_SSD" class="headerlink" title="Run on an SSD"></a>Run on an SSD</h2><p>This was a game changer for me: it was a tough pill to swallow, but going from hundreds of gigs of space down to ~40 on my first SSD was so worth it. Over the last couple of years I’ve upgraded along the way and currently have two that I sit on (on my two different rigs).</p>
+<blockquote>
+<p>If you can hear your hard drive, you are going to be an unhappy individual in your life. - Scott Hanselman</p>
+</blockquote>
+<p>I recommend <a href="http://www.amazon.ca/gp/product/B00OAJ412U/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&amp;camp=15121&amp;creative=330641&amp;creativeASIN=B00OAJ412U&amp;linkCode=as2&amp;tag=chasthelist-20" target="_blank" rel="external">this one</a> or <a href="http://www.amazon.ca/gp/product/B00OBRFFAS/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&amp;camp=15121&amp;creative=330641&amp;creativeASIN=B00OBRFFAS&amp;linkCode=as2&amp;tag=chasthelist-20" target="_blank" rel="external">this one</a> and can vouch for your <code>_happy++;</code> should you make the switch. The thing I love about the Samsungs is the little Magician software they bundle with the drives so that you can easily drop your HDD and move all your data over to the new, faster kit.</p>
+<h2 id="Exclude_Your_Tooling_and_Code_From_Anti-Virus_Software"><a href="#Exclude_Your_Tooling_and_Code_From_Anti-Virus_Software" class="headerlink" title="Exclude Your Tooling and Code From Anti-Virus Software"></a>Exclude Your Tooling and Code From Anti-Virus Software</h2><p>I want to make it perfectly clear that while I agree with this tip and do this myself, it’s not one that you should take lightly as you’re removing a layer of protection from your computer. So don’t do it. Unless you want to run faster, in which case, exclude these guys from your real-time scan:</p>
+<ul>
+<li>devenv</li>
+<li>msbuild</li>
+<li>your code folder</li>
+</ul>
+<p>I’m running McAfee, which looks like this when you drill in from the dashboard:</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/02/anti-virus-exclude.PNG" alt="Excluding Tools from Virus Scans"></p>
+<p>Pretty easy to setup, and you’ll get some of your day back. But I told you not to do it.</p>
+<h2 id="Use_a_RAM_Disk_For_Your_Code"><a href="#Use_a_RAM_Disk_For_Your_Code" class="headerlink" title="Use a RAM Disk For Your Code"></a>Use a RAM Disk For Your Code</h2><p>There isn’t enough gain for me to recommend this one. I actually tried it a couple of years ago when I got my first SSD and the speed wasn’t greatly improved. On top of that, it required slicing out RAM, running scripts to mirror or copy over the code and ran the risk of data loss if the computer freezes. If you can drop $100 or less on an SSD, it’s just not worth it to run a RAM disk. Some folks argue that it’s 10x the speed (or more) than an SSD, but I wasn’t sold on that sales pitch.</p>
+<p><em>That said</em>, if you’re still on an HDD, I can confirm that running on a RAM disk will be a Godsend. Most recently I have used <a href="http://www.ltr-data.se/opencode.html/" target="_blank" rel="external">this one</a> but I haven’t tried it on Win 10. There’s also a commercial one that <a href="http://www.superspeed.com/desktop/ramdisk.php" target="_blank" rel="external">a friend of mine swears by</a>. </p>
+<h2 id="Figure_Out_What_is_Actually_Causing_Your_Grief"><a href="#Figure_Out_What_is_Actually_Causing_Your_Grief" class="headerlink" title="Figure Out What is Actually Causing Your Grief"></a>Figure Out What is Actually Causing Your Grief</h2><p>There’s a great tool that most devs I know run on their machine, the much-improved version of process monitor from <a href="https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx" target="_blank" rel="external">sysinternals</a>:</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/02/sysinternals-procmon.PNG" alt="Process Monitor"></p>
+<p>SIPM will reveal everything that gets logged out by any processes that are running, from disk reads/writes to thread allocation to network activity and more. If you ever figured there wasn’t a lot to do when you “just wanted to build”, you’ll be quite surprised when you build your project and see tens of thousands of events drop in milliseconds. Computers are awesome.</p>
+<p>Simply start up process monitor, then start Visual Studio and watch for events. You can start honing in and finding what is causing your grief. I find the best way to get at things is by excluding the bits that you know are not the problem, like explorer.exe, and then honing in by excluding things like reading from the registry.  </p>
+<h2 id="Disabling_Features"><a href="#Disabling_Features" class="headerlink" title="Disabling Features"></a>Disabling Features</h2><p>Things like IntelliTrace offer great benefits, but if you’re in power-saver mode you’re going to find yourself crying for processor cycles. I notice when travelling, when I often find myself not plugged in, that builds can drag on and debugging can be brutal if you have certain features on. Check to see if you have anything running that you don’t need. </p>
+<h2 id="Straight_from_the_Horse_u2019s_u2026"><a href="#Straight_from_the_Horse_u2019s_u2026" class="headerlink" title="Straight from the Horse’s…"></a>Straight from the Horse’s…</h2><p>You can watch the original video below (jumpt to the 36:00 mark), or hit it out on the <a href="https://youtu.be/niCDYdrCOu0?t=32m6s" target="_blank" rel="external">YouTubes</a>.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/niCDYdrCOu0" frameborder="0" allowfullscreen></iframe>
+
+<p>A huge thanks to the leaders there on the ASP.NET team who do the weekly standup and share their insight in this area. </p>
+<p>Happy Coding!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>People, this is 2016. If you’re waiting on your project to build or feel like your IDE is sluggish, it’s time to inventory and make sure you have the optimal configuraiton for development rig. Let’s talk quickly about the things that make your machine go fast (or slow) and some simple tweaks that can get your builds moving along more quickly.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/02/safemode.png" alt="Launching VS in Safe Mode"></p>]]>
+    
+    </summary>
+    
+      <category term="Visual Studio 2015" scheme="http://jameschambers.com/tags/Visual-Studio-2015/"/>
+    
+      <category term="Development" scheme="http://jameschambers.com/categories/Development/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Leaving Your Work at Work (When You Work From Home)]]></title>
@@ -1585,36 +1645,6 @@ Finally, we’ll add a little more meat to our our Main method:
       <category term="MVC6" scheme="http://jameschambers.com/tags/MVC6/"/>
     
       <category term="MVC6 Conversion" scheme="http://jameschambers.com/categories/MVC6-Conversion/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Workaround: NuGet Packages Failing to Download in Visual Studio 2015 RTM]]></title>
-    <link href="http://jameschambers.com/2015/07/workaround-nuget-packages-failing-to-download-in-visual-studio-2015-rtm/"/>
-    <id>http://jameschambers.com/2015/07/workaround-nuget-packages-failing-to-download-in-visual-studio-2015-rtm/</id>
-    <published>2015-07-23T19:59:39.000Z</published>
-    <updated>2016-01-20T03:26:07.925Z</updated>
-    <content type="html"><![CDATA[<p>I haven’t figured out a common theme yet, but certain packages are failing to restore when you attempt to install them from the NuGet primary feed via the project.json file in Visual Studio 2015. Thanks to <a href="https://twitter.com/BrockLAllen" target="_blank" rel="external">Brock Allen</a> for confirming I wasn’t going insane.</p>
-<p>A couple of things I’ve discovered:</p>
-<ul>
-<li>This seems to be more common for prerelease packages</li>
-<li>It seems to work if the package has a previous release version (not in pre)</li>
-</ul>
-<p>As a workaround, you can add the packages manually via the dialog in Visual Studio, just make sure you hit that pre-release flag:</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image3.png" alt="image" title="image"></p>
-<p>If that doesn’t work for you – sometimes I’m not seeing the package above in my feed – if you have it you can add another NuGet feed to an alternate package source, like I’ve done here with AutoFac’s nightly build feed:</p>
-<p><a href="https://jcblogimages.blob.core.windows.net/img/2015/07/image4.png" target="_blank" rel="external"><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image_thumb1.png" alt="image" title="image"></a></p>
-<p>The other thing is that once you get it installed in your system cache, it will resolve it from there, which I imagine makes it harder to triage for anyone trying to figure out what’s going on.</p>
-<p>I’m seeing various confirmations of this on Twitter:</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image5.png" alt="image" title="image"></p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image6.png" alt="image" title="image"></p>
-<p>With NuGet 3 being release (and part of VS 2015) I think some package authors are unsure if it’s their problem or what the case may be. Depending on the method you come at it, it’s possible that you can still get the package, but I would say it seems unpredictable right now.</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>I haven’t figured out a common theme yet, but certain packages are failing to restore when you attempt to install them from the NuGet pri]]>
-    </summary>
-    
-      <category term="Uncategorized" scheme="http://jameschambers.com/categories/Uncategorized/"/>
     
   </entry>
   
