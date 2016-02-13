@@ -15,18 +15,20 @@ People, this is 2016. If you're waiting on your project to build or feel like yo
 <!-- more -->
 
 In a recent ASP.NET Community Standup, the team quickly ran through a list of things that you can do to make sure that your environment is in check for building as quickly as possible and running a stable version of Visual Studio.<!-- more --> These tips included:
- - Start Visual Studio is Safe Mode
+ - Start Visual Studio in Safe Mode
  - Run on an SSD
  - Exclude dev tools and folders from anti-virus software
  - Use a RAM disk for your code
- - Figure out _what is actually causing your 
+ - Figure out _what is actually causing your grief_ 
  - Disabling features
+
+_*Update*: I've gotten a few great ideas in the comments below and would love to hear more! Please feel free to add your thoughts in the comments!_
 
 ## Start Visual Studio in Safe Mode
 
 This is an easy tip to try out and has no impact on your normal dev environment. It's not as destructive as, say, resetting Visual Studio and nuking all your plugins. Just open a Visual Studio command prompt (I typically do so as admin) and launch the IDE like so:
 
-`devenv /SafeMode
+`devenv /SafeMode`
 
 Many times extensions crap out and slow you down. There are some great ones out there, so I would never suggest removing them all. I have a love-hate relationship with ReSharper and often disable it, especially when I'm travelling and can't be plugged in to step up my CPU speed.
 
@@ -79,5 +81,9 @@ You can watch the original video below (jumpt to the 36:00 mark), or hit it out 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/niCDYdrCOu0" frameborder="0" allowfullscreen></iframe>
 
 A huge thanks to the leaders there on the ASP.NET team who do the weekly standup and share their insight in this area. 
+
+## How About You?
+
+Do you have any tips for others using Visual Studio? Any tricks you think have helped you reach performance nirvana? Please share your thoughts below!
 
 Happy Coding!
