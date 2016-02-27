@@ -103,4 +103,20 @@
     $(document).scrollTop(0);
   });
 
+  // Visisble Check
+  var hasBeenVisible = false;
+  $( window ).scroll(function() {
+    if(!hasBeenVisible) {
+        if($("#comments").offset().top < $(window).scrollTop() + $(window).outerHeight()) {
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'Reading',
+                eventAction: 'complete-page',
+                eventLabel: 'Visibility Tracking'
+            });
+            hasBeenVisible = true; 
+        }
+    }
+  });
+  
 })(jQuery);
