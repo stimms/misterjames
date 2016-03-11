@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Building the Web and Other Musings]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jameschambers.com/"/>
-  <updated>2016-03-11T04:04:49.135Z</updated>
+  <updated>2016-03-11T12:46:07.693Z</updated>
   <id>http://jameschambers.com/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[These People are Monsters! Here's Some Great Videos Covering ASP.NET Core and MVC Core]]></title>
+    <title><![CDATA[These People are Monsters! Here's Some Great Videos Covering ASP.NET Core and Core MVC]]></title>
     <link href="http://jameschambers.com/2016/03/these-people-are-monsters/"/>
     <id>http://jameschambers.com/2016/03/these-people-are-monsters/</id>
     <published>2016-03-11T02:48:38.000Z</published>
-    <updated>2016-03-11T04:04:49.135Z</updated>
+    <updated>2016-03-11T12:46:07.693Z</updated>
     <content type="html"><![CDATA[<p>I have had the privledge and pleasure of working with my good friends <a href="https://twitter.com/stimms" target="_blank" rel="external">Simon Timms</a> and <a href="https://twitter.com/Dave_Paquette" target="_blank" rel="external">Dave Paquette</a> on our new video series, The Monsters Weekly. Recently we have been added as <a href="https://channel9.msdn.com/Series/AspNetMonsters" target="_blank" rel="external">Channel 9</a> regulars on MSDN and we’ve been putting together two videos a week for the ASP.NET community. </p>
 <p><img alt="" src="http://aspnetmonsters.com/images/logo_579.png"></p>
 <a id="more"></a>
@@ -28,7 +28,7 @@
 <h3 id="ASP-NET_Core_-_Generally_Speaking"><a href="#ASP-NET_Core_-_Generally_Speaking" class="headerlink" title="ASP.NET Core - Generally Speaking"></a>ASP.NET Core - Generally Speaking</h3><ul>
 <li><a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-1-Startupcs" target="_blank" rel="external">A Walkthrough of Startup.cs</a></li>
 <li><a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-8-Tour-of-the-Default-ASPNET-MVC-Project" target="_blank" rel="external">A Walkthrough of the Default MVC Project</a></li>
-<li><a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-9-What-Makes-a-Controller" target="_blank" rel="external">Looking at Changes to Controllers in MVC Core</a></li>
+<li><a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-9-What-Makes-a-Controller" target="_blank" rel="external">Looking at Changes to Controllers in Core MVC</a></li>
 </ul>
 <h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><ul>
 <li><a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-5-Configuration-Settings" target="_blank" rel="external">A Look at the ASP.NET Core Configuration System</a></li>
@@ -39,7 +39,7 @@
 <li><a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-7-Custom-Tag-Helpers" target="_blank" rel="external">Creating Custom Tag Helpers</a></li>
 <li><a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-2-Static-Files" target="_blank" rel="external">Serving Static Files in ASP.NET Core</a></li>
 <li><a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-3-Default-Gulp-File" target="_blank" rel="external">A Breakdown of the Default Gulp File in the Project Template</a></li>
-<li><a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-4-Tag-Helpers-in-Razor" target="_blank" rel="external">Using Tag Helpers to Help Construct Views in MVC Core and the Razor View Engine</a></li>
+<li><a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-4-Tag-Helpers-in-Razor" target="_blank" rel="external">Using Tag Helpers to Help Construct Views in Core MVC and the Razor View Engine</a></li>
 </ul>
 <p>As you can see, we’re trying to flesh out all areas to cover all aspects of software development. In the weeks ahead we’re going to be breaking into Docker, the <code>dotnet</code> CLI, changes coming in RC2 and more. </p>
 <p><a href="https://channel9.msdn.com/Series/aspnetmonsters?sort=recent#tab_sortBy_recent" target="_blank" rel="external"><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/03/monsters-on-channel-9.png" alt="The ASP.NET Monsters on Channel 9"></a></p>
