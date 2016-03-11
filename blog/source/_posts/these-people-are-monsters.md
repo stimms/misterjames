@@ -1,4 +1,4 @@
-title: These People are Monsters! Here's Some Great Videos Covering ASP.NET Core and MVC Core
+title: These People are Monsters! Here's Some Great Videos Covering ASP.NET Core and Core MVC
 layout: post
 tags:
   - ASP.NET Core
@@ -25,7 +25,7 @@ Here's a short summary of the first videos we put together on our channel.
 
  - [A Walkthrough of Startup.cs](https://channel9.msdn.com/Series/aspnetmonsters/Episode-1-Startupcs)
  - [A Walkthrough of the Default MVC Project](https://channel9.msdn.com/Series/aspnetmonsters/Episode-8-Tour-of-the-Default-ASPNET-MVC-Project)
- - [Looking at Changes to Controllers in MVC Core](https://channel9.msdn.com/Series/aspnetmonsters/Episode-9-What-Makes-a-Controller)
+ - [Looking at Changes to Controllers in Core MVC](https://channel9.msdn.com/Series/aspnetmonsters/Episode-9-What-Makes-a-Controller)
 
 ### Configuration
  - [A Look at the ASP.NET Core Configuration System](https://channel9.msdn.com/Series/aspnetmonsters/Episode-5-Configuration-Settings)
@@ -36,7 +36,7 @@ Here's a short summary of the first videos we put together on our channel.
  - [Creating Custom Tag Helpers](https://channel9.msdn.com/Series/aspnetmonsters/Episode-7-Custom-Tag-Helpers)
  - [Serving Static Files in ASP.NET Core](https://channel9.msdn.com/Series/aspnetmonsters/Episode-2-Static-Files)
  - [A Breakdown of the Default Gulp File in the Project Template](https://channel9.msdn.com/Series/aspnetmonsters/Episode-3-Default-Gulp-File)
- - [Using Tag Helpers to Help Construct Views in MVC Core and the Razor View Engine](https://channel9.msdn.com/Series/aspnetmonsters/Episode-4-Tag-Helpers-in-Razor)
+ - [Using Tag Helpers to Help Construct Views in Core MVC and the Razor View Engine](https://channel9.msdn.com/Series/aspnetmonsters/Episode-4-Tag-Helpers-in-Razor)
 
 As you can see, we're trying to flesh out all areas to cover all aspects of software development. In the weeks ahead we're going to be breaking into Docker, the `dotnet` CLI, changes coming in RC2 and more. 
 
