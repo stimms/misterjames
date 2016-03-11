@@ -8,7 +8,7 @@ authorId: james_chambers
 originalUrl: 'http://jameschambers.com/'
 date: 2016-02-11 22:12:54
 ---
-People, this is 2016. If you're waiting on your project to build or feel like your IDE is sluggish, it's time to inventory and make sure you have the optimal configuraiton for development rig. Let's talk quickly about the things that make your machine go fast (or slow) and some simple tweaks that can get your builds moving along more quickly.
+People, this is 2016. If you're waiting on your project to build or feel like your IDE is sluggish, it's time to inventory and make sure you have the optimal configurition for development rig. Let's talk quickly about the things that make your machine go fast (or slow) and some simple tweaks that can get your builds moving along more quickly.
 
 ![Launching VS in Safe Mode](https://jcblogimages.blob.core.windows.net:443/img/2016/02/safemode.png)
 
@@ -76,7 +76,7 @@ Things like IntelliTrace offer great benefits, but if you're in power-saver mode
 
 ## Straight from the Horse's...
 
-You can watch the original video below (jumpt to the 36:00 mark), or hit it out on the [YouTubes](https://youtu.be/niCDYdrCOu0?t=32m6s).
+You can watch the original video below (jump to the 36:00 mark), or hit it out on the [YouTubes](https://youtu.be/niCDYdrCOu0?t=32m6s).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/niCDYdrCOu0" frameborder="0" allowfullscreen></iframe>
 
