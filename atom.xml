@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Building the Web and Other Musings]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jameschambers.com/"/>
-  <updated>2016-03-11T12:46:07.693Z</updated>
+  <updated>2016-03-13T00:52:58.880Z</updated>
   <id>http://jameschambers.com/</id>
   
   <author>
@@ -13,6 +13,83 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[If You Want to Get Into OSS, Consider This Project]]></title>
+    <link href="http://jameschambers.com/2016/03/If-You-Want-to-Get-Into-OSS-Consider-This-Project/"/>
+    <id>http://jameschambers.com/2016/03/If-You-Want-to-Get-Into-OSS-Consider-This-Project/</id>
+    <published>2016-03-13T00:24:44.000Z</published>
+    <updated>2016-03-13T00:52:58.880Z</updated>
+    <content type="html"><![CDATA[<p>AllReady is an in-production piece of software build on ASP.NET Core that helps to alleviate the challenges of planning disaster-preparedness campaigns, co-ordinating volunteers and executing activities at scale. There are tasks for all levels of developers, designers and folks with expertise in humanitarian relief efforts. </p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/03/allready-running.PNG" alt="HTBox&#39;s AllReady Application"></p>
+<a id="more"></a>
+<p>The tech stack is awesome, next-gen and constantly under refinement. It’s a blast to work on and you’ll get input directly from industry leaders, Microsoft MVPs and at times from members of the ASP.NET team from Redmond.  </p>
+<p><img style="float:right; margin-left:10px;" src="https://jcblogimages.blob.core.windows.net:443/img/2016/03/ht-logo.png">This is what we’re building on:</p>
+<ul>
+<li>Visual Studio 2015</li>
+<li>ASP.NET Core, Core MVC and Core Web API</li>
+<li>Azure Web Apps (Sites and Jobs)</li>
+<li>Azure Storage (Tables and Queues)</li>
+<li>AutoFac as the IoC container</li>
+<li>MediatR for messaging &amp; pub/sub provider</li>
+<li>Entity Framework 7</li>
+<li>GitHub and AppVeyor</li>
+<li>SendGrid and Twilio</li>
+<li>xUnit for testing</li>
+</ul>
+<p>That’s cool stuff. And here’s a little bit more about the software’s intent from the website:</p>
+<blockquote>
+<p>Preparedness campaigns are powered by neighbors helping neighbors and volunteers who give their time to strengthen their communities. allReady allows campaign coordinators to engage, contact and connect volunteers with the that need to be delivered.</p>
+</blockquote>
+<h1 id="Working_for_the_Greater_Good_with_Code"><a href="#Working_for_the_Greater_Good_with_Code" class="headerlink" title="Working for the Greater Good with Code"></a>Working for the Greater Good with Code</h1><p>For me, this has been an incredible opportunity to really make a difference doing something that I am good at. When I’ve been involved in other efforts, it’s always meant putting down my toolkit and the skills I have as a software developer in order to help in other ways.  And that’s been great! But as a contributor to AllReady, I get the opportunity to help build software that will help people, that can strengthen communities and make a difference in a meaningful way.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2016/03/code-a-thon-standup.PNG" alt="Our Weekly Standup - This Time During the Global Code-A-Thon"></p>
+<h1 id="The_Humanitarian_Toolbox"><a href="#The_Humanitarian_Toolbox" class="headerlink" title="The Humanitarian Toolbox"></a>The Humanitarian Toolbox</h1><p> Also known as HTBox, The Humanitarian Toolbox is a registered charity unlike most others. Rather than accepting donations to find a cure for a disease or support operating costs, HTBox uses its funds alongside volunteer efforts from the development community and input from internationally recognized leaders in humanitarian efforts. They do this to hone in on two different types of expertise:</p>
+<ol>
+<li>Software architecture, engineering and development</li>
+<li>Operational expertise in humanitarian works</li>
+</ol>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/11/image.png" alt="Heads Down in Redmond at the November 2015 Code-A-Thon"></p>
+<p>Their mission is to build open source software, freely available to any organization that can leverage it in order to relieve poverty, assist in crisis management and even save lives. HTBox operates on the following principle:</p>
+<blockquote>
+<p><em>The Next Big Storm is a Coding Challenge.</em> We are developers, designers, testers, and industry professionals who want to contribute our unique skills in disaster relief aid. Whether it is through creating apps that map the spread of disease or maintaining software that helps to optimize the delivery of relief supplies, Humanitarian Toolbox has a goal of creating software and programs for relief organizations to have ready in times of need.</p>
+</blockquote>
+<p>That’s a pretty lofty goal. So how are they going to get there?</p>
+<h1 id="What_u2019s_Been_Done_So_Far"><a href="#What_u2019s_Been_Done_So_Far" class="headerlink" title="What’s Been Done So Far"></a>What’s Been Done So Far</h1><p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/03/allready-pulse.PNG" alt="The Last Month&#39;s Pulse on AllReady"></p>
+<p>Considering this incarnation of the project has only been around for less than a year with no paid staff, these are some pretty impressive stats:</p>
+<ul>
+<li>1209 Commits to the repository</li>
+<li>228 Closed issues</li>
+<li>290 Closed pull requests</li>
+<li>42 Contributors</li>
+</ul>
+<p><img style="float:right; margin-left:10px;" alt="Retrospective after the Code-A-Thon in Redmond, Hosted by Microsoft" src="https://jcblogimages.blob.core.windows.net/img/2015/11/image2.png"></p>
+<p>Most of this work has been accomplished by planting seeds at code-a-thons where developers get aquainted with the the project and the process. Most recently we organized a truly <em>global</em> effort when over 40 developers from 5 countries jumped in on one day to party on the code and complete features that were needed by the inaugural organization that is using the software.</p>
+<p><img style="float:right; margin-left:10px;" src="https://jcblogimages.blob.core.windows.net/img/2016/03/red-cross.PNG"> Speaking of which, this is no small beans application: the American Red Cross is on board with the AllReady project providing leadership, testers and users through pilot programs in Chicago.</p>
+<h1 id="Next_Steps"><a href="#Next_Steps" class="headerlink" title="Next Steps"></a>Next Steps</h1><p>If you have been looking into working in open source, I highly recommend considering AllReady as a place to get started, even to settle in on. </p>
+<p>Here are some links to get you started:</p>
+<ul>
+<li><a href="https://github.com/HTBox/allReady/" target="_blank" rel="external">The AllReady repository on GitHub</a></li>
+<li><a href="http://www.davepaquette.com/archive/2016/01/24/Submitting-Your-First-Pull-request.aspx" target="_blank" rel="external">Dave Paquette’s excellent intro post to contributing</a></li>
+<li><a href="http://stevejgordon.co.uk/contributing-to-allready" target="_blank" rel="external">Steve Gordon’s thoughts and advice on joining AllReady</a></li>
+<li><a href="https://github.com/HTBox/allReady/wiki/Solution-architecture" target="_blank" rel="external">Read about AllReady’s architecture</a></li>
+</ul>
+<p>Happy coding!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>AllReady is an in-production piece of software build on ASP.NET Core that helps to alleviate the challenges of planning disaster-preparedness campaigns, co-ordinating volunteers and executing activities at scale. There are tasks for all levels of developers, designers and folks with expertise in humanitarian relief efforts. </p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/03/allready-running.PNG" alt="HTBox&#39;s AllReady Application"></p>]]>
+    
+    </summary>
+    
+      <category term="ASP.NET Core" scheme="http://jameschambers.com/tags/ASP-NET-Core/"/>
+    
+      <category term="AllReady" scheme="http://jameschambers.com/tags/AllReady/"/>
+    
+      <category term="Visual Studio 2015" scheme="http://jameschambers.com/tags/Visual-Studio-2015/"/>
+    
+      <category term="Development" scheme="http://jameschambers.com/categories/Development/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[These People are Monsters! Here's Some Great Videos Covering ASP.NET Core and Core MVC]]></title>
@@ -1603,58 +1680,6 @@ Finally, we’ll add a little more meat to our our Main method:
       <category term="MVC6" scheme="http://jameschambers.com/tags/MVC6/"/>
     
       <category term="Visual Studio 2015" scheme="http://jameschambers.com/tags/Visual-Studio-2015/"/>
-    
-      <category term="MVC6 Conversion" scheme="http://jameschambers.com/categories/MVC6-Conversion/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Moving to VS 2015 from VS 2013]]></title>
-    <link href="http://jameschambers.com/2015/07/moving-to-vs-2015-from-vs-2013/"/>
-    <id>http://jameschambers.com/2015/07/moving-to-vs-2015-from-vs-2013/</id>
-    <published>2015-07-24T01:45:48.000Z</published>
-    <updated>2016-01-20T03:26:06.399Z</updated>
-    <content type="html"><![CDATA[<p>The folks on the Visual Studio team have been making it increasingly easier to move from version-to-version with less impact on our projects. In this post I’m going to examine the process of moving from Visual Studio 2013 to Visual Studio 2015.</p>
-<p><em>In this series we’re working through the conversion of an MVC 5-based application and migrating it to MVC 6. You can track the entire series of posts from the </em><a href="http://jameschambers.com/2015/07/upgrading-a-real-world-mvc-5-application-to-mvc-6/"><em>intro page</em></a><em>.</em></p>
-<h2 id="The_Backstory"><a href="#The_Backstory" class="headerlink" title="The Backstory"></a>The Backstory</h2><p>First, a bit about our application. I said this was a real-world application, and it is. You can <a href="https://github.com/ClearMeasureLabs/ClearMeasureBootcamp" target="_blank" rel="external">clone the repo</a> and run it locally if you like.</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image10.png" alt="image" title="image"></p>
-<p>What we have is an expense report application, albeit a little on the light side for features. No worries, though, that is the intent! But the real pieces of an application sporting <a href="http://jeffreypalermo.com/blog/the-onion-architecture-part-1/" target="_blank" rel="external">Onion Architecture</a> are in place, and there’s quite a bit of commonly-used tech in this bad boy that you would likely find in any real-world app:</p>
-<ul>
-<li><a href="https://jcblogimages.blob.core.windows.net/img/2015/07/image11.png" target="_blank" rel="external"><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image_thumb4.png" alt="image" title="image"></a>Separate projects for separate concerns</li>
-<li>A UI Project that stands with only a single reference (to Core)</li>
-<li>An older version of NHibernate</li>
-<li>Unit tests</li>
-<li>HTTP Handlers</li>
-<li>The Bootstrap CSS/JS library</li>
-<li>StructureMap for dependency injection</li>
-<li>A database migrations library</li>
-<li>A custom workflow engine</li>
-</ul>
-<p>So, this is no File –&gt; New –&gt; Project here, this is the real deal.</p>
-<h2 id="First_Steps"><a href="#First_Steps" class="headerlink" title="First Steps"></a>First Steps</h2><p>The first issue we’re going to address is the fact that our solution and project are currently in VS 2013 “mode”.&nbsp; In the past, you’d likely have to walk through some kind of conversion process and this was usually a compelling enough reason for people to back delay an upgrade. Did you ever have issues with incorrect file paths, incompatible project type identifiers, broken project references and builds broken due to missing dependencies? At times, I’ve even had to resort to manually editing the solution and project files to get a project back online.&nbsp; <strong>Thankfully, this is nothing like that</strong>. There is nothing major we need to do in order to get our project open in Visual Studio 2015, just load the solution from disk.</p>
-<p>In the case of Bootcamp, our project opens cleanly and builds as we would expect. But you’ll notice right away a change in the repo.</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image12.png" alt="image" title="image"></p>
-<p>Visual Studio 2015 runs IIS Express in a more specific context than previous versions, which is a huge win. The applicationhost.config is basically everything you need to get the web server up locally while you develop, debug and test, and it replaces what we would used to use for IIS Express for machine-wide configuration.</p>
-<p>This file also happens to be in the .vs directory, used only for devs running Visual Studio on Windows. It’s also easily regenerated for other developers and we don’t need to check it into source control, lest we be endlessly trumping each others’ local changes. Instead of any project or solution modifications, we’re instead going to modify the .gitignore file, adding the following line:</p>
-<pre class="csharpcode">**/src/.vs/</pre>
-
-<p>Great stuff! Easy, and we’re running in the latest version of everyone’s favorite IDE. We haven’t yet made any project structure changes, haven’t targeted any new .NET bits, but now we’re ready to start those pieces.</p>
-<p>The pull request for this post can be <a href="https://github.com/ClearMeasureLabs/ClearMeasureBootcamp/pull/10" target="_blank" rel="external">reviewed here</a>.</p>
-<p><strong><font style="background-color: rgb(204, 204, 204);">&nbsp; Pro tip&nbsp; </font></strong> To get your solution to open in Visual Studio 2015 by default, instead of Visual Studio 2013, you can simply update the first few lines of your .sln file to include the following:<br> <font face="Lucida Console"># Visual Studio 14</font></p>
-<p>VisualStudioVersion = 14.0.23107.0</p>
-<h2 id="Next_Steps"><a href="#Next_Steps" class="headerlink" title="Next Steps"></a>Next Steps</h2><p>I’ve been running different incarnations of VS 2015 on my machine alongside Visual Studio 2013 (and for a period, VS 2010 as well) without any gotchas. There are some great new features that are worth checking out (it’s <a href="https://www.visualstudio.com/en-us/news/vs2015-vs.aspx" target="_blank" rel="external">a long list</a>), and your team may be able to leverage them.</p>
-<p>While this is a short and single-focused post, I hope you see that opening the project in VS 2015 may yield no negative side effects. Heck, if you’re not sure you want to try it on your metal, you can even jump on a free trial of Azure and attempt to open your project on a VM running 2015.</p>
-<p>Happy coding! <img src="https://jcblogimages.blob.core.windows.net/img/2015/07/wlEmoticon-smile2.png" alt="Smile"></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>The folks on the Visual Studio team have been making it increasingly easier to move from version-to-version with less impact on our proje]]>
-    </summary>
-    
-      <category term="ClearMeasure" scheme="http://jameschambers.com/tags/ClearMeasure/"/>
-    
-      <category term="MVC5" scheme="http://jameschambers.com/tags/MVC5/"/>
-    
-      <category term="MVC6" scheme="http://jameschambers.com/tags/MVC6/"/>
     
       <category term="MVC6 Conversion" scheme="http://jameschambers.com/categories/MVC6-Conversion/"/>
     
