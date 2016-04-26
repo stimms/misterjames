@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Building the Web and Other Musings]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jameschambers.com/"/>
-  <updated>2016-03-13T00:52:58.880Z</updated>
+  <updated>2016-04-26T13:30:38.509Z</updated>
   <id>http://jameschambers.com/</id>
   
   <author>
@@ -15,11 +15,84 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[GitHub Authentication with ASP.NET Core]]></title>
+    <link href="http://jameschambers.com/2016/04/github-authentication-asp-net-core/"/>
+    <id>http://jameschambers.com/2016/04/github-authentication-asp-net-core/</id>
+    <published>2016-04-26T12:12:54.000Z</published>
+    <updated>2016-04-26T13:30:38.509Z</updated>
+    <content type="html"><![CDATA[<p>Authentication has changed over the years, and my take on it has surely shifted. No longer is it the scary, intimidating beastie that must be overcome on our projects. Today, we can let external providers provide the authentication mechanisms, giving the user with a streamlined experience that can give them access to our application with previuosly defined credentials.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2016/04/github-auth.png" alt="GitHub Authentication in ASP.NET Core"></p>
+<p>Let’s have a look at what it takes to allow users to authenticate in our application using GitHub as the login source, and you can check out the Monsters video take of this on <a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-26-GitHub-Authentication-in-ASPNET-Core" target="_blank" rel="external">Channel 9</a>.</p>
+<a id="more"></a>
+<h2 id="Background_and_Overview"><a href="#Background_and_Overview" class="headerlink" title="Background and Overview"></a>Background and Overview</h2><p>OAuth has been known as a complicated spec to adhere to, and this is further perpetuated by the fact that while much of the mechanics are the same among authentication providers, the implementation of how one retrieves information about the logged in user is different from source-to-source.</p>
+<p>The security repo for ASP.NET gives us some pretty good options for the big, wider market plays like Facebook and Twitter, but there is aren’t - nor can or should there be - packages for every provider. GitHub is appealing as a source when we target other developers, and while it lacks a package of its own, we can leverage the raw OAuth provider and implement the user profile loading details on our own. </p>
+<p>In short, the steps are as follows:</p>
+<ol>
+<li>Install the <code>Microsoft.AspNet.Authentication.OAuth</code> package</li>
+<li>Register you application in GitHub</li>
+<li>Configurate the OAuth parameters in your application</li>
+<li>Enable the OAuth middleware</li>
+<li>Retrieve the claims for the user</li>
+</ol>
+<p>Okay, now let’s dive into the nitty gritty of it.</p>
+<h2 id="Install_the_Package"><a href="#Install_the_Package" class="headerlink" title="Install the Package"></a>Install the Package</h2><p>First step is a gimme.  Just head into your <code>project.json</code> and add the package to the list of dependencies in your application.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#34;Microsoft.AspNet.Authentication.OAuth&#34;: &#34;1.0.0-rc1-final&#34;,</span><br></pre></td></tr></table></figure>
+<p>You can see here that I am on RC1, so assume there may still be some changes to the naming and, obviously, the version of the package you’ll want to use.</p>
+<h2 id="Create_the_App_in_GitHub"><a href="#Create_the_App_in_GitHub" class="headerlink" title="Create the App in GitHub"></a>Create the App in GitHub</h2><p>Pull down the user account menu from your avatar in the top-right corner of GitHub, then select Settings. Next, go to the OAuth Applications section and create a new application. This is pretty straightforward, but it’s worth pointing out a few things.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/04/github-app.png" alt="Creating an OAuth app in GitHub"></p>
+<p>First, you’ll need to note your client ID and secret, or minimally, you’ll want to leave the browser window open. </p>
+<p>Second you’ll see that I have a authorization callback setup in the app as follows:</p>
+<p><code>https://localhost:44363/signin-github</code></p>
+<p>This is important for two reasons: </p>
+<ol>
+<li>This will only work locally on your machine</li>
+<li>The <code>signin-github</code> bit will need to be configured in our middleware</li>
+</ol>
+<p>If you want better control over how that is configured in your application, you can incorporate the appropriate settings into your configuration files, but you’ll also need to update your GitHub app. This process is still relevant - you’ll likely want something to test with locallying without having to deploy to test your application.</p>
+<h2 id="Configure_Your_Client_ID_and_Secret"><a href="#Configure_Your_Client_ID_and_Secret" class="headerlink" title="Configure Your Client ID and Secret"></a>Configure Your Client ID and Secret</h2><p>  For production applications you’ll be fine to set environment variables or configure application settings in Azure (which are loaded as env vars), but locally you’ll want access to the config as well. You can setup <a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-23-Working-With-Sensitive-Data-User-Secrets" target="_blank" rel="external">user secrets via the command line</a>, or you can just right-click on your project in Visual Studio 2015 and select “Manage User Secrets”. From there, you set it up like so:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#10;  &#34;GitHub:ClientId&#34;: &#34;your_id&#34;,&#10;  &#34;GitHub:ClientSecret&#34;: &#34;your_secret&#34;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Enable_OAuth_Middleware"><a href="#Enable_OAuth_Middleware" class="headerlink" title="Enable OAuth Middleware"></a>Enable OAuth Middleware</h2><p>In the above code we also wired up some code to fire during the <code>OnCreatingTicket</code> event, so let’s implement that next.  To do this, we’ll add the middleare to the <code>Configure</code> method in our startup class, and add a property to the class to expose our desired settings.</p>
+<p>The middleware call is like so:<br><code>app.UseOAuthAuthentication(GitHubOptions);</code></p>
+<p>And we create the property as such:</p>
+<script src="https://gist.github.com/MisterJames/746331337329ca50556cbff19a0ba176.js"></script>
+
+<p>Remember that callback path that we setup on GitHub, you’ll see it again in our settings above. You’ll also note that we’re retrieving our client ID and secret from our configuration, and that we’re setting up a handler when the auth ticket is created so that we can go fetch additional details about the authenticating party.</p>
+<h2 id="Retrieve_the_User_u2019s_Claims"><a href="#Retrieve_the_User_u2019s_Claims" class="headerlink" title="Retrieve the User’s Claims"></a>Retrieve the User’s Claims</h2><p>We’ll have to call back out to GitHub to get the user’s details, they don’t come back with the base calls for authentication. This is the part that is different for each provider, and thus you’ll need to write this part for yourself if you wish to use an alternate source for authentication.</p>
+<p>We will add two parts to this; the first will call out to get the information about the user, the second will parse the result to extract the claims. Both of these can live in your <code>startup.cs</code> class.</p>
+<script src="https://gist.github.com/MisterJames/6a2ee9918afa9019aa3c1891f216102a.js"></script>
+
+<script src="https://gist.github.com/MisterJames/c818ad44950d1c7312e2d36b93041407.js"></script>
+
+<p>Unfortunately the base implementation of the OAuth provider does not support allowing us to request additional fields for the user; I’ll take a look at that in a future post. All you’re going to get are the basics with the above - so none of the account details beyond the email addres, nor ability to work with their repos/issues/PRs.</p>
+<h2 id="Next_Steps"><a href="#Next_Steps" class="headerlink" title="Next Steps"></a>Next Steps</h2><p>There you have it. All the chops you need to start exercising your OAuth muscle, and a basic implementation that you can leverage as a starting point. Trying this out will take you about 15 minutes, start to finish, provided you already have a GitHub account.</p>
+<ol>
+<li><a href="https://get.asp.net/" target="_blank" rel="external">Get the latest VS 2015 and ASP.NET Core bits</a></li>
+<li><a href="https://github.com/aspnet/security" target="_blank" rel="external">Explore the ASP.NET security repo on GitHub</a></li>
+<li>Run through the samples above.</li>
+</ol>
+<p>Happy Coding!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Authentication has changed over the years, and my take on it has surely shifted. No longer is it the scary, intimidating beastie that must be overcome on our projects. Today, we can let external providers provide the authentication mechanisms, giving the user with a streamlined experience that can give them access to our application with previuosly defined credentials.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2016/04/github-auth.png" alt="GitHub Authentication in ASP.NET Core"></p>
+<p>Let’s have a look at what it takes to allow users to authenticate in our application using GitHub as the login source, and you can check out the Monsters video take of this on <a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-26-GitHub-Authentication-in-ASPNET-Core">Channel 9</a>.</p>]]>
+    
+    </summary>
+    
+      <category term="Authentication" scheme="http://jameschambers.com/tags/Authentication/"/>
+    
+      <category term="Visual Studio 2015" scheme="http://jameschambers.com/tags/Visual-Studio-2015/"/>
+    
+      <category term="Development" scheme="http://jameschambers.com/categories/Development/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[If You Want to Get Into OSS, Consider This Project]]></title>
     <link href="http://jameschambers.com/2016/03/If-You-Want-to-Get-Into-OSS-Consider-This-Project/"/>
     <id>http://jameschambers.com/2016/03/If-You-Want-to-Get-Into-OSS-Consider-This-Project/</id>
     <published>2016-03-13T00:24:44.000Z</published>
-    <updated>2016-03-13T00:52:58.880Z</updated>
+    <updated>2016-03-13T00:59:59.835Z</updated>
     <content type="html"><![CDATA[<p>AllReady is an in-production piece of software build on ASP.NET Core that helps to alleviate the challenges of planning disaster-preparedness campaigns, co-ordinating volunteers and executing activities at scale. There are tasks for all levels of developers, designers and folks with expertise in humanitarian relief efforts. </p>
 <p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/03/allready-running.PNG" alt="HTBox&#39;s AllReady Application"></p>
 <a id="more"></a>
@@ -43,7 +116,7 @@
 </blockquote>
 <h1 id="Working_for_the_Greater_Good_with_Code"><a href="#Working_for_the_Greater_Good_with_Code" class="headerlink" title="Working for the Greater Good with Code"></a>Working for the Greater Good with Code</h1><p>For me, this has been an incredible opportunity to really make a difference doing something that I am good at. When I’ve been involved in other efforts, it’s always meant putting down my toolkit and the skills I have as a software developer in order to help in other ways.  And that’s been great! But as a contributor to AllReady, I get the opportunity to help build software that will help people, that can strengthen communities and make a difference in a meaningful way.</p>
 <p><img src="https://jcblogimages.blob.core.windows.net/img/2016/03/code-a-thon-standup.PNG" alt="Our Weekly Standup - This Time During the Global Code-A-Thon"></p>
-<h1 id="The_Humanitarian_Toolbox"><a href="#The_Humanitarian_Toolbox" class="headerlink" title="The Humanitarian Toolbox"></a>The Humanitarian Toolbox</h1><p> Also known as HTBox, The Humanitarian Toolbox is a registered charity unlike most others. Rather than accepting donations to find a cure for a disease or support operating costs, HTBox uses its funds alongside volunteer efforts from the development community and input from internationally recognized leaders in humanitarian efforts. They do this to hone in on two different types of expertise:</p>
+<h1 id="The_Humanitarian_Toolbox"><a href="#The_Humanitarian_Toolbox" class="headerlink" title="The Humanitarian Toolbox"></a>The Humanitarian Toolbox</h1><p>Also known as HTBox, The Humanitarian Toolbox is a registered charity unlike most others. Rather than accepting donations to find a cure for a disease or support operating costs, HTBox uses its funds alongside volunteer efforts from the development community and input from internationally recognized leaders in humanitarian efforts. They do this to hone in on two different types of expertise:</p>
 <ol>
 <li>Software architecture, engineering and development</li>
 <li>Operational expertise in humanitarian works</li>
@@ -1624,60 +1697,6 @@ Finally, we’ll add a little more meat to our our Main method:
       <category term="ASP.NET" scheme="http://jameschambers.com/tags/ASP-NET/"/>
     
       <category term="Asp.Net MVC" scheme="http://jameschambers.com/tags/Asp-Net-MVC/"/>
-    
-      <category term="Visual Studio 2015" scheme="http://jameschambers.com/tags/Visual-Studio-2015/"/>
-    
-      <category term="MVC6 Conversion" scheme="http://jameschambers.com/categories/MVC6-Conversion/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Getting Your Build Server Ready for VS 2015]]></title>
-    <link href="http://jameschambers.com/2015/07/getting-your-build-server-ready-for-vs-2015/"/>
-    <id>http://jameschambers.com/2015/07/getting-your-build-server-ready-for-vs-2015/</id>
-    <published>2015-07-25T03:33:57.000Z</published>
-    <updated>2016-01-20T03:26:05.909Z</updated>
-    <content type="html"><![CDATA[<p>If you’re modernizing your project, one of the things you’ll surely want to do is to make sure that your build server is upgraded to support VS 2015. Regardless of what CI engine you’re using, there will be at least a little bit of effort required to get your project building again.</p>
-<p><em>In this series we’re working through the conversion of an MVC 5-based application and migrating it to MVC 6. You can track the entire series of posts from the </em><a href="http://jameschambers.com/2015/07/upgrading-a-real-world-mvc-5-application-to-mvc-6/"><em>intro page</em></a><em>.</em></p>
-<p>For the purpose of this exercise, we’re using TeamCity to run our builds based on a VSC checkin. We’ll get TeamCity prepped to run our build and then update our repository so that we show our build status indicator on the readme home page.</p>
-<h2 id="The_TL_3BDR_Details"><a href="#The_TL_3BDR_Details" class="headerlink" title="The TL;DR Details"></a>The TL;DR Details</h2><p>Here’s the basics of what was required to get the builds back online:</p>
-<ul>
-<li>Backup and upgrade TeamCity</li>
-<li>Allow the agents to upgrade, or upgrade them manually</li>
-<li>Install .NET 4.6 and the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48159" target="_blank" rel="external">VS 2015 tools</a></li>
-<li>Ensure that build targets live on your build agents</li>
-<li>Run your build</li>
-</ul>
-<h2 id="Upgrading_the_Server"><a href="#Upgrading_the_Server" class="headerlink" title="Upgrading the Server"></a>Upgrading the Server</h2><p>I engaged my teammate <a href="http://www.clear-measure.com/our-team/" target="_blank" rel="external">James Allen</a> here to help with some best practices, namely getting the server backed up. You can either back up the TeamCity data from the web interface or one of the other <a href="https://confluence.jetbrains.com/display/TCD9/TeamCity+Data+Backup" target="_blank" rel="external">recommended approaches</a>, or you could snapshot your server for a reset should one be required. During this process, it’s a good idea to spin down your build agents so that you’re not wrecking anyone’s builds.</p>
-<p>Next, we needed to move to version 9.1 of TeamCity, so we ran the <a href="https://confluence.jetbrains.com/display/TCD9/Upgrade" target="_blank" rel="external">upgrade process</a> via the web site. This is a painless task and takes only a fraction of the time it took to back up the data. Failing any troubles (we saw none), your build server should be back online in no time, and the build agents were notified (and complied!) to update themselves as well.</p>
-<p><a href="https://jcblogimages.blob.core.windows.net/img/2015/07/image13.png" target="_blank" rel="external"><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image_thumb5.png" alt="image" title="image"></a>Next, I downloaded and installed the .NET 4.6 installer and the VS 2015 tooling, which can be found on the <a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" target="_blank" rel="external">VS 2015 download page</a>. You’ll need to explore through the available downloads on the page, as you can see on this screenshot, to grab the relevant files. </p>
-<p>These installs will need to be run on every build agent.</p>
-<p>One thing to note was that my original attempt to get the build running failed because of missing build targets at an expected location. I ended up having to copy files from my local machine, where Visual Studio 2015 is installed, from the path: C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v14.0 on the build server.</p>
-<p>UPDATE: With the availability of the MS Build Tools for Visual Studio 2015 you no longer have to manually zip up and copy the files. You can download the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48159" target="_blank" rel="external">MS Build Tools 2015 here</a>.</p>
-<h2 id="Verifying_the_Install"><a href="#Verifying_the_Install" class="headerlink" title="Verifying the Install"></a>Verifying the Install</h2><p>You’ll know the tools have been installed correctly if you return to the build configuration settings and add a new build step for msbuild (you don’t have to save it). You’ll see that you’ll have the new options in place:</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image14.png" alt="image" title="image"></p>
-<p>The build server should be good to go now! For us, we’re not using an MSBuild build runner, our application is build with a PowerShell script via a batch file. This allows our build to be executed locally with only a small parameter change, and the CI process is entirely encapsulated in code (and under source control).</p>
-<p>Provided your project is pointing at the repository, you’ll have a good shot at running the build at this point. For our project, everything worked as expected.</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image15.png" alt="image" title="image"></p>
-<h2 id="Showing_Some_Bling"><a href="#Showing_Some_Bling" class="headerlink" title="Showing Some Bling"></a>Showing Some Bling</h2><p>Now it’s time to beef up our repo, at least a little. What I’m talking about is wearing our CI on our sleeve, letting everyone on the team (or other watchers of the repository) that our builds are healthy or, perhaps, needing some love; let’s display the build status indicator on our readme, like this:</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image16.png" alt="image" title="image"></p>
-<p>First, drill into the build configuration and locate the advanced options under “General Settings”. You need to enable the status widget. </p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image17.png" alt="image" title="image"></p>
-<p>Also, from this screen, take note of your Build Configuration ID. This is important because you’ll need to include it in the server request to generate the badge.</p>
-<p>Finally, include the following markdown, which is essentially a formatted link with an image inside of it:</p>
-<pre class="csharpcode">Current Build Status [![](http://YOUR_SERVER/app/rest/builds/buildType:(id:YOUR_BUILD_CONFIGURATION_ID)/statusIcon)](http://teamcity/viewType.html?buildTypeId=btN&amp;guest=1)</pre>
-
-<p><style type="text/css">.csharpcode, .csharpcode pre<br>{<br>    font-size: small;<br>    color: black;<br>    font-family: consolas, “Courier New”, courier, monospace;<br>    background-color: #ffffff;<br>    /<em>white-space: pre;</em>/<br>}<br>.csharpcode pre { margin: 0em; }<br>.csharpcode .rem { color: #008000; }<br>.csharpcode .kwrd { color: #0000ff; }<br>.csharpcode .str { color: #006080; }<br>.csharpcode .op { color: #0000c0; }<br>.csharpcode .preproc { color: #cc6633; }<br>.csharpcode .asp { background-color: #ffff00; }<br>.csharpcode .html { color: #800000; }<br>.csharpcode .attr { color: #ff0000; }<br>.csharpcode .alt<br>{<br>    background-color: #f4f4f4;<br>    width: 100%;<br>    margin: 0em;<br>}<br>.csharpcode .lnum { color: #606060; }<br></style>Be sure to replace the obvious placeholder tokens with your own information.</p>
-<h2 id="Next_Steps"><a href="#Next_Steps" class="headerlink" title="Next Steps"></a>Next Steps</h2><p>With our build server updated and our builds back online, it’s time to start shifting our targets. In the next post, we’re going to update our projects and recover from any errors/challenges we may discover along the way.</p>
-<p>Happy coding! <img src="https://jcblogimages.blob.core.windows.net/img/2015/07/wlEmoticon-smile3.png" alt="Smile"></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>If you’re modernizing your project, one of the things you’ll surely want to do is to make sure that your build server is upgraded to supp]]>
-    </summary>
-    
-      <category term="MVC5" scheme="http://jameschambers.com/tags/MVC5/"/>
-    
-      <category term="MVC6" scheme="http://jameschambers.com/tags/MVC6/"/>
     
       <category term="Visual Studio 2015" scheme="http://jameschambers.com/tags/Visual-Studio-2015/"/>
     
