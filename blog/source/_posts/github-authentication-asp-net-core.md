@@ -102,4 +102,8 @@ There you have it. All the chops you need to start exercising your OAuth muscle,
  1. [Explore the ASP.NET security repo on GitHub](https://github.com/aspnet/security)
  1. Run through the samples above.
 
+Finally, check out the Monsters' video on Channel 9 where I code this live.
+
+<iframe src="https://channel9.msdn.com/Series/aspnetmonsters/Episode-26-GitHub-Authentication-in-ASPNET-Core/player" width="640" height="360" allowFullScreen frameBorder="0"></iframe>
+
 Happy Coding!
