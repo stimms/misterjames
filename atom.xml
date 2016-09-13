@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Building the Web and Other Musings]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jameschambers.com/"/>
-  <updated>2016-04-26T13:41:12.366Z</updated>
+  <updated>2016-09-13T11:50:05.215Z</updated>
   <id>http://jameschambers.com/</id>
   
   <author>
@@ -15,11 +15,100 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Bending ASP.NET MVC Core To Your Will]]></title>
+    <link href="http://jameschambers.com/2016/09/Bending-ASP-NET-MVC-Core-To-Your-Will/"/>
+    <id>http://jameschambers.com/2016/09/Bending-ASP-NET-MVC-Core-To-Your-Will/</id>
+    <published>2016-09-09T17:46:34.000Z</published>
+    <updated>2016-09-13T11:50:05.215Z</updated>
+    <content type="html"><![CDATA[<p>The default conventions of ASP.NET Core MVC allow us to easily construct applications without having to worry about the minutiae of wiring up the “how-to” parts that are required in nearly every application that will be built.  There are times when these conventions do not meet your application needs, but you can instruct the framework to work the way you need it to by building your own.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/09/bunnies-are-good-at-multiplying.png" alt="Bring Your Own Conventions"></p>
+<a id="more"></a>
+<h2 id="Understanding_The_Current_Conventions"><a href="#Understanding_The_Current_Conventions" class="headerlink" title="Understanding The Current Conventions"></a>Understanding The Current Conventions</h2><p>If you’ve worked inside of the MVC Framework you’ve either explicitly noticed or been implicitly subjected to some of the conventions at work. These include things like:</p>
+<ul>
+<li>Names of methods in the startup class</li>
+<li>Project layout </li>
+<li>View search locations</li>
+<li>Routing expressions as they relate to controller and action names</li>
+<li>Web API exposing actions that are named as HTTP verbs</li>
+</ul>
+<p>These conventions work to remove some of the effort we need to get our application running. Some of them are locked in - we can’t change the names of methods that are invoked in the startup class, for instance, as there is an explicit search for <code>Configure</code> and <code>ConfigureServices</code> - but others can be ammended, removed, and replaced on our whim.</p>
+<p>There are four categories of conventions that we’re going to briefly discuss here:</p>
+<table>
+<thead>
+<tr>
+<th>Convention</th>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application (Widest net)</td>
+<td><code>IApplicationModelConvention</code></td>
+<td>Provides access to application-wide conventions, allowing you to iterate over each of the levels below.</td>
+</tr>
+<tr>
+<td>Controller</td>
+<td><code>IControllerModelConvention</code></td>
+<td>Conventions that are specific to a controller, but also allows you to evaluate lower levels.</td>
+</tr>
+<tr>
+<td>Action</td>
+<td><code>IActionModelConvention</code></td>
+<td>Changes to action-level conventions can be made here, as well as on any parameters of the actions.</td>
+</tr>
+<tr>
+<td>Parameter (Smallest scope)</td>
+<td><code>IParameterModelConvention</code></td>
+<td>Specific to parameters only.</td>
+</tr>
+</tbody>
+</table>
+<p>As your application loads it will use any conventions that you have added starting at the outter-most field of view, application conventions, then working it’s way in through controller and action conventions to parameter conventions. In this way, the most specific conventions are applied last, meaning there is a caveat that if you add a parameter convention by using <code>IControllerModelConvention</code> then it could be overwritten by any <code>IParameterModelConvention</code>, regardless of the order in which you add the conventions to the project. This is different from middleware, in a sense, because the order of conventions only applies within the same level, and there is a priority on level that you can’t adjust.</p>
+<h2 id="Building_Your_Own_Conventions"><a href="#Building_Your_Own_Conventions" class="headerlink" title="Building Your Own Conventions"></a>Building Your Own Conventions</h2><p>I wanted to build a convention that celebrated how great rabbits were at math, specifically, multiplication. You know those rabbits! What I did first was to create an interface:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public interface IAmRabbit &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>…so that I could use it in an attribute:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class RabbitControllerAttribute : Attribute, IAmRabbit &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>…which allowed me to apply the attribute to my controller:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[RabbitController]&#10;public class HomeController : Controller&#10;&#123;  &#10;  // ...&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>…so that I could leverage the attribute in my convention:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class RabbitConvention : IControllerModelConvention&#10;&#123;&#10;    public void Apply(ControllerModel controller)&#10;    &#123;&#10;        if (IsConventionApplicable(controller))&#10;        &#123;&#10;            var multipliedActions = new List&#60;ActionModel&#62;();&#10;&#10;            foreach (var action in controller.Actions)&#10;            &#123;&#10;                var existingAction = action;&#10;&#10;                var bunnyAction = new ActionModel(existingAction);&#10;                bunnyAction.ActionName = $&#34;Bunny&#123;bunnyAction.ActionName&#125;&#34;;&#10;                &#10;                multipliedActions.Add(bunnyAction);&#10;            &#125;&#10;            foreach (var action in multipliedActions)&#10;            &#123;&#10;                controller.Actions.Add(action);&#10;            &#125;&#10;        &#125;&#10;    &#125;&#10;&#10;    private bool IsConventionApplicable(ControllerModel controller)&#10;    &#123;&#10;        return controller.Attributes.OfType&#60;IAmRabbit&#62;().Any();&#10;    &#125;&#10;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>Now, the great math capabilities of bunnies are available! I loop through all the actions on my controller and create a cloned version of the action with the prefix <code>Bunny</code>. So there will be an <code>Index</code> action and a <code>BunnyIndex</code> and so forth at runtime. Now, you may think that this isn’t too relevant at first glance, so I’ll leave it as an excercise to the reader to think about how Web API actions might be handled <em>by convention</em> when you have action names that are verbs.   </p>
+<h2 id="Wiring_Up_Your_Application_With_Custom_Conventions"><a href="#Wiring_Up_Your_Application_With_Custom_Conventions" class="headerlink" title="Wiring Up Your Application With Custom Conventions"></a>Wiring Up Your Application With Custom Conventions</h2><p>Wiring up the convention is easy…just add it to the conventions collection when you’re adding MVC in the <code>ConfigureServices</code> method in <code>Startup</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public void ConfigureServices(IServiceCollection services)&#10;&#123;&#10;    // Add framework services.&#10;    services.AddMvc(options =&#62;&#10;        &#123;&#10;            options.Conventions.Add(new RabbitConvention());&#10;        &#125;&#10;    );            &#10;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Next_Steps_and_Further_Reading"><a href="#Next_Steps_and_Further_Reading" class="headerlink" title="Next Steps and Further Reading"></a>Next Steps and Further Reading</h2><p>Here are some great resources that will help you explore other uses of these interfaces.</p>
+<p><strong>Filip Wojcieszyn’s Posts and Community Contributions</strong></p>
+<ul>
+<li><a href="https://github.com/filipw/Strathweb.TypedRouting.AspNetCore" target="_blank" rel="external">Typed Routing</a></li>
+<li><a href="http://www.strathweb.com/2015/11/localized-routes-with-asp-net-5-and-mvc-6/" target="_blank" rel="external">Localized Routes</a></li>
+<li><a href="http://www.strathweb.com/2015/03/strongly-typed-routing-asp-net-mvc-6-iapplicationmodelconvention/" target="_blank" rel="external">Application Model Conventions</a></li>
+<li><a href="http://www.strathweb.com/2016/06/global-route-prefix-with-asp-net-core-mvc-revisited/" target="_blank" rel="external">Route Prefixes</a></li>
+</ul>
+<p><strong>Steve Smith’s article on feature folders</strong></p>
+<ul>
+<li><a href="https://msdn.microsoft.com/magazine/mt763233" target="_blank" rel="external">Feature Folders on MSDN</a></li>
+</ul>
+<p>As you can see, you are not locked into the default behaviours of ASP.NET Core MVC, and you have many surface areas acting as cusomization points for you to exploit.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>The default conventions of ASP.NET Core MVC allow us to easily construct applications without having to worry about the minutiae of wiring up the “how-to” parts that are required in nearly every application that will be built.  There are times when these conventions do not meet your application needs, but you can instruct the framework to work the way you need it to by building your own.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/09/bunnies-are-good-at-multiplying.png" alt="Bring Your Own Conventions"></p>]]>
+    
+    </summary>
+    
+      <category term="ASP.NET Core MVC" scheme="http://jameschambers.com/tags/ASP-NET-Core-MVC/"/>
+    
+      <category term="Web API" scheme="http://jameschambers.com/tags/Web-API/"/>
+    
+      <category term="Development" scheme="http://jameschambers.com/categories/Development/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[GitHub Authentication with ASP.NET Core]]></title>
     <link href="http://jameschambers.com/2016/04/github-authentication-asp-net-core/"/>
     <id>http://jameschambers.com/2016/04/github-authentication-asp-net-core/</id>
     <published>2016-04-26T12:12:54.000Z</published>
-    <updated>2016-04-26T13:41:12.366Z</updated>
+    <updated>2016-04-27T13:39:39.201Z</updated>
     <content type="html"><![CDATA[<p>Authentication has changed over the years, and my take on it has surely shifted. No longer is it the scary, intimidating beastie that must be overcome on our projects. Today, we can let external providers provide the authentication mechanisms, giving the user with a streamlined experience that can give them access to our application with previuosly defined credentials.</p>
 <p><img src="https://jcblogimages.blob.core.windows.net/img/2016/04/github-auth.png" alt="GitHub Authentication in ASP.NET Core"></p>
 <p>Let’s have a look at what it takes to allow users to authenticate in our application using GitHub as the login source, and you can check out the Monsters video take of this on <a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-26-GitHub-Authentication-in-ASPNET-Core" target="_blank" rel="external">Channel 9</a>.</p>
@@ -1658,52 +1747,6 @@ Finally, we’ll add a little more meat to our our Main method:
       <category term="Asp.Net MVC" scheme="http://jameschambers.com/tags/Asp-Net-MVC/"/>
     
       <category term="Develop Meta" scheme="http://jameschambers.com/categories/Develop-Meta/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Upgrading Projects to .NET 4.6]]></title>
-    <link href="http://jameschambers.com/2015/07/upgrading-projects-to-net-4-6/"/>
-    <id>http://jameschambers.com/2015/07/upgrading-projects-to-net-4-6/</id>
-    <published>2015-07-27T20:07:33.000Z</published>
-    <updated>2016-01-20T03:26:07.571Z</updated>
-    <content type="html"><![CDATA[<p>The updates in the .NET Framework provide many improvements, including support for new language features in c#, garbage collection, enhancements in cryptography support, feature toggles, new classes in the BCL and others. The RyuJIT compiler adds significant performance gains for 64bit applications, even those not originally targeting the 4.6, improves startup times and can reduce the memory footprint of your application.</p>
-<p><em>In this series we’re working through the conversion of an MVC 5-based application and migrating it to MVC 6. You can track the entire series of posts from the </em><a href="http://jameschambers.com/2015/07/upgrading-a-real-world-mvc-5-application-to-mvc-6/"><em>intro page</em></a><em>.</em></p>
-<p>While the explicit modification of your projects may not be required to gain some of the 4.6 benefits, there may be other organizational factors that lead you down that path. We’ll work through the mechanics of the upgrade to 4.6 in this post.</p>
-<h2 id="A_Word_of_Caution"><a href="#A_Word_of_Caution" class="headerlink" title="A Word of Caution"></a>A Word of Caution</h2><p>UPDATE: July 28, 2015 There is a known issue with certain 64bit applications running on .NET 4.6, under certain circumstances, with certain parameter types and sizes. You can read more <a href="http://nickcraver.com/blog/2015/07/27/why-you-should-wait-on-dotnet-46/" target="_blank" rel="external">about the bug finding here</a> and the issue is being <a href="https://github.com/dotnet/coreclr/issues/1296" target="_blank" rel="external">tracked on GitHub</a>, followed by Microsoft’s <a href="http://blogs.msdn.com/b/dotnet/archive/2015/07/28/ryujit-bug-advisory-in-the-net-framework-4-6.aspx" target="_blank" rel="external">response and recommendation</a>. </p>
-<p>For this reason <strong>I am not recommending an upgrade to 4.6</strong> unless you understand the implications and how to properly vet the scenarios described in your environment.</p>
-<h2 id="Getting_Your_Projects_Up-to-date"><a href="#Getting_Your_Projects_Up-to-date" class="headerlink" title="Getting Your Projects Up-to-date"></a>Getting Your Projects Up-to-date</h2><p>Every project we create references a specific version of the .NET Framework. This has been true throughout the history of .NET, and though the way we will do it in the future will change with the new project system, the premise remains the same. </p>
-<p>For now, you can simply open the properties tab for your project and change the target Framework.</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image18.png" alt="image" title="image"></p>
-<p>You will be prompted to let you know that some changes may be required.</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image19.png" alt="image" title="image"></p>
-<p>Note that in my case, I had 7 projects with varying types of references and dependencies, and no modifications were required to the code. Your mileage may vary, of course, but this is a simple change and one that you can test quickly. With proper source control in place, this is a zero-risk test that should take only a moment or two.</p>
-<p>Now, if you were to try to build the Bootcamp project when you’re only partway through the upgrade, you’d see something similar to the following:</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image20.png" alt="image" title="image"></p>
-<p>With a message that reads:</p>
-<blockquote>
-<p>The primary reference “x” could not be resolved because it was built against the “.NETFramework,Version=v4.6” framework. The is a higher version than the currently targeted framework “.NETFramework,Version=4.5.1”.</p>
-</blockquote>
-<p>You may run into this in other scenarios, as well, especially if you you have references to packages or libraries that get out of sync in your upgrade process. <strong>A project that takes on dependencies must be at (or higher than) the target framework of the compiled dependencies</strong>. To remedy this, we simply need to complete the upgrade process on the rest of the projects.</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image21.png" alt="image" title="image"></p>
-<p>This was pretty painless. <img src="https://jcblogimages.blob.core.windows.net/img/2015/07/wlEmoticon-smile5.png" alt="Smile"></p>
-<h2 id="Reasons_to_Upgrade_3F"><a href="#Reasons_to_Upgrade_3F" class="headerlink" title="Reasons to Upgrade?"></a>Reasons to Upgrade?</h2><p>Moving from 4.5.x to 4.6 is not a required step in our conversion to an MVC 6 project. In fact, MVC 6 indeed runs on a different framework altogether. To that end, any environment where you have 4.6 installed will “pull up” other assemblies because it is a drop-in replacement for pervious versions. </p>
-<p>Perhaps your primary motivator to move to 4.6 is the perf bump in the runtime, or it might be the new language features (which only require a framework install, not a version bump in your target). But it also ensures we’re compatible with other projects in our organization, particularly when we consider the default target for new projects in VS 2015 is against 4.6. If we want to leverage these from other projects in our organization, we want to make sure that we’re not the lowest common denominator in the mix.</p>
-<h2 id="The_Next_Step"><a href="#The_Next_Step" class="headerlink" title="The Next Step"></a>The Next Step</h2><p>However, there are a couple of other points that we should note, namely that our compiler isn’t tied to the installed framework or the runtime, it’s just used to <em>target</em> a specific set of instructions that the runtime can digest. So, if our MVC 6 will be running on DNX46, or we have other .NET 4.6 projects we’re all set (though, we’d have to use DNU wrap to consume our library at this point in DNX).</p>
-<p>But what if we have different projects across our organization, or we have external teams using our libraries? The answer lies in multi-targeting, which is what we’ll address in the next post in this series.</p>
-<p>Until then, happy coding! <img src="https://jcblogimages.blob.core.windows.net/img/2015/07/wlEmoticon-smile5.png" alt="Smile"></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>The updates in the .NET Framework provide many improvements, including support for new language features in c#, garbage collection, enhan]]>
-    </summary>
-    
-      <category term="ASP.NET" scheme="http://jameschambers.com/tags/ASP-NET/"/>
-    
-      <category term="Asp.Net MVC" scheme="http://jameschambers.com/tags/Asp-Net-MVC/"/>
-    
-      <category term="Visual Studio 2015" scheme="http://jameschambers.com/tags/Visual-Studio-2015/"/>
-    
-      <category term="MVC6 Conversion" scheme="http://jameschambers.com/categories/MVC6-Conversion/"/>
     
   </entry>
   
