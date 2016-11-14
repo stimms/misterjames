@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Building the Web and Other Musings]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jameschambers.com/"/>
-  <updated>2016-11-12T15:41:58.990Z</updated>
+  <updated>2016-11-14T17:48:29.863Z</updated>
   <id>http://jameschambers.com/</id>
   
   <author>
@@ -13,6 +13,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[How to organize types in your Azure Function scripts]]></title>
+    <link href="http://jameschambers.com/2016/11/How-to-organize-types-in-your-scripts/"/>
+    <id>http://jameschambers.com/2016/11/How-to-organize-types-in-your-scripts/</id>
+    <published>2016-11-14T13:00:00.000Z</published>
+    <updated>2016-11-14T17:48:29.863Z</updated>
+    <content type="html"><![CDATA[<p>Even when you’re dealing with Function Apps that have limited scope it’s a good idea to break your scripts up into manageable, possibly reusable chunks. This is especially true if you want to work with the same data in several Functions in your app.  </p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/11/types-in-functions.png" alt="Keep your functions type-free"></p>
+<p>This is one way you can organize your scripts, types and objects in Azure Function Apps, and we’ll have a deeper look at another approach later in this series.</p>
+<a id="more"></a>
+<p><em>This article is part of an ongoing series on <a href="http://jameschambers.com/2016/11/Five-Days-of-Azure-Functions/">Azure Functions</a></em>.</p>
+
+<h2 id="A_bit_of_a_primer"><a href="#A_bit_of_a_primer" class="headerlink" title="A bit of a primer"></a>A bit of a primer</h2><p>The automatic bindings in Azure Functions are pretty nifty and cut out a lot of the communication and serialization cruft you might otherwise have to deal with.  You’ll see function signatures like the following:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static void Run(Stream imageBlob, string name, TraceWriter log) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<p>Above, <code>Stream</code> is not a value type, it’s a reference type…a complex object that is hydrated by the runtime for you. These parameters are bound for you when the function is executed and values from the input - be it a new file created on a file commit in blob storage, an HTTP request or some other trigger - will be mapped into the types you provide in your method signature. You can think of this as model binding as we know it in ASP.NET MVC (if you’re from that background).</p>
+<p>There is a step in the creation of your Function where you create the mappning for these bindings, and different types of Functions seem to have different capabilities for binding. For example, your input bindings for Queues seems to be more powerful (can bind to POCOs) whereas the HTTP-triggered Functions seem to only allow for the HTTPReqeust binding, meaning you’ll have to deserialize the payload yourself.</p>
+<h2 id="Create_separate_files_for_your_types"><a href="#Create_separate_files_for_your_types" class="headerlink" title="Create separate files for your types"></a>Create separate files for your types</h2><p>The first thing you’ll want to do is to <em>not</em> put your types in your scripts, unless it’s truly a single-purpose Function. In the code editor you can reveal your project assets by clicking the View Files button.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/11/view_files_functions.png" alt=""></p>
+<p>In the bottom of that tool pane, click the add button and create a new file. Here, my <code>person.csx</code> script has a class definition in it. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class Person &#123;&#10;    public string FirstName &#123; get; set; &#125;&#10;    public string LastName &#123; get; set; &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Include_your_types_in_your_Functions"><a href="#Include_your_types_in_your_Functions" class="headerlink" title="Include your types in your Functions"></a>Include your types in your Functions</h2><p>When you define types in other files you will need to pull them into your Function, they are not inherantly available. You can pull in a type in another script as you would pull in a reference to an assembly:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#load &#34;person.csx&#34;</span><br></pre></td></tr></table></figure>
+<p>This allows you use the type either as a binding parameter (if supported for your Function trigger type) or as an instance you create in code. Here’s an of using the <code>Person</code> class in an HTTP-triggered Function:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#load &#34;person.csx&#34;&#10;&#10;using System.Net;&#10;using Microsoft.Azure.WebJobs.Host;&#10;&#10;public static async Task&#60;HttpResponseMessage&#62; Run(HttpRequestMessage req, TraceWriter log)&#10;&#123;&#10;    log.Info($&#34;Processed: RequestUri=&#123;req.RequestUri&#125;&#34;);&#10;&#10;    var person = await req.Content.ReadAsAsync&#60;Person&#62;();&#10;&#10;    if (person == null)&#10;        return req.CreateResponse(HttpStatusCode.BadRequest, &#34;Person represented as JSON not found in request body.&#34;);    &#10;&#10;    var name = $&#34;&#123;person.FirstName&#125; &#123;person.LastName&#125;&#34;;&#10;    log.Info($&#34;Name: &#123;name&#125;&#34;);&#10;&#10;    return req.CreateResponse(HttpStatusCode.OK, $&#34;Hey there, &#123;name&#125;!&#34;);&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>Now, should you pass in a payload on an HTTP request with a JSON body of something like the following, your Function will be able to read that data out with <code>req.Content.ReadAsAsync&lt;Person&gt;()</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#10;&#9;&#34;FirstName&#34; : &#34;James&#34;, &#10;&#9;&#34;LastName&#34; : &#34;Chambers&#34;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Include_using_statements_for_default_imports"><a href="#Include_using_statements_for_default_imports" class="headerlink" title="Include using statements for default imports"></a>Include using statements for default imports</h2><p>Even though there is a default set of namespaces available to you in your Function scripts, I think it is advisable to explicitly declare your <code>using</code> statements. This will prevent problems with namespace conflicts, make it more apparent to others where your types are coming from (including future you, who tends to disapprove of older-you’s shortcuts), and make it easier if you want to move your types out of the cloud and into reusable libraries. </p>
+<h2 id="Next_Steps"><a href="#Next_Steps" class="headerlink" title="Next Steps"></a>Next Steps</h2><p>Here are some things to try out:</p>
+<ul>
+<li>Create a type in its own file in the Function Apps portal</li>
+<li>Reference the type in another script and use the type in your Function</li>
+<li>Try invoking the Function with Postman or another tool that lets you send HTTP requests</li>
+</ul>
+<h2 id="Other_articles_in_this_series"><a href="#Other_articles_in_this_series" class="headerlink" title="Other articles in this series"></a>Other articles in this series</h2><ul>
+<li>Day 1: <a href="../How-to-organize-types-in-your-scripts">How to organize types in your Azure Function scripts</a></li>
+<li>Day 2: How to resize an image uploaded to Azure Blog Storage (Up Next!)</li>
+<li>Day 3: How to &quot;fan out&quot; work so your Functions can scale (Coming soon)</li>
+<li>Day 4: How to deploy to Azure Functions using GitHub (Coming soon)</li>
+<li>Day 5: How to import third-party libraries (Coming soon)</li>
+</ul>
+
+<p>Happy coding!  </p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Even when you’re dealing with Function Apps that have limited scope it’s a good idea to break your scripts up into manageable, possibly reusable chunks. This is especially true if you want to work with the same data in several Functions in your app.  </p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/11/types-in-functions.png" alt="Keep your functions type-free"></p>
+<p>This is one way you can organize your scripts, types and objects in Azure Function Apps, and we’ll have a deeper look at another approach later in this series.</p>]]>
+    
+    </summary>
+    
+      <category term="Azure Functions" scheme="http://jameschambers.com/tags/Azure-Functions/"/>
+    
+      <category term="c#" scheme="http://jameschambers.com/tags/c/"/>
+    
+      <category term="Development" scheme="http://jameschambers.com/categories/Development/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Five Days of Azure Functions]]></title>
@@ -24,8 +82,8 @@
 <p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/11/the-functions-are-coming.png" alt="Azure Functions"></p>
 <a id="more"></a>
 <h2 id="Here_u2019s_the_topics"><a href="#Here_u2019s_the_topics" class="headerlink" title="Here’s the topics"></a>Here’s the topics</h2><ul>
-<li>Day 1: How to organize types in your scripts (First Up!)</li>
-<li>Day 2: How to resize an image uploaded to Azure Blog Storage (Coming soon)</li>
+<li>Day 1: <a href="../How-to-organize-types-in-your-scripts">How to organize types in your Azure Function scripts</a></li>
+<li>Day 2: How to resize an image uploaded to Azure Blog Storage (Up Next!)</li>
 <li>Day 3: How to &quot;fan out&quot; work so your Functions can scale (Coming soon)</li>
 <li>Day 4: How to deploy to Azure Functions using GitHub (Coming soon)</li>
 <li>Day 5: How to import third-party libraries (Coming soon)</li>
@@ -42,8 +100,8 @@
 <p><strong>ASP.NET Core is not yet supported in Azure Functions</strong> but support is on the way. This is a priority for the team and they are working hard on getting ASP.NET Core support, but there are still dependencies on too many libraries that are not yet ported to Core, as evidenced by the automatically “known” libraries that are included in Functions.  </p>
 <h2 id="For_more_of_the_basics_u2026"><a href="#For_more_of_the_basics_u2026" class="headerlink" title="For more of the basics…"></a>For more of the basics…</h2><p>You can find more of the basics covered on the Azure Functions <a href="https://azure.microsoft.com/en-us/documentation/articles/functions-overview/" target="_blank" rel="external">documentation website</a>, but if you’re comfortable with the above, feel free to browse the articles in this series for some real-world ways to leverage Azure Functions.</p>
 <h2 id="Here_u2019s_the_topics-1"><a href="#Here_u2019s_the_topics-1" class="headerlink" title="Here’s the topics"></a>Here’s the topics</h2><ul>
-<li>Day 1: How to organize types in your scripts (First Up!)</li>
-<li>Day 2: How to resize an image uploaded to Azure Blog Storage (Coming soon)</li>
+<li>Day 1: <a href="../How-to-organize-types-in-your-scripts">How to organize types in your Azure Function scripts</a></li>
+<li>Day 2: How to resize an image uploaded to Azure Blog Storage (Up Next!)</li>
 <li>Day 3: How to &quot;fan out&quot; work so your Functions can scale (Coming soon)</li>
 <li>Day 4: How to deploy to Azure Functions using GitHub (Coming soon)</li>
 <li>Day 5: How to import third-party libraries (Coming soon)</li>
@@ -1739,31 +1797,6 @@ Finally, we’ll add a little more meat to our our Main method:
       <category term="Visual Studio 2015" scheme="http://jameschambers.com/tags/Visual-Studio-2015/"/>
     
       <category term="Code Dive" scheme="http://jameschambers.com/categories/Code-Dive/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[How Do You Measure Up? Find out in 60 Days!]]></title>
-    <link href="http://jameschambers.com/2015/07/how-do-you-measure-up-find-out-in-60-days/"/>
-    <id>http://jameschambers.com/2015/07/how-do-you-measure-up-find-out-in-60-days/</id>
-    <published>2015-07-29T14:32:00.000Z</published>
-    <updated>2016-01-20T03:26:06.004Z</updated>
-    <content type="html"><![CDATA[<p>I am super geeked to be heading down to Austin, TX to speak at <a href="http://measureup.io/" target="_blank" rel="external">Measure Up</a> this coming September 26th. Measure Up 2015 is the inaugural skills and career development conference put on by the folks at <a href="http://clear-measure.com/" target="_blank" rel="external">Clear Measure</a>.</p>
-<p><a href="http://measureup.io/" target="_blank" rel="external"><img src="https://jcblogimages.blob.core.windows.net/img/2015/07/image24.png" alt="image" title="image"></a></p>
-<p>This conference is packed with all kinds of great speakers and covers a variety of topics related to business development, dev ops, personal growth and, of course, how to be mind-bendingly awesome at making software. I am going to be talking about the things you need to know when <a href="http://measureup2015.azurewebsites.net/mvc6/" target="_blank" rel="external">you’re moving to MVC 6</a>, and sharing about my experiences as <a href="http://measureup2015.azurewebsites.net/success-as-a-remote-worker/" target="_blank" rel="external">a remote worker</a>.</p>
-<h2 id="If_You_Live_in_the_Austin_Area_u2026"><a href="#If_You_Live_in_the_Austin_Area_u2026" class="headerlink" title="If You Live in the Austin Area…"></a>If You Live in the Austin Area…</h2><p>…you have no excuses to miss this event. Register <em><u>today</u></em>, <a href="https://www.eventbrite.com/e/measureup-2015-tickets-16666653409?ref=ecount" target="_blank" rel="external">it’s only $10</a>, and dedicate one day this year to getting yourself closer to your dream career.</p>
-<h2 id="If_You_Don_u2019t_Live_in_the_Austin_Area_u2026"><a href="#If_You_Don_u2019t_Live_in_the_Austin_Area_u2026" class="headerlink" title="If You Don’t Live in the Austin Area…"></a>If You Don’t Live in the Austin Area…</h2><p>…you should probably talk to your boss about getting down there for the day. It’s hard to find a conference with this kind of content and (essentially) only have to pay for a bit of travel, perhaps a hotel room. Professional development does not come with this value for this little.</p>
-<h2 id="So_2C_What_Are_You_Waiting_For_3F"><a href="#So_2C_What_Are_You_Waiting_For_3F" class="headerlink" title="So, What Are You Waiting For?"></a>So, What Are You Waiting For?</h2><p><strong>Check out the conference agenda</strong>. Dev ops, docker. vNext, continuous deployment, load testing, microsevices, infrastructure as code <a href="http://measureup2015.azurewebsites.net/speakers/" target="_blank" rel="external">and more</a>. </p>
-<p><strong>Register for the event</strong>. Seriously, <a href="https://www.eventbrite.com/e/measureup-2015-tickets-16666653409?ref=ecount" target="_blank" rel="external">ten bucks</a><em>. </em></p>
-<p>See you in September! ‘Til then, happy coding! <img src="https://jcblogimages.blob.core.windows.net/img/2015/07/wlEmoticon-smile6.png" alt="Smile"></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>I am super geeked to be heading down to Austin, TX to speak at <a href="http://measureup.io/" target="_blank" rel="external">Measure Up</]]>
-    </summary>
-    
-      <category term="MeasureUp" scheme="http://jameschambers.com/tags/MeasureUp/"/>
-    
-      <category term="Conferences" scheme="http://jameschambers.com/categories/Conferences/"/>
     
   </entry>
   

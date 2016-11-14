@@ -149,6 +149,131 @@ ga('send', 'pageview');
 
       
       <section id="main">
+      <article id="post-embedding-videos-with-windows-live-writer-and-metropress" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/12/embedding-videos-with-windows-live-writer-and-metropress/">Embedding Videos With Windows Live Writer and MetroPress</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2012/12/embedding-videos-with-windows-live-writer-and-metropress/">
+      <time datetime="2012-12-31T19:43:44.000Z" itemprop="datePublished">2012-12-31</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h2 id="The_Problem"><a href="#The_Problem" class="headerlink" title="The Problem"></a>The Problem</h2><p>Windows Live Writer, IMO, is still the best little tool out there for creating content for blogs. It does a great job at nearly every task related to editing post, pages, categories and tags, and it provides flexible posting options with the ability to manage multiple blogs.</p>
+<p>But, at times, she’s verbose! Embedding a YouTube video, for instance, inserts the following code into your post:</p>
+<pre class="csharpcode">
+
+<span class="kwrd">&lt;</span><span class="html">div</span> <span class="attr">id</span><span class="kwrd">="scid:5737277B-5D6D-4f48-ABFC-DD9C333F4C5D:befb91d4-acb8-41d9-a0da-ec64375d826f"</span> <span class="attr">class</span><span class="kwrd">="wlWriterEditableSmartContent"</span> <span class="attr">style</span><span class="kwrd">="float: none; padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px"</span><span class="kwrd">&gt;</span><span class="kwrd">&lt;</span><span class="html">embed</span> <span class="attr">src</span><span class="kwrd">="http://www.youtube.com/v/uA7Z8WfD3bU?hd=1"</span> <span class="attr">type</span><span class="kwrd">="application/x-shockwave-flash"</span> <span class="attr">wmode</span><span class="kwrd">="transparent"</span> <span class="attr">width</span><span class="kwrd">="448"</span> <span class="attr">height</span><span class="kwrd">="252"</span><span class="kwrd">&gt;&lt;/</span><span class="html">embed</span><span class="kwrd">&gt;&lt;/</span><span class="html">div</span><span class="kwrd">&gt;</span>
+</pre>
+<style type="text/css">.csharpcode, .csharpcode pre
+{
+    font-size: small;
+    color: black;
+    font-family: consolas, "Courier New", courier, monospace;
+    background-color: #ffffff;
+    /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+    background-color: #f4f4f4;
+    width: 100%;
+    margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+Unfortunately, that breaks [MetroPress](http://metropress.codeplex.com/) because the embed tag and script cannot load inside a Windows Store app.
+
+The fix is quite simple: rather than using the built-in “Insert Video” feature, you simply need to copy and paste the embed code from YouType, which looks more like this:
+<pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">iframe</span> <span class="attr">width</span><span class="kwrd">="560"</span> <span class="attr">height</span><span class="kwrd">="315"</span> <span class="attr">src</span><span class="kwrd">="http://www.youtube.com/embed/uA7Z8WfD3bU"</span> <span class="attr">frameborder</span><span class="kwrd">="0"</span> <span class="attr">allowfullscreen</span><span class="kwrd">&gt;&lt;/</span><span class="html">iframe</span><span class="kwrd">&gt;</span></pre>
+
+<p>This embed code is snapped from Share –&gt; Embed on the YouTube site under your video.</p>
+<p><a href="https://jcblogimages.blob.core.windows.net/img/2012/12/image7.png" target="_blank" rel="external"><img src="https://jcblogimages.blob.core.windows.net/img/2012/12/image_thumb3.png" alt="image" title="image"></a></p>
+<style type="text/css">.csharpcode, .csharpcode pre
+{
+    font-size: small;
+    color: black;
+    font-family: consolas, "Courier New", courier, monospace;
+    background-color: #ffffff;
+    /*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+    background-color: #f4f4f4;
+    width: 100%;
+    margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+<p>You can see that the new embed code is cleaner, and better still it is allowed in a Windows Store app and the video plays embedded in your posts just fine.</p>
+<p><a href="https://jcblogimages.blob.core.windows.net/img/2012/12/image6.png" target="_blank" rel="external"><img src="https://jcblogimages.blob.core.windows.net/img/2012/12/image_thumb2.png" alt="image" title="image"></a></p>
+<h2 id="A_Little_Background"><a href="#A_Little_Background" class="headerlink" title="A Little Background"></a>A Little Background</h2><p>MetroPress is a handy way to augment your blog with an offline-capable reader for your followers.&nbsp; From their site:</p>
+<blockquote>
+<p>In a nutshell, this framework is a flexible app template that can be easily customized and extend it to create more awesome Windows store applications.</p>
+</blockquote>
+<p>Using the quickstart, it takes about an hour to get your blog prepped and the project built up so that you can release a Windows Store (Windows 8) application.&nbsp; Mine passed certification on the first attempt.</p>
+<p>You can get MetroPress on their <a href="http://metropress.codeplex.com/" target="_blank" rel="external">CodePlex project site</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jameschambers.com/2012/12/embedding-videos-with-windows-live-writer-and-metropress/" data-id="civfcz3i700giyoyy2qf063x4" class="article-share-link">Share</a>
+      
+        <a href="http://jameschambers.com/2012/12/embedding-videos-with-windows-live-writer-and-metropress/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-seed-windows-azure-mobile-services-tables-with-10-lines-of-code" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -842,120 +967,6 @@ Angie’s not alone; she has a friend who can also help fill in a single propert
 
 
     
-      <article id="post-know-your-network-the-azure-service-dashboard" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/11/know-your-network-the-azure-service-dashboard/">Know Your Network - The Azure Service Dashboard</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2012/11/know-your-network-the-azure-service-dashboard/">
-      <time datetime="2012-11-23T23:22:00.000Z" itemprop="datePublished">2012-11-23</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Develop-Meta/">Develop Meta</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-                
-        <blockquote>
-<p>Having trouble viewing your Windows Azure Website? In spite of all the inner voices’ assurances, it might not be you. </p>
-</blockquote>
-<p># </p>
-<h1 id="A_Bump_in_the_Night"><a href="#A_Bump_in_the_Night" class="headerlink" title="A Bump in the Night"></a>A Bump in the Night</h1><p>I have had a very positive experience with Windows Azure. It just works. There have been a couple of headaches along the way, but I sort of expect that since my preferred flavour of Azure has been all the juicy bits still in preview mode.</p>
-<p>I was awakened by the furnace kicking in at 4am – it’s 18 degrees Celsius below zero here right now – and was struck with some creative flair.&nbsp; I shot downstairs to my basement office to work on an Asp.Net MVC site that I’m hosting on Windows Azure Websites.</p>
-<p>After less than 15 minutes of work (sure the flair was creative, but it was also small) I attempted a push to the cloud.&nbsp; And, yes, <a href="https://twitter.com/srogalsky" target="_blank" rel="external">Steve</a>, my tests were all passing. <img src="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/wlEmoticon-smile_2.png" alt="Smile"> The response:</p>
-<p><a href="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_2.png" target="_blank" rel="external"><img src="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_thumb.png" alt="image" title="image"></a></p>
-<p>Internet Explorer cannot display the webpage? Okay, let’s try Fiddler…</p>
-<p><a href="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_4.png" target="_blank" rel="external"><img src="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_thumb_1.png" alt="image" title="image"></a></p>
-<p>The server did not return a response for this request? Le sigh.</p>
-<h1 id="The_Big_Fix-_Not"><a href="#The_Big_Fix-_Not" class="headerlink" title="The Big Fix. Not."></a>The Big Fix. Not.</h1><p><a href="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_6.png" target="_blank" rel="external"><img src="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_thumb_2.png" alt="image" title="image"></a>The thing I’m digging the most about Azure’s tooling is how it’s taking the friction away. When they introduced the “Download Publish Profile” a couple of months ago, it made the process of pushing a web site to the cloud <em>crazy easy</em>. And because your deployment settings (your publish profiles) are now part of your project, you can script this out and push to the cloud from the command prompt or even as part of your build script.</p>
-<p>So I thought, “Hey, maybe I somehow mucked my publishing settings up?”.&nbsp; I’ve been known to…uh….optimize the odd file or two by hand before. I cleaned out my publishing settings through the build menu (Build –&gt; Publish Selection –&gt; Profile –&gt; Manage Profiles) then headed back to my <a href="http://manage.windowsazure.com/" target="_blank" rel="external">Azure admin portal</a> to pull down my publish profile. I imported it again and hit publish.&nbsp; To the cloud!&nbsp; Gold, right? Nope. </p>
-<p>So, back to the portal. I knew something was going to be wrong with what I’d just done, so let’s leverage the built-in tooling for Azure: logging, error details and failed request tracing. This was going to give me something for sure.</p>
-<p><a href="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_8.png" target="_blank" rel="external"><img src="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_thumb_3.png" alt="image" title="image"></a></p>
-<p>You set these up on your “Configure” tab from your website dashboard.&nbsp; Then you can access all the logs via FTP, the details are listed on your dashboard under the Diagnostic Logs heading in your sidebar.</p>
-<p>Hit the page a couple times, refresh my stats. Still nada. Here’s what I was seeing from the stats chart:</p>
-<p><a href="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_10.png" target="_blank" rel="external"><img src="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_thumb_4.png" alt="image" title="image"></a></p>
-<p>Yeah, that’s right. No errors, no requests, no failed connections to the DB.&nbsp; Zilch.&nbsp; This is exactly what I want to see at any other time in production <em>except when I’m <strong>actually</strong> getting errors</em>.</p>
-<p>Enough with this cloud business…time to kick it old school. I’ve been around the block and have run into similar things on IIS when there was a mal-formed config file.&nbsp; Visual Studio didn’t have anything for me as far as errors or warnings, so I darted over to <a href="http://www.w3schools.com/dom/dom_validate.asp" target="_blank" rel="external">W3Schools</a> to validate the document there. This was a long shot as my site was running locally, but I thought it was worth it.&nbsp; Still, everything checked out and this failure is not due to my tag skills or lack thereof.</p>
-<p>I headed back to my web.config and dropped in this classic, hoping it would spice up my error life:</p>
-<p><pre class="csharpcode">  <span class="kwrd">&lt;</span><span class="html">customErrors</span> <span class="attr">mode</span><span class="kwrd">=”Off”</span> <span class="kwrd">/&gt;</span></pre></p>
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>Still no love. I thought I was going crazy.&nbsp; Technically, that didn’t have any relevance in regards to this problem, but I like to say that every now and then to keep my ego in check.</p>
-<p>I muddled around a bit more in vain, determined to figure out what it was I busted.&nbsp; An hour and a half in, certain that I had crossed all my i’s and dotted all my t’s, I finally decided to open a support ticket.&nbsp; The menu option for this is on your portal when you click on your account name:</p>
-<p><a href="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_12.png" target="_blank" rel="external"><img src="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_thumb_5.png" alt="image" title="image"></a></p>
-<p>And then the trophy appeared:</p>
-<p><a href="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_14.png" target="_blank" rel="external"><img src="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_thumb_6.png" alt="image" title="image"></a></p>
-<p>You can verify the health of the Windows Azure Platform on the <a href="http://www.windowsazure.com/en-us/support/service-dashboard/" target="_blank" rel="external">Service Dashboard</a>.&nbsp; Oh how I wish I had known that two hours earlier.&nbsp; Check this out:</p>
-<p><a href="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_16.png" target="_blank" rel="external"><img src="http://oldblog.jameschambers.com/Media/Default/Windows-Live-Writer/Know-Your-Network_5415/image_thumb_7.png" alt="image" title="image"></a></p>
-<p>Guess which overtired, otherwise confident blurry-eyed developer hosts his Website in West US?</p>
-<h1 id="The_Moral_of_the_Story"><a href="#The_Moral_of_the_Story" class="headerlink" title="The Moral of the Story"></a>The Moral of the Story</h1><p>I actually didn’t know that there was a service dashboard.&nbsp; This is great. I’ve now pinned the site to my home screen on my Windows Phone, and the next time I wake up at 4 AM I’m going to check that little baby first before heading down for 15 minutes of Renaissance-style mid-night creativity.&nbsp; So, I don’t have a moral to share here, just another tool for the war chest.</p>
-<p>Before you pull your hair out fixing “your” problem next time, make sure your hosting provider is giving you all the sweet goods first!</p>
-<p>Finally, if there are any shiny happy Windows Azure team members reading this, could you please, <em>please</em> add a notification on my dashboard if a service I am using is experiencing stress, a midlife crisis or apparent loss of network connectivity?&nbsp; Thanks so much!</p>
-<p>(p.s. By the time I finished writing this post, the <a href="http://www.windowsazure.com/en-us/support/service-dashboard/" target="_blank" rel="external">Service Dashboard</a> showed green checks for all my service friends)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2012/11/know-your-network-the-azure-service-dashboard/" data-id="civfcz3g200djyoyyo247i77w" class="article-share-link">Share</a>
-      
-        <a href="http://jameschambers.com/2012/11/know-your-network-the-azure-service-dashboard/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Asp-Net-MVC/">Asp.Net MVC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Azure/">Azure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Azure-Websites/">Azure Websites</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
       <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/18/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/20/">Next &raquo;</a>
       </nav>
@@ -968,6 +979,14 @@ Angie’s not alone; she has a friend who can also help fill in a single propert
     <h3 class="widget-title">recent</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-title"><a href="/2016/11/How-to-organize-types-in-your-scripts/" class="title">How to organize types in your Azure Function scripts</a></p>
+              <p class="item-date"><time datetime="2016-11-14T13:00:00.000Z" itemprop="datePublished">2016-11-14</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -1001,14 +1020,6 @@ Angie’s not alone; she has a friend who can also help fill in a single propert
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-title"><a href="/2016/03/these-people-are-monsters/" class="title">These People are Monsters! Here&#39;s Some Great Videos Covering ASP.NET Core and Core MVC</a></p>
-              <p class="item-date"><time datetime="2016-03-11T02:48:38.000Z" itemprop="datePublished">2016-03-10</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1026,7 +1037,7 @@ Angie’s not alone; she has a friend who can also help fill in a single propert
   <div class="widget-wrap">
     <h3 class="widget-title">tag cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/30DaysMvcBootstrap/" style="font-size: 17.86px;">30DaysMvcBootstrap</a> <a href="/tags/8DaysOfTableStorage/" style="font-size: 11.43px;">8DaysOfTableStorage</a> <a href="/tags/ASP-NET/" style="font-size: 15px;">ASP.NET</a> <a href="/tags/ASP-NET-5/" style="font-size: 10.71px;">ASP.NET 5</a> <a href="/tags/ASP-NET-Core/" style="font-size: 12.86px;">ASP.NET Core</a> <a href="/tags/ASP-NET-Core-MVC/" style="font-size: 10px;">ASP.NET Core MVC</a> <a href="/tags/ActionFilters/" style="font-size: 10px;">ActionFilters</a> <a href="/tags/AllReady/" style="font-size: 10px;">AllReady</a> <a href="/tags/Android/" style="font-size: 10.71px;">Android</a> <a href="/tags/AngelaSmith/" style="font-size: 10px;">AngelaSmith</a> <a href="/tags/Asp-Net-MVC/" style="font-size: 20px;">Asp.Net MVC</a> <a href="/tags/Authentication/" style="font-size: 10.71px;">Authentication</a> <a href="/tags/Azure/" style="font-size: 17.14px;">Azure</a> <a href="/tags/Azure-Functions/" style="font-size: 10px;">Azure Functions</a> <a href="/tags/Azure-Web-Apps/" style="font-size: 10px;">Azure Web Apps</a> <a href="/tags/Azure-Websites/" style="font-size: 13.57px;">Azure Websites</a> <a href="/tags/BUILD/" style="font-size: 10px;">BUILD</a> <a href="/tags/BitBucket/" style="font-size: 10px;">BitBucket</a> <a href="/tags/Bootstrap/" style="font-size: 15.71px;">Bootstrap</a> <a href="/tags/CTT-NUG/" style="font-size: 10px;">CTT .NUG</a> <a href="/tags/Calgary/" style="font-size: 10px;">Calgary</a> <a href="/tags/Cisco-VPN/" style="font-size: 10px;">Cisco VPN</a> <a href="/tags/ClearMeasure/" style="font-size: 10.71px;">ClearMeasure</a> <a href="/tags/CodeProject/" style="font-size: 11.43px;">CodeProject</a> <a href="/tags/Conferences/" style="font-size: 10.71px;">Conferences</a> <a href="/tags/CouchDb/" style="font-size: 10px;">CouchDb</a> <a href="/tags/DNX/" style="font-size: 10px;">DNX</a> <a href="/tags/Dojo/" style="font-size: 10px;">Dojo</a> <a href="/tags/Email/" style="font-size: 10px;">Email</a> <a href="/tags/Entity-Framework/" style="font-size: 13.57px;">Entity Framework</a> <a href="/tags/Extension-Methods/" style="font-size: 10px;">Extension Methods</a> <a href="/tags/FontAwesome/" style="font-size: 10.71px;">FontAwesome</a> <a href="/tags/GenFu/" style="font-size: 10px;">GenFu</a> <a href="/tags/GetManifestResourceStream/" style="font-size: 10px;">GetManifestResourceStream</a> <a href="/tags/Git/" style="font-size: 11.43px;">Git</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HackAThon/" style="font-size: 10px;">HackAThon</a> <a href="/tags/HtmlHelper/" style="font-size: 10px;">HtmlHelper</a> <a href="/tags/IIS/" style="font-size: 10px;">IIS</a> <a href="/tags/JSON/" style="font-size: 10.71px;">JSON</a> <a href="/tags/Keynote/" style="font-size: 10px;">Keynote</a> <a href="/tags/Life-Hack/" style="font-size: 10px;">Life Hack</a> <a href="/tags/Life-Hacking/" style="font-size: 10.71px;">Life Hacking</a> <a href="/tags/Life-Hacks/" style="font-size: 12.86px;">Life Hacks</a> <a href="/tags/Linq/" style="font-size: 10px;">Linq</a> <a href="/tags/MIX11/" style="font-size: 10px;">MIX11</a> <a href="/tags/MVA/" style="font-size: 10.71px;">MVA</a> <a href="/tags/MVC/" style="font-size: 19.29px;">MVC</a> <a href="/tags/MVC5/" style="font-size: 18.57px;">MVC5</a> <a href="/tags/MVC6/" style="font-size: 13.57px;">MVC6</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/Make-Code-Not-War/" style="font-size: 10px;">Make Code Not War</a> <a href="/tags/MeasureUp/" style="font-size: 10px;">MeasureUp</a> <a href="/tags/Metro/" style="font-size: 10px;">Metro</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Microsoft-Band/" style="font-size: 12.14px;">Microsoft Band</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Mobile-Services/" style="font-size: 10px;">Mobile Services</a> <a href="/tags/Motivate/" style="font-size: 10px;">Motivate</a> <a href="/tags/MvcScaffolding/" style="font-size: 11.43px;">MvcScaffolding</a> <a href="/tags/Not-Coding-At-All/" style="font-size: 10px;">Not Coding At All</a> <a href="/tags/NuGet/" style="font-size: 15px;">NuGet</a> <a href="/tags/OData/" style="font-size: 10px;">OData</a> <a href="/tags/PayPal/" style="font-size: 10px;">PayPal</a> <a href="/tags/PostSharp/" style="font-size: 10px;">PostSharp</a> <a href="/tags/Practice/" style="font-size: 10.71px;">Practice</a> <a href="/tags/Practice-of-Awesome/" style="font-size: 10px;">Practice of Awesome</a> <a href="/tags/PrairieDevCon/" style="font-size: 16.43px;">PrairieDevCon</a> <a href="/tags/Queues/" style="font-size: 10px;">Queues</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/Radio/" style="font-size: 10px;">Radio</a> <a href="/tags/Razor/" style="font-size: 10.71px;">Razor</a> <a href="/tags/Real-Life/" style="font-size: 10px;">Real Life</a> <a href="/tags/Regina/" style="font-size: 10.71px;">Regina</a> <a href="/tags/Remote-Work/" style="font-size: 11.43px;">Remote Work</a> <a href="/tags/Resolve/" style="font-size: 10px;">Resolve</a> <a href="/tags/Rock-Paper-Scissors/" style="font-size: 10px;">Rock Paper Scissors</a> <a href="/tags/Routing/" style="font-size: 10px;">Routing</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 10px;">Ruby on Rails</a> <a href="/tags/SDEC/" style="font-size: 10px;">SDEC</a> <a href="/tags/SOAP/" style="font-size: 10px;">SOAP</a> <a href="/tags/SQL-Server/" style="font-size: 10px;">SQL Server</a> <a href="/tags/ServiceBus/" style="font-size: 10px;">ServiceBus</a> <a href="/tags/SignalR/" style="font-size: 11.43px;">SignalR</a> <a href="/tags/Speaking/" style="font-size: 11.43px;">Speaking</a> <a href="/tags/TFS/" style="font-size: 10px;">TFS</a> <a href="/tags/Table-Storage/" style="font-size: 10.71px;">Table Storage</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/Unit-Testing/" style="font-size: 10px;">Unit Testing</a> <a href="/tags/Visual-Studio/" style="font-size: 10.71px;">Visual Studio</a> <a href="/tags/Visual-Studio-11/" style="font-size: 11.43px;">Visual Studio 11</a> <a href="/tags/Visual-Studio-2010/" style="font-size: 16.43px;">Visual Studio 2010</a> <a href="/tags/Visual-Studio-2012/" style="font-size: 12.86px;">Visual Studio 2012</a> <a href="/tags/Visual-Studio-2013/" style="font-size: 10.71px;">Visual Studio 2013</a> <a href="/tags/Visual-Studio-2015/" style="font-size: 15.71px;">Visual Studio 2015</a> <a href="/tags/WCF/" style="font-size: 10.71px;">WCF</a> <a href="/tags/Web-API/" style="font-size: 11.43px;">Web API</a> <a href="/tags/Web-Development/" style="font-size: 10px;">Web Development</a> <a href="/tags/Web-Services/" style="font-size: 10.71px;">Web Services</a> <a href="/tags/Windows-8/" style="font-size: 11.43px;">Windows 8</a> <a href="/tags/Windows-Azure/" style="font-size: 10px;">Windows Azure</a> <a href="/tags/Windows-Phone/" style="font-size: 14.29px;">Windows Phone</a> <a href="/tags/Windws-Live-Writer/" style="font-size: 10px;">Windws Live Writer</a> <a href="/tags/Winnipeg/" style="font-size: 10.71px;">Winnipeg</a> <a href="/tags/c/" style="font-size: 12.14px;">c#</a> <a href="/tags/compiling/" style="font-size: 10px;">compiling</a> <a href="/tags/jQuery/" style="font-size: 12.14px;">jQuery</a> <a href="/tags/jQuery-UI/" style="font-size: 10.71px;">jQuery UI</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/open-source/" style="font-size: 10.71px;">open source</a> <a href="/tags/reflection/" style="font-size: 10px;">reflection</a> <a href="/tags/seed-data/" style="font-size: 10px;">seed data</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a>
+      <a href="/tags/30DaysMvcBootstrap/" style="font-size: 17.86px;">30DaysMvcBootstrap</a> <a href="/tags/8DaysOfTableStorage/" style="font-size: 11.43px;">8DaysOfTableStorage</a> <a href="/tags/ASP-NET/" style="font-size: 15px;">ASP.NET</a> <a href="/tags/ASP-NET-5/" style="font-size: 10.71px;">ASP.NET 5</a> <a href="/tags/ASP-NET-Core/" style="font-size: 12.86px;">ASP.NET Core</a> <a href="/tags/ASP-NET-Core-MVC/" style="font-size: 10px;">ASP.NET Core MVC</a> <a href="/tags/ActionFilters/" style="font-size: 10px;">ActionFilters</a> <a href="/tags/AllReady/" style="font-size: 10px;">AllReady</a> <a href="/tags/Android/" style="font-size: 10.71px;">Android</a> <a href="/tags/AngelaSmith/" style="font-size: 10px;">AngelaSmith</a> <a href="/tags/Asp-Net-MVC/" style="font-size: 20px;">Asp.Net MVC</a> <a href="/tags/Authentication/" style="font-size: 10.71px;">Authentication</a> <a href="/tags/Azure/" style="font-size: 17.14px;">Azure</a> <a href="/tags/Azure-Functions/" style="font-size: 10.71px;">Azure Functions</a> <a href="/tags/Azure-Web-Apps/" style="font-size: 10px;">Azure Web Apps</a> <a href="/tags/Azure-Websites/" style="font-size: 13.57px;">Azure Websites</a> <a href="/tags/BUILD/" style="font-size: 10px;">BUILD</a> <a href="/tags/BitBucket/" style="font-size: 10px;">BitBucket</a> <a href="/tags/Bootstrap/" style="font-size: 15.71px;">Bootstrap</a> <a href="/tags/CTT-NUG/" style="font-size: 10px;">CTT .NUG</a> <a href="/tags/Calgary/" style="font-size: 10px;">Calgary</a> <a href="/tags/Cisco-VPN/" style="font-size: 10px;">Cisco VPN</a> <a href="/tags/ClearMeasure/" style="font-size: 10.71px;">ClearMeasure</a> <a href="/tags/CodeProject/" style="font-size: 11.43px;">CodeProject</a> <a href="/tags/Conferences/" style="font-size: 10.71px;">Conferences</a> <a href="/tags/CouchDb/" style="font-size: 10px;">CouchDb</a> <a href="/tags/DNX/" style="font-size: 10px;">DNX</a> <a href="/tags/Dojo/" style="font-size: 10px;">Dojo</a> <a href="/tags/Email/" style="font-size: 10px;">Email</a> <a href="/tags/Entity-Framework/" style="font-size: 13.57px;">Entity Framework</a> <a href="/tags/Extension-Methods/" style="font-size: 10px;">Extension Methods</a> <a href="/tags/FontAwesome/" style="font-size: 10.71px;">FontAwesome</a> <a href="/tags/GenFu/" style="font-size: 10px;">GenFu</a> <a href="/tags/GetManifestResourceStream/" style="font-size: 10px;">GetManifestResourceStream</a> <a href="/tags/Git/" style="font-size: 11.43px;">Git</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HackAThon/" style="font-size: 10px;">HackAThon</a> <a href="/tags/HtmlHelper/" style="font-size: 10px;">HtmlHelper</a> <a href="/tags/IIS/" style="font-size: 10px;">IIS</a> <a href="/tags/JSON/" style="font-size: 10.71px;">JSON</a> <a href="/tags/Keynote/" style="font-size: 10px;">Keynote</a> <a href="/tags/Life-Hack/" style="font-size: 10px;">Life Hack</a> <a href="/tags/Life-Hacking/" style="font-size: 10.71px;">Life Hacking</a> <a href="/tags/Life-Hacks/" style="font-size: 12.86px;">Life Hacks</a> <a href="/tags/Linq/" style="font-size: 10px;">Linq</a> <a href="/tags/MIX11/" style="font-size: 10px;">MIX11</a> <a href="/tags/MVA/" style="font-size: 10.71px;">MVA</a> <a href="/tags/MVC/" style="font-size: 19.29px;">MVC</a> <a href="/tags/MVC5/" style="font-size: 18.57px;">MVC5</a> <a href="/tags/MVC6/" style="font-size: 13.57px;">MVC6</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/Make-Code-Not-War/" style="font-size: 10px;">Make Code Not War</a> <a href="/tags/MeasureUp/" style="font-size: 10px;">MeasureUp</a> <a href="/tags/Metro/" style="font-size: 10px;">Metro</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Microsoft-Band/" style="font-size: 12.14px;">Microsoft Band</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Mobile-Services/" style="font-size: 10px;">Mobile Services</a> <a href="/tags/Motivate/" style="font-size: 10px;">Motivate</a> <a href="/tags/MvcScaffolding/" style="font-size: 11.43px;">MvcScaffolding</a> <a href="/tags/Not-Coding-At-All/" style="font-size: 10px;">Not Coding At All</a> <a href="/tags/NuGet/" style="font-size: 15px;">NuGet</a> <a href="/tags/OData/" style="font-size: 10px;">OData</a> <a href="/tags/PayPal/" style="font-size: 10px;">PayPal</a> <a href="/tags/PostSharp/" style="font-size: 10px;">PostSharp</a> <a href="/tags/Practice/" style="font-size: 10.71px;">Practice</a> <a href="/tags/Practice-of-Awesome/" style="font-size: 10px;">Practice of Awesome</a> <a href="/tags/PrairieDevCon/" style="font-size: 16.43px;">PrairieDevCon</a> <a href="/tags/Queues/" style="font-size: 10px;">Queues</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/Radio/" style="font-size: 10px;">Radio</a> <a href="/tags/Razor/" style="font-size: 10.71px;">Razor</a> <a href="/tags/Real-Life/" style="font-size: 10px;">Real Life</a> <a href="/tags/Regina/" style="font-size: 10.71px;">Regina</a> <a href="/tags/Remote-Work/" style="font-size: 11.43px;">Remote Work</a> <a href="/tags/Resolve/" style="font-size: 10px;">Resolve</a> <a href="/tags/Rock-Paper-Scissors/" style="font-size: 10px;">Rock Paper Scissors</a> <a href="/tags/Routing/" style="font-size: 10px;">Routing</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 10px;">Ruby on Rails</a> <a href="/tags/SDEC/" style="font-size: 10px;">SDEC</a> <a href="/tags/SOAP/" style="font-size: 10px;">SOAP</a> <a href="/tags/SQL-Server/" style="font-size: 10px;">SQL Server</a> <a href="/tags/ServiceBus/" style="font-size: 10px;">ServiceBus</a> <a href="/tags/SignalR/" style="font-size: 11.43px;">SignalR</a> <a href="/tags/Speaking/" style="font-size: 11.43px;">Speaking</a> <a href="/tags/TFS/" style="font-size: 10px;">TFS</a> <a href="/tags/Table-Storage/" style="font-size: 10.71px;">Table Storage</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/Unit-Testing/" style="font-size: 10px;">Unit Testing</a> <a href="/tags/Visual-Studio/" style="font-size: 10.71px;">Visual Studio</a> <a href="/tags/Visual-Studio-11/" style="font-size: 11.43px;">Visual Studio 11</a> <a href="/tags/Visual-Studio-2010/" style="font-size: 16.43px;">Visual Studio 2010</a> <a href="/tags/Visual-Studio-2012/" style="font-size: 12.86px;">Visual Studio 2012</a> <a href="/tags/Visual-Studio-2013/" style="font-size: 10.71px;">Visual Studio 2013</a> <a href="/tags/Visual-Studio-2015/" style="font-size: 15.71px;">Visual Studio 2015</a> <a href="/tags/WCF/" style="font-size: 10.71px;">WCF</a> <a href="/tags/Web-API/" style="font-size: 11.43px;">Web API</a> <a href="/tags/Web-Development/" style="font-size: 10px;">Web Development</a> <a href="/tags/Web-Services/" style="font-size: 10.71px;">Web Services</a> <a href="/tags/Windows-8/" style="font-size: 11.43px;">Windows 8</a> <a href="/tags/Windows-Azure/" style="font-size: 10px;">Windows Azure</a> <a href="/tags/Windows-Phone/" style="font-size: 14.29px;">Windows Phone</a> <a href="/tags/Windws-Live-Writer/" style="font-size: 10px;">Windws Live Writer</a> <a href="/tags/Winnipeg/" style="font-size: 10.71px;">Winnipeg</a> <a href="/tags/c/" style="font-size: 12.86px;">c#</a> <a href="/tags/compiling/" style="font-size: 10px;">compiling</a> <a href="/tags/jQuery/" style="font-size: 12.14px;">jQuery</a> <a href="/tags/jQuery-UI/" style="font-size: 10.71px;">jQuery UI</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/open-source/" style="font-size: 10.71px;">open source</a> <a href="/tags/reflection/" style="font-size: 10px;">reflection</a> <a href="/tags/seed-data/" style="font-size: 10px;">seed data</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a>
     </div>
   </div>
 
@@ -1035,7 +1046,7 @@ Angie’s not alone; she has a friend who can also help fill in a single propert
   <div class="widget-wrap">
     <h3 class="widget-title">archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">42</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/">2012</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">36</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">42</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/">2012</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">36</span></li></ul>
     </div>
   </div>
 
