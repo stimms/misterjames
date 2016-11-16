@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Building the Web and Other Musings]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jameschambers.com/"/>
-  <updated>2016-11-15T03:07:29.470Z</updated>
+  <updated>2016-11-16T20:20:16.101Z</updated>
   <id>http://jameschambers.com/</id>
   
   <author>
@@ -15,11 +15,69 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Fan out workloads in Azure Function Apps]]></title>
+    <link href="http://jameschambers.com/2016/11/Fan-out-workloads-in-Azure-Function-Apps/"/>
+    <id>http://jameschambers.com/2016/11/Fan-out-workloads-in-Azure-Function-Apps/</id>
+    <published>2016-11-16T12:51:32.000Z</published>
+    <updated>2016-11-16T20:20:16.101Z</updated>
+    <content type="html"><![CDATA[<p>You want to scale wide. That is it. That is the trick and the magic and the secret sauce of cloud computing. Do as much as you want to, as long as it’s as little as possible. Break your work down into smaller parts and let Azure Functions handle the scaling part.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/11/chained-function-results.png" alt="&quot;Nothing&quot; scales really well. - Scott Hanselman"></p>
+<a id="more"></a>
+<p><em>This article is part of an ongoing series on <a href="../Five-Days-of-Azure-Functions/">Azure Functions</a></em>.</p>
+
+<p>Worksloads can come in many shapes and your goal as a developer in the cloud is to make sure that everything you touch happens quickly. API surface area that is required to scale has certain responsibilities such as keeping a low overhead, not doing IO bound operations synchronously and more. Azure Function Apps can help you achieve these goals by giving you building blocks that let you fan out your workload and keep your services nice and responsive.</p>
+<p><strong>TL;DR:</strong> Queue the work to be performed individually, then acknowledge the receipt of work. Let the actual processing happen in the background.</p>
+<h2 id="An_Example_Scenario"><a href="#An_Example_Scenario" class="headerlink" title="An Example Scenario"></a>An Example Scenario</h2><p>Let’s suppose you want to accept a list of photo albums to download. There could be dozens of albums and each album could have dozens or even hundreds of photos. You don’t have the details of each album, so when you get the list, you’ll need to iterate over all the albums and fetch the details, at which point you’ll have the list of photos you can download.   </p>
+<p>I’m using this example because it is close to my career: I actually built something like this many moons ago, prior to cloud being a “real” thing that we could tap into. The solution back then was to have many services running on many servers and using a single dispatcher to queue up downloads and distribute the download tasks. It cost many dollars to service the lease on those machines. Today, building something like this on Azure Functions is way easier, and wouldn’t cost anything (infrastructure-wise) until users were paying to use it.</p>
+<h2 id="Fanning_Out_for_Scalability"><a href="#Fanning_Out_for_Scalability" class="headerlink" title="Fanning Out for Scalability"></a>Fanning Out for Scalability</h2><p>To follow along with this one, you’ll want to hit the Azure portal and create a Queue-triggered function with a C# template, creating the appropriate queue and selecting a storage account. Add a file to the function called <code>Album.csx</code> with the following code inside it:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Album</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Title &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> URL &#123;<span class="keyword">get</span>;<span class="keyword">set</span>;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Our function will be receiving a message that a number of albums will need to be downloaded. The Functions UI has a handy “test” feature that you can use to send messages while you mash on your code. I’m using the following test data to simulate the information that would be coming into my queue:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="string">"Title"</span> : <span class="string">"Last Summer"</span>, </span><br><span class="line">		<span class="string">"URL"</span> : <span class="string">"http://awesomephotoshareR.com/albums/last-summer"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="string">"Title"</span> : <span class="string">"Spring Break with the Kids"</span>, </span><br><span class="line">		<span class="string">"URL"</span> : <span class="string">"http://awesomephotoshareR.com/albums/spring-break"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="string">"Title"</span> : <span class="string">"Family Holidays"</span>, </span><br><span class="line">		<span class="string">"URL"</span> : <span class="string">"http://awesomephotoshareR.com/albums/family-holidays"</span></span><br><span class="line">	&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>Here’s my code to process the message:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#load "album.csx"</span></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Run</span>(<span class="params">List&lt;Album&gt; albums, ICollector&lt;Album&gt; queuedAlbums, TraceWriter log</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">foreach</span>(<span class="keyword">var</span> album <span class="keyword">in</span> albums)</span><br><span class="line">    &#123;</span><br><span class="line">        queuedAlbums.Add(album);</span><br><span class="line">        log.Info($<span class="string">"Added &#123;album.Title&#125; to the queue."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Note that I’m just logging things out and returning. We need to make that acutally do some interesting work.  More importantly though, I’m not going to be doing any of the work here, not the downloading bits, anyways. I want simply to put the album information on the queue to be processed external to this call. I can do this quickly and get out.</p>
+<p>You’ll notice the <code>ICollector&lt;Album&gt;</code> in the signature. That is augmented from the default <code>ICollector&lt;string&gt;</code> so that we can take advantage of the type binding that Functions offers.</p>
+<h2 id="Building_a_Function_Chain"><a href="#Building_a_Function_Chain" class="headerlink" title="Building a Function Chain"></a>Building a Function Chain</h2><p>The next thing to do is to start sending that output <em>somewhere</em>. It’s going to the queue, but it’s not being processed.  To get processing to happen, we’re going back to the integration tab and pressing the magic button:</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/11/function-chaining.png" alt=""></p>
+<p>Clicking “go” takes you to the create page for adding a new function to your Functions App. The queue trigger template is selected and the parameters are already filled out. When you create the new function you’re taken to the code, where the initial pass of the script looks like so:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Run</span>(<span class="params"><span class="keyword">string</span> myQueueItem, TraceWriter log</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">    log.Info($<span class="string">"C# Queue trigger function processed: &#123;myQueueItem&#125;"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Let’s update that, because we have a type already broken out, and we want to have more strongly-typed arguments.  Add an <code>Album.csx</code> to your function again here (it’s a different file set from our first one) and put the same members in the class as before. Don’t worry - we’re going to look at fixing this copy-and-paste nonsense later in the series.</p>
+<p>Your new function should look like so:<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#load "Album.csx"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Run</span>(<span class="params">Album album, TraceWriter log</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">    log.Info($<span class="string">"C# Queue trigger function processed: &#123;album.Title&#125;"</span>);</span><br><span class="line">    <span class="comment">// do the downloading bits here...    </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>There, now, if you want to see the fun stuff happen, open another browser window and put your two functions side-by-each on the screen. Return to the intake function and run it again. Your single-message list of albums is diced up and sent to the queue one-by-each, then processed over in the other function.  Cool beans.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2016/11/chained-functions-output.png" alt="Jazz Hands!"></p>
+<h2 id="Building_Messages_That_Support_Scaling"><a href="#Building_Messages_That_Support_Scaling" class="headerlink" title="Building Messages That Support Scaling"></a>Building Messages That Support Scaling</h2><p>When you have the data at hand, don’t squirrel it away from the rest of your processing pipeline. Instead, forward that information along.</p>
+<p>We should always work towards having a measure of idempotence in our messages. What I mean by that is simply that the message should stand on it’s own. If you have the title and the URL of an album to download, don’t make the next handler in the chain use the URL to look up the title. It can mean that you start to build out fatter messages, but the payoff is that you don’t have to go and look things up. Messages can be replayed without pulling in dependencies and you’ll reach a much higher level of scalability. </p>
+<p>Note that it’s a good practice in cases like this to include something along the lines of a correlation ID, to help understand which queued work items belong together. It’s also a good way to figure out when you’ve completed a distributed set of work. If folks are interested in this, I will dig further into how to achieve this in Azure.</p>
+<h2 id="Other_articles_in_this_series"><a href="#Other_articles_in_this_series" class="headerlink" title="Other articles in this series"></a>Other articles in this series</h2><ul>
+<li>Day 1: <a href="../How-to-organize-types-in-your-scripts">How to organize types in your Azure Function scripts</a></li>
+<li>Day 2: <a href="../Resizing-Images-Using-Azure-Functions">How to resize an image uploaded to Azure Blog Storage</a></li>
+<li>Day 3: <a href="../Fan-out-workloads-in-Azure-Function-Apps">How to &quot;fan out&quot; work so your Functions can scale</a></li>
+<li>Day 4: How to deploy to Azure Functions using GitHub (Up Next!)</li>
+<li>Day 5: How to import third-party libraries (Coming soon)</li>
+</ul>
+
+<p>Happy coding!  </p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>You want to scale wide. That is it. That is the trick and the magic and the secret sauce of cloud computing. Do as much as you want to, as long as it’s as little as possible. Break your work down into smaller parts and let Azure Functions handle the scaling part.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/11/chained-function-results.png" alt="&quot;Nothing&quot; scales really well. - Scott Hanselman"></p>]]>
+    
+    </summary>
+    
+      <category term="5 days of Azure Functions" scheme="http://jameschambers.com/tags/5-days-of-Azure-Functions/"/>
+    
+      <category term="Azure Functions" scheme="http://jameschambers.com/tags/Azure-Functions/"/>
+    
+      <category term="Development" scheme="http://jameschambers.com/categories/Development/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[How to Resize Images Uploaded to Blob Storage with Azure Functions]]></title>
     <link href="http://jameschambers.com/2016/11/Resizing-Images-Using-Azure-Functions/"/>
     <id>http://jameschambers.com/2016/11/Resizing-Images-Using-Azure-Functions/</id>
     <published>2016-11-15T13:04:26.000Z</published>
-    <updated>2016-11-15T03:07:29.470Z</updated>
+    <updated>2016-11-15T12:52:31.208Z</updated>
     <content type="html"><![CDATA[<p>Here’s the scenario: you have some block of processing that needs to be executed everytime a file is pushed up into your blob storage account.  The solution: use Azure Functions and the integration module for blob-triggers so that you don’t have to do any of the heavy lifting.</p>
 <p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/11/resize-pictures.png" alt=""></p>
 <p>In this post we’ll look at using a storage account trigger to automatically have an image processed as part of an Azure Function App. Not just to be used for image processing, any type of object can trigger a block of work and it will follow these same mechanics.</p>
@@ -53,8 +111,8 @@
 <h2 id="Other_articles_in_this_series"><a href="#Other_articles_in_this_series" class="headerlink" title="Other articles in this series"></a>Other articles in this series</h2><ul>
 <li>Day 1: <a href="../How-to-organize-types-in-your-scripts">How to organize types in your Azure Function scripts</a></li>
 <li>Day 2: <a href="../Resizing-Images-Using-Azure-Functions">How to resize an image uploaded to Azure Blog Storage</a></li>
-<li>Day 3: How to &quot;fan out&quot; work so your Functions can scale (Up Next!)</li>
-<li>Day 4: How to deploy to Azure Functions using GitHub (Coming soon)</li>
+<li>Day 3: <a href="../Fan-out-workloads-in-Azure-Function-Apps">How to &quot;fan out&quot; work so your Functions can scale</a></li>
+<li>Day 4: How to deploy to Azure Functions using GitHub (Up Next!)</li>
 <li>Day 5: How to import third-party libraries (Coming soon)</li>
 </ul>
 
@@ -66,6 +124,8 @@
 <p>In this post we’ll look at using a storage account trigger to automatically have an image processed as part of an Azure Function App. Not just to be used for image processing, any type of object can trigger a block of work and it will follow these same mechanics.</p>]]>
     
     </summary>
+    
+      <category term="5 days of Azure Functions" scheme="http://jameschambers.com/tags/5-days-of-Azure-Functions/"/>
     
       <category term="Azure Functions" scheme="http://jameschambers.com/tags/Azure-Functions/"/>
     
@@ -80,7 +140,7 @@
     <link href="http://jameschambers.com/2016/11/How-to-organize-types-in-your-scripts/"/>
     <id>http://jameschambers.com/2016/11/How-to-organize-types-in-your-scripts/</id>
     <published>2016-11-14T13:00:00.000Z</published>
-    <updated>2016-11-14T23:06:56.626Z</updated>
+    <updated>2016-11-15T12:52:52.304Z</updated>
     <content type="html"><![CDATA[<p>Even when you’re dealing with Function Apps that have limited scope it’s a good idea to break your scripts up into manageable, possibly reusable chunks. This is especially true if you want to work with the same data in several Functions in your app.  </p>
 <p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/11/types-in-functions.png" alt="Keep your functions type-free"></p>
 <p>This is one way you can organize your scripts, types and objects in Azure Function Apps, and we’ll have a deeper look at another approach later in this series.</p>
@@ -111,8 +171,8 @@
 <h2 id="Other_articles_in_this_series"><a href="#Other_articles_in_this_series" class="headerlink" title="Other articles in this series"></a>Other articles in this series</h2><ul>
 <li>Day 1: <a href="../How-to-organize-types-in-your-scripts">How to organize types in your Azure Function scripts</a></li>
 <li>Day 2: <a href="../Resizing-Images-Using-Azure-Functions">How to resize an image uploaded to Azure Blog Storage</a></li>
-<li>Day 3: How to &quot;fan out&quot; work so your Functions can scale (Up Next!)</li>
-<li>Day 4: How to deploy to Azure Functions using GitHub (Coming soon)</li>
+<li>Day 3: <a href="../Fan-out-workloads-in-Azure-Function-Apps">How to &quot;fan out&quot; work so your Functions can scale</a></li>
+<li>Day 4: How to deploy to Azure Functions using GitHub (Up Next!)</li>
 <li>Day 5: How to import third-party libraries (Coming soon)</li>
 </ul>
 
@@ -124,6 +184,8 @@
 <p>This is one way you can organize your scripts, types and objects in Azure Function Apps, and we’ll have a deeper look at another approach later in this series.</p>]]>
     
     </summary>
+    
+      <category term="5 days of Azure Functions" scheme="http://jameschambers.com/tags/5-days-of-Azure-Functions/"/>
     
       <category term="Azure Functions" scheme="http://jameschambers.com/tags/Azure-Functions/"/>
     
@@ -138,15 +200,15 @@
     <link href="http://jameschambers.com/2016/11/Five-Days-of-Azure-Functions/"/>
     <id>http://jameschambers.com/2016/11/Five-Days-of-Azure-Functions/</id>
     <published>2016-11-11T21:03:50.000Z</published>
-    <updated>2016-11-14T23:07:22.373Z</updated>
+    <updated>2016-11-16T20:31:53.347Z</updated>
     <content type="html"><![CDATA[<p>I’m exploring the how-to’s in Azure Functions that go beyond hello world.  I’m going to take the next five days to cover some interesting scenarios that I know I will find useful in my upcoming projects and hope that you can find value in it, too.  </p>
 <p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/11/the-functions-are-coming.png" alt="Azure Functions"></p>
 <a id="more"></a>
 <h2 id="Here_u2019s_the_topics"><a href="#Here_u2019s_the_topics" class="headerlink" title="Here’s the topics"></a>Here’s the topics</h2><ul>
 <li>Day 1: <a href="../How-to-organize-types-in-your-scripts">How to organize types in your Azure Function scripts</a></li>
 <li>Day 2: <a href="../Resizing-Images-Using-Azure-Functions">How to resize an image uploaded to Azure Blog Storage</a></li>
-<li>Day 3: How to &quot;fan out&quot; work so your Functions can scale (Up Next!)</li>
-<li>Day 4: How to deploy to Azure Functions using GitHub (Coming soon)</li>
+<li>Day 3: <a href="../Fan-out-workloads-in-Azure-Function-Apps">How to &quot;fan out&quot; work so your Functions can scale</a></li>
+<li>Day 4: How to deploy to Azure Functions using GitHub (Up Next!)</li>
 <li>Day 5: How to import third-party libraries (Coming soon)</li>
 </ul>
 
@@ -163,12 +225,15 @@
 <h2 id="Here_u2019s_the_topics-1"><a href="#Here_u2019s_the_topics-1" class="headerlink" title="Here’s the topics"></a>Here’s the topics</h2><ul>
 <li>Day 1: <a href="../How-to-organize-types-in-your-scripts">How to organize types in your Azure Function scripts</a></li>
 <li>Day 2: <a href="../Resizing-Images-Using-Azure-Functions">How to resize an image uploaded to Azure Blog Storage</a></li>
-<li>Day 3: How to &quot;fan out&quot; work so your Functions can scale (Up Next!)</li>
-<li>Day 4: How to deploy to Azure Functions using GitHub (Coming soon)</li>
+<li>Day 3: <a href="../Fan-out-workloads-in-Azure-Function-Apps">How to &quot;fan out&quot; work so your Functions can scale</a></li>
+<li>Day 4: How to deploy to Azure Functions using GitHub (Up Next!)</li>
 <li>Day 5: How to import third-party libraries (Coming soon)</li>
 </ul>
 
 <p>Would you like to see more? Suggest an Azure Function topic in the comments below or ping me on the Twitters.</p>
+<h2 id="And_Check_Out_the_Monsters_u2026"><a href="#And_Check_Out_the_Monsters_u2026" class="headerlink" title="And Check Out the Monsters…"></a>And Check Out the Monsters…</h2><p>We got to mash with Chris Anderson who works on the Functions and Web Jobs team at Microsoft.</p>
+<iframe src="https://channel9.msdn.com/Series/aspnetmonsters/ASPNET-Monsters-78-Azure-Functions-with-Chris-Anderson/player" width="640" height="360" allowfullscreen frameborder="0"></iframe>
+
 <p>Happy Coding!</p>
 ]]></content>
     <summary type="html">
@@ -176,6 +241,8 @@
 <p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/11/the-functions-are-coming.png" alt="Azure Functions"></p>]]>
     
     </summary>
+    
+      <category term="5 days of Azure Functions" scheme="http://jameschambers.com/tags/5-days-of-Azure-Functions/"/>
     
       <category term="Azure Functions" scheme="http://jameschambers.com/tags/Azure-Functions/"/>
     
@@ -1728,104 +1795,6 @@ Finally, we’ll add a little more meat to our our Main method:
       <category term="Visual Studio 2015" scheme="http://jameschambers.com/tags/Visual-Studio-2015/"/>
     
       <category term="Code Dive" scheme="http://jameschambers.com/categories/Code-Dive/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Converting .NET 4.6 Projects to the VS 2015 Project System]]></title>
-    <link href="http://jameschambers.com/2015/08/converting-net-4-6-projects-to-the-vs-2015-project-system/"/>
-    <id>http://jameschambers.com/2015/08/converting-net-4-6-projects-to-the-vs-2015-project-system/</id>
-    <published>2015-08-10T19:47:06.000Z</published>
-    <updated>2016-01-20T03:26:04.656Z</updated>
-    <content type="html"><![CDATA[<p>To take advantage of multi-targeted outputs from our project – allowing our assemblies to be used from multiple frameworks across the organization – we want to upgrade our projects to use the new project system in Visual Studio 2015. Previously, we would have needed a base project and then a separate project for each framework target (PCL, 4.5, 3.5, 4.5.2, etc), but in today’s solutions we can have a single project output all of the assets we wish to support.</p>
-<p><em>In this series we’re working through the conversion of <a href="http://clear-measure.com/" target="_blank" rel="external">Clear Measure’s</a> <a href="https://github.com/ClearMeasureLabs/ClearMeasureBootcamp/" target="_blank" rel="external">Bootcamp MVC</a> 5-based application and migrating it to MVC 6. You can track the entire series of posts from the </em><a href="http://jameschambers.com/2015/07/upgrading-a-real-world-mvc-5-application-to-mvc-6/"><em>intro page</em></a><em>.</em></p>
-<h2 id="Recreating_the_Solution_and_Projects"><a href="#Recreating_the_Solution_and_Projects" class="headerlink" title="Recreating the Solution and Projects"></a>Recreating the Solution and Projects</h2><p>As of right now, there are no tools in place that would support an in-place migration from the old project system to the new one. Because we wanted to preserve project naming and namespaces, I copied everything out into a new directory – the solution and the projects – and rebuilt the solution from scratch.</p>
-<p>I would anticipate a project conversion process at some point, even one that was able to provide the basics (like moving package dependencies to project.json) and guidance on the remaining pieces (like why part of the project wasn’t able to convert, and how you might approach it). This post will walk through those steps of the conversion, but it will be done manually.</p>
-<p>I wanted to maintain all the same names of the assemblies, namespaces and outputs, and the only way to currently do this is to clear out the src folder and start over. Don’t worry, our code is still good, we just have to wrangle it into new containers.</p>
-<h2 id="Step_0_3A_Folder_Reorganization"><a href="#Step_0_3A_Folder_Reorganization" class="headerlink" title="Step 0: Folder Reorganization"></a>Step 0: Folder Reorganization</h2><p>One of the first changes that I made was a reorganization of the tooling that is used to support the build. Some of the build script relied on packages existing on disk (NUnit’s console runner, AliaSql) but this is an order-of-operations problem. When you grab the solution from the repo, you’re not actually able to build it until you restore the packages. Further, these assets are <strong>solution-level </strong>concerns, not project-level concerns, so which project do you install them into? NuGet does not have the concept of solution-level packages that apply to the solution itself, so while it works perfectly well for projects, NuGet is inherently not ideal for incorporating solution dependencies.</p>
-<p>To remedy this, I have moved these types of assets into a tools folder and updated the build scripts accordingly. This approach is likely a matter of opinion more than anything, but the reality is that we want the directory structure to reflect which concerns <strong><u>are in</u></strong> the solution versus which concerns <strong><u>work on</u></strong> the solution.</p>
-<p>I would like to note that there are still improvements to be made here – for instance, I know many teams actually have build scripts that are capable of not only restoring packages, but have the ability to go and grab NuGet itself – so expect some more changes as we continue to move through this migration. Automation is <em>awesome</em>.</p>
-<h2 id="Step_1__u2013_Core"><a href="#Step_1__u2013_Core" class="headerlink" title="Step 1 – Core"></a>Step 1 – Core</h2><p><a href="https://jcblogimages.blob.core.windows.net/img/2015/08/image.png" target="_blank" rel="external"><img src="https://jcblogimages.blob.core.windows.net/img/2015/08/image_thumb.png" alt="image" title="image"></a>Our Core project was a breeze to port because it’s at the heart of the system in an <a href="/jeffreypalermo.com/blog/the-onion-architecture-part-1/">Onion Architecture</a> and takes on very few dependencies. I started the conversion by going through the motions of creating a new Core project, using the DLL project from the “Web Templates” part of the dialog.&nbsp; The first project also creates the solution, and the convention for the way the solutions are laid out on disk has changed.</p>
-<p>So…the build broke.</p>
-<p>Thankfully, this was easy to resolve with just a couple of quick fixes, but you’ll likely have to take similar steps on your project:</p>
-<ul>
-<li>First, update your paths to point at the correct location on disk</li>
-<li>Second, comment out all the build steps that have to come later, like running unit or integration tests</li>
-</ul>
-<p><a href="https://jcblogimages.blob.core.windows.net/img/2015/08/image1.png" target="_blank" rel="external"><img src="https://jcblogimages.blob.core.windows.net/img/2015/08/image_thumb1.png" alt="image" title="image"></a>We can’t run unit tests quite yet (we need to convert those projects as well), but we can make sure that the project is building correctly.</p>
-<p>We’re not modifying code at this point, so provided we can get the solution building we can have a good level of confidence – but not a guarantee – that our code is still in good shape. We want those tests back online before we merge this branch back to develop.</p>
-<p>With the build running, I was able to jump back into Visual Studio and start adding back the code. In my case, nearly everything worked just by copying in the files from my backup location and pasting them into the project. It’s a bit tedious, but it’s by no means difficult or complicated.</p>
-<p>The only package that I had to add at this point was a legacy dependency from NHibernate, namely the Iesi.Collections package. This is done by opening up the project.json for Core and updating the “dependencies” part of the project file. As soon as you save the file out, Visual Studio goes off and runs a background install of the packages that it finds you’ve put in there, along with any dependencies of those packages.</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/08/image2.png" alt="image" title="image"></p>
-<p>Finding the right package and most recent version is quite easy in the project.json world. As you start typing a package name, in-line search kicks in and starts suggesting matches. Available versions of the packages are displayed, and VS indicates if those packages are available locally in a cache or found on a remote NuGet repository, indicated by the icon you see. All packages sources are queried for package information, so you can get packages and their version information from private repositories as well.</p>
-<p>Once the packages were restored the solution built fine in Visual Studio 2015 and I was able to return to my console to run the build script.</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/08/image3.png" alt="image" title="image"></p>
-<h2 id="Step_2_3A_Data_Access"><a href="#Step_2_3A_Data_Access" class="headerlink" title="Step 2: Data Access"></a>Step 2: Data Access</h2><p>Other than the fact that Data Access has a few more dependencies, it was really more of the same to get the Data Access project online and building through our script. I added another DLL to the solution, added the source files and installed the dependencies via project.json.</p>
-<p>When I compiled the project at this point, some of the changes of the .NET Framework and the strategy of the team started to surface. For instance, typically you might find a reference to System.Data from your GAC in a project, however, in the new cross-platform project system and under the assumption that you may not have a GAC at all, the .NET folks have taken the mantra of “NuGet all the things.” To get access to the System.Data namespace and the IDataReader interface that was used in the DataAccess project, I had to add a reference to System.Data version 4.0.0 from NuGet (via project.json).</p>
-<p>Other projects will have similar hits on moved packages. It is likely safe to use the GAC in situations where you know what the build environment looks like and are sure that build agents and other developers will have access to the required dependencies. But it is a more stable approach – and a better chance to successful compile our application – to instead reference those binaries from a package repository.</p>
-<p>The other notable piece was in how we reference other projects in our own solution; today they look a lot like referencing other packages. Whether you go through the Add Reference dialog or if you prefer to edit the project file by hand, you’re going to also need to introduce a dependency on Core, which is done simply by adding the following line to the dependencies:</p>
-<pre class="csharpcode"><span class="str">"Core"</span>: <span class="str">"1.0.0-*"</span></pre>
-
-<style type="text/css">.csharpcode, .csharpcode pre
-{
-    font-size: small;
-    color: black;
-    font-family: consolas, "Courier New", courier, monospace;
-    background-color: #ffffff;
-    /*white-space: pre;*/
-}
-.csharpcode pre { margin: 0em; }
-.csharpcode .rem { color: #008000; }
-.csharpcode .kwrd { color: #0000ff; }
-.csharpcode .str { color: #006080; }
-.csharpcode .op { color: #0000c0; }
-.csharpcode .preproc { color: #cc6633; }
-.csharpcode .asp { background-color: #ffff00; }
-.csharpcode .html { color: #800000; }
-.csharpcode .attr { color: #ff0000; }
-.csharpcode .alt 
-{
-    background-color: #f4f4f4;
-    width: 100%;
-    margin: 0em;
-}
-.csharpcode .lnum { color: #606060; }
-</style>
-
-<p>Excellent! Almost ready to build!</p>
-<h2 id="Step_3_3A_Clean_Up"><a href="#Step_3_3A_Clean_Up" class="headerlink" title="Step 3: Clean Up"></a>Step 3: Clean Up</h2><p>Just a couple of other notes that I took and a couple of tips I’ve learned as I created these projects:</p>
-<ul>
-<li>You’ll have to set the default namespaces so that new classes that are introduced adhere to your conventions</li>
-<li>You need to enable the “Produce outputs on build” in order for your project to build a NuGet package (this is in the build options)</li>
-</ul>
-<p>You’re also in charge of wiring up any dependencies your modules need where they aren’t satisfied with a single package for all output types. For instance, when I tried a small gamut of output targets I ran into this problem:</p>
-<p><img src="https://jcblogimages.blob.core.windows.net/img/2015/08/image4.png" alt="image" title="image"></p>
-<p>The new .NET Platform (the base for Windows, web, mobile and x-plat) was not supported given the dependencies I have listed in my project, namely it is the IESI Collections that is the problem here. Ideally, you want to be able to support as many runtimes as possible, so you want to target the lowest common denominator. That is likely going to be “dotnet” going forward (which could in turn be used to build up applications for web, Windows or phone) but more realistically things like “net46”, which is just the 4.6 version of .NET, or “dnx46”, which is the new bits (think MVC Framework) running on top of .NET 4.6. In the cases where you don’t have a package that matches the target you need, you have a couple of choices, listed in order of easiest to most difficult:</p>
-<ul>
-<li>Contact the package authors to see if there is a new version coming</li>
-<li>If it’s open source, contribute and get an output built for dotnet</li>
-<li>Add runtime-specific dependencies to get the project building, then use compiler switches to implement different blocks of code based on the target framework</li>
-<li>Switch off of that version of the package, or switch to an alternate package to get the same functionality and then update your code as required</li>
-</ul>
-<p>Sadly, that last one is likely the way we’re going to need to go, especially if we want to target x-plat development. This is not an easy task, but getting to this point in the migration is and only takes a couple of hours. If you haven’t done this sanity check in your project to identify packages that may cause issues during migrations, I would suggest that your assessment is not complete.</p>
-<p>For the time being, we are concerned about supporting .NET 4.6 and DNX running on 4.6 for our project, so that is where I have left things. This is a reasonable compromise allowing continued development in web and Windows.</p>
-<h2 id="Moving_On"><a href="#Moving_On" class="headerlink" title="Moving On"></a>Moving On</h2><p>The main tenets of our application are now alive and kicking in our Visual Studio 2015 solution with the new project system in place. In the next post in this series we’ll have a look at getting the tests online and updating the build script to execute our tests.</p>
-<p>If you’d like to follow along with the progression as we get this fully converted you can check out <a href="https://github.com/ClearMeasureLabs/ClearMeasureBootcamp/tree/refactor/move-to46-with-multitargetting" target="_blank" rel="external">the branch on GitHub</a>.</p>
-<p>Happy coding! <img src="https://jcblogimages.blob.core.windows.net/img/2015/08/wlEmoticon-smile.png" alt="Smile"></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>To take advantage of multi-targeted outputs from our project – allowing our assemblies to be used from multiple frameworks across the org]]>
-    </summary>
-    
-      <category term="Asp.Net MVC" scheme="http://jameschambers.com/tags/Asp-Net-MVC/"/>
-    
-      <category term="MVC6" scheme="http://jameschambers.com/tags/MVC6/"/>
-    
-      <category term="Visual Studio 2015" scheme="http://jameschambers.com/tags/Visual-Studio-2015/"/>
-    
-      <category term="Code Dive" scheme="http://jameschambers.com/categories/Code-Dive/"/>
-    
-      <category term="MVC6 Conversion" scheme="http://jameschambers.com/categories/Code-Dive/MVC6-Conversion/"/>
     
   </entry>
   

@@ -149,6 +149,103 @@ ga('send', 'pageview');
 
       
       <section id="main">
+      <article id="post-scheduled-jobs-in-windows-azure-web-sites" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/02/scheduled-jobs-in-windows-azure-web-sites/">Scheduled Jobs in Windows Azure Web Sites</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2014/02/scheduled-jobs-in-windows-azure-web-sites/">
+      <time datetime="2014-02-16T05:24:45.000Z" itemprop="datePublished">2014-02-15</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p>Last year I published a pretty good primer on Windows Azure Web Sites (available on Amazon as <a href="http://www.amazon.ca/gp/product/B00E5BI5L6/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=15121&amp;creative=330641&amp;creativeASIN=B00E5BI5L6&amp;linkCode=as2&amp;tag=chasthelist-20" target="_blank" rel="external">Windows Azure Web Sites</a><img src="http://ir-ca.amazon-adsystem.com/e/ir?t=chasthelist-20&amp;l=as2&amp;o=15&amp;a=B00E5BI5L6" alt=""> ) but the Azure team keeps coming out with new features. This post will walk you through the creation of scheduled jobs on Windows Azure Web Sites.</p>
+<h2 id="Tasks_That_Aren_u2019t_Part_of_Your_Web_Site_u2019s_UI"><a href="#Tasks_That_Aren_u2019t_Part_of_Your_Web_Site_u2019s_UI" class="headerlink" title="Tasks That Aren’t Part of Your Web Site’s UI"></a>Tasks That Aren’t Part of Your Web Site’s UI</h2><p>On demand reports are a great feature but don’t give your users as-at reporting. Artifacts from operations on your site can use up disk space. Sometimes, you’d prefer to have a digest of information sent out, rather than a notification on every interesting event.</p>
+<p>If you need to run some kind of process on a regular interval a solution might be this handy feature on Azure Web Sites: scheduled jobs. These types of requirements can sometimes be met with BI tools, but might cover any kind of activity which may or may not be associated with data, such as:</p>
+<ul>
+<li>a nightly report  </li><li>a cleanup script  </li><li>sending an email  </li><li>pushing an SMS message hourly to your phone for new account signups </li>
+</ul>
+<p>I have a console app for the purpose of this article that I’ve created that runs some reports.&nbsp; You’ll see later similar output as the logs from the cloud-run copy of this application.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2014/02/image8.png" alt="image" title="image"></p>
+<p>Yes, my reports start at 0. Don’t judge, my brothers and sisters.</p>
+<p>I’m using an EXE here, but you can use any of the following:</p>
+<ul>
+<li>Windows CMD (.cmd, .bat or .exe)  </li><li>Node.js (.js)  </li><li>PowerShell (.ps1)  </li><li>PHP Scripts (.php)  </li><li>Python (.py), or  </li><li>Bash (.sh) </li>
+</ul>
+<p>Your script or executable needs to be in a ZIP file which can also include any other files you need for processing such as configuration, images to embed in email messages, etc.</p>
+<h2 id="Configuring_the_Job"><a href="#Configuring_the_Job" class="headerlink" title="Configuring the Job"></a>Configuring the Job</h2><p>Click on the Web Jobs tab in the web site’s dashboard, then click “Add” from the command bar at the bottom of the site or from the dashboard page that loads up.</p>
+<p><a href="https://jcblogimages.blob.core.windows.net/img/2014/02/image9.png" target="_blank" rel="external"><img src="https://jcblogimages.blob.core.windows.net/img/2014/02/image_thumb1.png" alt="image" title="image"></a></p>
+<p>If you haven’t already signed up for the Schedule preview program, you’ll not yet be able to create scheduled jobs, but’s it’s trivial to setup and the link is provided on the Web Job screen.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2014/02/image10.png" alt="image" title="image"></p>
+<p>Follow the link and complete the sign up; it’s a straightforward button click.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2014/02/image11.png" alt="image" title="image"></p>
+<p>With that in place you can continue with creating the job. I wrap up all my needed files into a zip, and then I pick my options on the first page of the job setup:</p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2014/02/image12.png" alt="image" title="image"></p>
+<p>Finally, I create my schedule and configure it to run every day for a year:</p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2014/02/image13.png" alt="image" title="image"></p>
+<p>Your job is added to the list and then runs on schedule, or you can run it on demand from the command bar. After executing, logs are added to your account:</p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2014/02/image14.png" alt="image" title="image"></p>
+<p>Clicking the link brings you to the history of job runs where any console output is available for viewing. Error logs, should any rise, are also saved out here. </p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2014/02/image15.png" alt="image" title="image"></p>
+<p>You can see the output by drilling into the log, which is unsurprisingly similar to what we saw from our console&nbsp; output at the start of this article.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2014/02/image16.png" alt="image" title="image"></p>
+<h2 id="Understanding_Job_Storage_Requirements"><a href="#Understanding_Job_Storage_Requirements" class="headerlink" title="Understanding Job Storage Requirements"></a>Understanding Job Storage Requirements</h2><p>The job ZIP that you create can be up to 200MB and will be stored in your web site’s corresponding file system. Logs are also saved out, albeit in a slightly different path. </p>
+<p>Job scripts are saved at: D:\home\site\wwwroot\App_Data\jobs\triggered\JOB_NAME</p>
+<p>Job logs are saved out at: D:\home\data\jobs\triggered\JOB_NAME</p>
+<p>This is actually really great info to know, because with your job script saved in your application’s App_Data directory, you have the ability to manipulate the configuration files (if any) for your script.</p>
+<p>Keep in mind that the storage needs for your jobs are factored into your web site’s storage restrictions, so jobs that generate output need to be monitored to make sure you’re not exceeding your quota.</p>
+<h2 id="Getting_at_the_Raw_Files"><a href="#Getting_at_the_Raw_Files" class="headerlink" title="Getting at the Raw Files"></a>Getting at the Raw Files</h2><p>There is a great – and growing – administrative back door called Kudu to your Windows Azure Web Site that you may not be aware of. It helps with all kinds of things like SCM checkin hooks, deployment tasks, or viewing logs. You can reach it at this location:</p>
+<blockquote>
+<p><a href="http://your_site_name.scm.azurewebsites.net" target="_blank" rel="external">http://your_site_name.scm.azurewebsites.net</a> </p>
+</blockquote>
+<p>It’s basically the URL that you use to access the host on azurewebsites.net, but you plug in the scm.&nbsp; There is a debug console that gives you the ability to plug away through your files in the Kudu menu.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2014/02/image17.png" alt="image" title="image"></p>
+<h2 id="Wrapping_Up__26amp_3B_Next_Steps"><a href="#Wrapping_Up__26amp_3B_Next_Steps" class="headerlink" title="Wrapping Up &amp; Next Steps"></a>Wrapping Up &amp; Next Steps</h2><p>Windows Azure Web Sites now easily allows you to create and manage jobs that can be executed on demand or on a schedule. You ZIP up your files, feed them into the site and then configure the execution times for each of your scripts through the dashboard for your site.</p>
+<p>Now go solve some scheduled job need, and happy coding!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jameschambers.com/2014/02/scheduled-jobs-in-windows-azure-web-sites/" data-id="civldfwh4007qpcyyou9m9wrr" class="article-share-link">Share</a>
+      
+        <a href="http://jameschambers.com/2014/02/scheduled-jobs-in-windows-azure-web-sites/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Azure-Websites/">Azure Websites</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-my-first-time-a-non-android-developers-tale-of-development-with-xamarin" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -222,7 +319,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2014/02/my-first-time-a-non-android-developers-tale-of-development-with-xamarin/" data-id="civiom2ay00bsbwyyvz44fceb" class="article-share-link">Share</a>
+      <a data-url="http://jameschambers.com/2014/02/my-first-time-a-non-android-developers-tale-of-development-with-xamarin/" data-id="civldfwn800bspcyytff7ol0l" class="article-share-link">Share</a>
       
         <a href="http://jameschambers.com/2014/02/my-first-time-a-non-android-developers-tale-of-development-with-xamarin/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -309,7 +406,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2014/01/mva-jump-start-windows-azure-web-sites-deep-dive/" data-id="civiom2ba00c6bwyytlgnx02y" class="article-share-link">Share</a>
+      <a data-url="http://jameschambers.com/2014/01/mva-jump-start-windows-azure-web-sites-deep-dive/" data-id="civldfwnk00c6pcyyu13846mj" class="article-share-link">Share</a>
       
         <a href="http://jameschambers.com/2014/01/mva-jump-start-windows-azure-web-sites-deep-dive/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -384,7 +481,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2013/12/windows-azure-web-sites-my-mva-recording-experience-in-redmond/" data-id="civiom1wi0018bwyylz0djlyb" class="article-share-link">Share</a>
+      <a data-url="http://jameschambers.com/2013/12/windows-azure-web-sites-my-mva-recording-experience-in-redmond/" data-id="civldfw8q0018pcyy8f702ho1" class="article-share-link">Share</a>
       
         <a href="http://jameschambers.com/2013/12/windows-azure-web-sites-my-mva-recording-experience-in-redmond/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -452,7 +549,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2013/12/windows-azure-web-sites-on-mva/" data-id="civiom1wa0010bwyy5tw40ax0" class="article-share-link">Share</a>
+      <a data-url="http://jameschambers.com/2013/12/windows-azure-web-sites-on-mva/" data-id="civldfw8k0010pcyyozm4jucq" class="article-share-link">Share</a>
       
         <a href="http://jameschambers.com/2013/12/windows-azure-web-sites-on-mva/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -695,7 +792,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2013/11/working-with-iauthenticationfilter-in-the-mvc-5-framework/" data-id="civiom1vo000abwyy1f120nt4" class="article-share-link">Share</a>
+      <a data-url="http://jameschambers.com/2013/11/working-with-iauthenticationfilter-in-the-mvc-5-framework/" data-id="civldfw80000apcyyzprom69p" class="article-share-link">Share</a>
       
         <a href="http://jameschambers.com/2013/11/working-with-iauthenticationfilter-in-the-mvc-5-framework/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -710,65 +807,8 @@ ga('send', 'pageview');
 
 
     
-      <article id="post-more-love-for-javascript-from-intellisense-featured-on-msdn" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/11/more-love-for-javascript-from-intellisense-featured-on-msdn/">More Love for JavaScript from IntelliSense – Featured on MSDN</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2013/11/more-love-for-javascript-from-intellisense-featured-on-msdn/">
-      <time datetime="2013-11-07T23:36:24.000Z" itemprop="datePublished">2013-11-07</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Develop-Meta/">Develop Meta</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-                
-        <p>Microsoft has improved file changes and script tracking and added tooling to Visual Studio 2013. You can read more about it on my article on MSDN, where I was honored to be selected for a guest blog post.</p>
-<p><a href="http://t.co/2cL0DlQxCq" target="_blank" rel="external"><img src="https://jcblogimages.blob.core.windows.net/img/2013/11/image.png" alt="image" title="image"></a></p>
-<p>Check out the <a href="http://t.co/2cL0DlQxCq" target="_blank" rel="external">full article</a> and see how VS 2013 gives you more options and tools for keeping your IntelliSense in sync.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jameschambers.com/2013/11/more-love-for-javascript-from-intellisense-featured-on-msdn/" data-id="civiom2bk00ckbwyyiaf71s9a" class="article-share-link">Share</a>
-      
-        <a href="http://jameschambers.com/2013/11/more-love-for-javascript-from-intellisense-featured-on-msdn/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio/">Visual Studio</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/17/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/17/">Next &raquo;</a>
       </nav>
     </section>
       
@@ -779,6 +819,14 @@ ga('send', 'pageview');
     <h3 class="widget-title">recent</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-title"><a href="/2016/11/Fan-out-workloads-in-Azure-Function-Apps/" class="title">Fan out workloads in Azure Function Apps</a></p>
+              <p class="item-date"><time datetime="2016-11-16T12:51:32.000Z" itemprop="datePublished">2016-11-16</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -812,14 +860,6 @@ ga('send', 'pageview');
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-title"><a href="/2016/04/github-authentication-asp-net-core/" class="title">GitHub Authentication with ASP.NET Core</a></p>
-              <p class="item-date"><time datetime="2016-04-26T12:12:54.000Z" itemprop="datePublished">2016-04-26</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -837,7 +877,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">tag cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/30DaysMvcBootstrap/" style="font-size: 17.86px;">30DaysMvcBootstrap</a> <a href="/tags/8DaysOfTableStorage/" style="font-size: 11.43px;">8DaysOfTableStorage</a> <a href="/tags/ASP-NET/" style="font-size: 15px;">ASP.NET</a> <a href="/tags/ASP-NET-5/" style="font-size: 10.71px;">ASP.NET 5</a> <a href="/tags/ASP-NET-Core/" style="font-size: 12.86px;">ASP.NET Core</a> <a href="/tags/ASP-NET-Core-MVC/" style="font-size: 10px;">ASP.NET Core MVC</a> <a href="/tags/ActionFilters/" style="font-size: 10px;">ActionFilters</a> <a href="/tags/AllReady/" style="font-size: 10px;">AllReady</a> <a href="/tags/Android/" style="font-size: 10.71px;">Android</a> <a href="/tags/AngelaSmith/" style="font-size: 10px;">AngelaSmith</a> <a href="/tags/Asp-Net-MVC/" style="font-size: 20px;">Asp.Net MVC</a> <a href="/tags/Authentication/" style="font-size: 10.71px;">Authentication</a> <a href="/tags/Azure/" style="font-size: 17.14px;">Azure</a> <a href="/tags/Azure-Functions/" style="font-size: 11.43px;">Azure Functions</a> <a href="/tags/Azure-Web-Apps/" style="font-size: 10px;">Azure Web Apps</a> <a href="/tags/Azure-Websites/" style="font-size: 13.57px;">Azure Websites</a> <a href="/tags/BUILD/" style="font-size: 10px;">BUILD</a> <a href="/tags/BitBucket/" style="font-size: 10px;">BitBucket</a> <a href="/tags/Bootstrap/" style="font-size: 15.71px;">Bootstrap</a> <a href="/tags/CTT-NUG/" style="font-size: 10px;">CTT .NUG</a> <a href="/tags/Calgary/" style="font-size: 10px;">Calgary</a> <a href="/tags/Cisco-VPN/" style="font-size: 10px;">Cisco VPN</a> <a href="/tags/ClearMeasure/" style="font-size: 10.71px;">ClearMeasure</a> <a href="/tags/CodeProject/" style="font-size: 11.43px;">CodeProject</a> <a href="/tags/Conferences/" style="font-size: 10.71px;">Conferences</a> <a href="/tags/CouchDb/" style="font-size: 10px;">CouchDb</a> <a href="/tags/DNX/" style="font-size: 10px;">DNX</a> <a href="/tags/Dojo/" style="font-size: 10px;">Dojo</a> <a href="/tags/Email/" style="font-size: 10px;">Email</a> <a href="/tags/Entity-Framework/" style="font-size: 13.57px;">Entity Framework</a> <a href="/tags/Extension-Methods/" style="font-size: 10px;">Extension Methods</a> <a href="/tags/FontAwesome/" style="font-size: 10.71px;">FontAwesome</a> <a href="/tags/GenFu/" style="font-size: 10px;">GenFu</a> <a href="/tags/GetManifestResourceStream/" style="font-size: 10px;">GetManifestResourceStream</a> <a href="/tags/Git/" style="font-size: 11.43px;">Git</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HackAThon/" style="font-size: 10px;">HackAThon</a> <a href="/tags/HtmlHelper/" style="font-size: 10px;">HtmlHelper</a> <a href="/tags/IIS/" style="font-size: 10px;">IIS</a> <a href="/tags/JSON/" style="font-size: 10.71px;">JSON</a> <a href="/tags/Keynote/" style="font-size: 10px;">Keynote</a> <a href="/tags/Life-Hack/" style="font-size: 10px;">Life Hack</a> <a href="/tags/Life-Hacking/" style="font-size: 10.71px;">Life Hacking</a> <a href="/tags/Life-Hacks/" style="font-size: 12.86px;">Life Hacks</a> <a href="/tags/Linq/" style="font-size: 10px;">Linq</a> <a href="/tags/MIX11/" style="font-size: 10px;">MIX11</a> <a href="/tags/MVA/" style="font-size: 10.71px;">MVA</a> <a href="/tags/MVC/" style="font-size: 19.29px;">MVC</a> <a href="/tags/MVC5/" style="font-size: 18.57px;">MVC5</a> <a href="/tags/MVC6/" style="font-size: 13.57px;">MVC6</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/Make-Code-Not-War/" style="font-size: 10px;">Make Code Not War</a> <a href="/tags/MeasureUp/" style="font-size: 10px;">MeasureUp</a> <a href="/tags/Metro/" style="font-size: 10px;">Metro</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Microsoft-Band/" style="font-size: 12.14px;">Microsoft Band</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Mobile-Services/" style="font-size: 10px;">Mobile Services</a> <a href="/tags/Motivate/" style="font-size: 10px;">Motivate</a> <a href="/tags/MvcScaffolding/" style="font-size: 11.43px;">MvcScaffolding</a> <a href="/tags/Not-Coding-At-All/" style="font-size: 10px;">Not Coding At All</a> <a href="/tags/NuGet/" style="font-size: 15px;">NuGet</a> <a href="/tags/OData/" style="font-size: 10px;">OData</a> <a href="/tags/PayPal/" style="font-size: 10px;">PayPal</a> <a href="/tags/PostSharp/" style="font-size: 10px;">PostSharp</a> <a href="/tags/Practice/" style="font-size: 10.71px;">Practice</a> <a href="/tags/Practice-of-Awesome/" style="font-size: 10px;">Practice of Awesome</a> <a href="/tags/PrairieDevCon/" style="font-size: 16.43px;">PrairieDevCon</a> <a href="/tags/Queues/" style="font-size: 10px;">Queues</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/Radio/" style="font-size: 10px;">Radio</a> <a href="/tags/Razor/" style="font-size: 10.71px;">Razor</a> <a href="/tags/Real-Life/" style="font-size: 10px;">Real Life</a> <a href="/tags/Regina/" style="font-size: 10.71px;">Regina</a> <a href="/tags/Remote-Work/" style="font-size: 11.43px;">Remote Work</a> <a href="/tags/Resolve/" style="font-size: 10px;">Resolve</a> <a href="/tags/Rock-Paper-Scissors/" style="font-size: 10px;">Rock Paper Scissors</a> <a href="/tags/Routing/" style="font-size: 10px;">Routing</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 10px;">Ruby on Rails</a> <a href="/tags/SDEC/" style="font-size: 10px;">SDEC</a> <a href="/tags/SOAP/" style="font-size: 10px;">SOAP</a> <a href="/tags/SQL-Server/" style="font-size: 10px;">SQL Server</a> <a href="/tags/ServiceBus/" style="font-size: 10px;">ServiceBus</a> <a href="/tags/SignalR/" style="font-size: 11.43px;">SignalR</a> <a href="/tags/Speaking/" style="font-size: 11.43px;">Speaking</a> <a href="/tags/TFS/" style="font-size: 10px;">TFS</a> <a href="/tags/Table-Storage/" style="font-size: 10.71px;">Table Storage</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/Unit-Testing/" style="font-size: 10px;">Unit Testing</a> <a href="/tags/Visual-Studio/" style="font-size: 10.71px;">Visual Studio</a> <a href="/tags/Visual-Studio-11/" style="font-size: 11.43px;">Visual Studio 11</a> <a href="/tags/Visual-Studio-2010/" style="font-size: 16.43px;">Visual Studio 2010</a> <a href="/tags/Visual-Studio-2012/" style="font-size: 12.86px;">Visual Studio 2012</a> <a href="/tags/Visual-Studio-2013/" style="font-size: 10.71px;">Visual Studio 2013</a> <a href="/tags/Visual-Studio-2015/" style="font-size: 15.71px;">Visual Studio 2015</a> <a href="/tags/WCF/" style="font-size: 10.71px;">WCF</a> <a href="/tags/Web-API/" style="font-size: 11.43px;">Web API</a> <a href="/tags/Web-Development/" style="font-size: 10px;">Web Development</a> <a href="/tags/Web-Services/" style="font-size: 10.71px;">Web Services</a> <a href="/tags/Windows-8/" style="font-size: 11.43px;">Windows 8</a> <a href="/tags/Windows-Azure/" style="font-size: 10px;">Windows Azure</a> <a href="/tags/Windows-Phone/" style="font-size: 14.29px;">Windows Phone</a> <a href="/tags/Windws-Live-Writer/" style="font-size: 10px;">Windws Live Writer</a> <a href="/tags/Winnipeg/" style="font-size: 10.71px;">Winnipeg</a> <a href="/tags/c/" style="font-size: 13.57px;">c#</a> <a href="/tags/compiling/" style="font-size: 10px;">compiling</a> <a href="/tags/jQuery/" style="font-size: 12.14px;">jQuery</a> <a href="/tags/jQuery-UI/" style="font-size: 10.71px;">jQuery UI</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/open-source/" style="font-size: 10.71px;">open source</a> <a href="/tags/reflection/" style="font-size: 10px;">reflection</a> <a href="/tags/seed-data/" style="font-size: 10px;">seed data</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a>
+      <a href="/tags/30DaysMvcBootstrap/" style="font-size: 17.86px;">30DaysMvcBootstrap</a> <a href="/tags/5-days-of-Azure-Functions/" style="font-size: 12.14px;">5 days of Azure Functions</a> <a href="/tags/8DaysOfTableStorage/" style="font-size: 11.43px;">8DaysOfTableStorage</a> <a href="/tags/ASP-NET/" style="font-size: 15px;">ASP.NET</a> <a href="/tags/ASP-NET-5/" style="font-size: 10.71px;">ASP.NET 5</a> <a href="/tags/ASP-NET-Core/" style="font-size: 12.86px;">ASP.NET Core</a> <a href="/tags/ASP-NET-Core-MVC/" style="font-size: 10px;">ASP.NET Core MVC</a> <a href="/tags/ActionFilters/" style="font-size: 10px;">ActionFilters</a> <a href="/tags/AllReady/" style="font-size: 10px;">AllReady</a> <a href="/tags/Android/" style="font-size: 10.71px;">Android</a> <a href="/tags/AngelaSmith/" style="font-size: 10px;">AngelaSmith</a> <a href="/tags/Asp-Net-MVC/" style="font-size: 20px;">Asp.Net MVC</a> <a href="/tags/Authentication/" style="font-size: 10.71px;">Authentication</a> <a href="/tags/Azure/" style="font-size: 17.14px;">Azure</a> <a href="/tags/Azure-Functions/" style="font-size: 12.14px;">Azure Functions</a> <a href="/tags/Azure-Web-Apps/" style="font-size: 10px;">Azure Web Apps</a> <a href="/tags/Azure-Websites/" style="font-size: 13.57px;">Azure Websites</a> <a href="/tags/BUILD/" style="font-size: 10px;">BUILD</a> <a href="/tags/BitBucket/" style="font-size: 10px;">BitBucket</a> <a href="/tags/Bootstrap/" style="font-size: 15.71px;">Bootstrap</a> <a href="/tags/CTT-NUG/" style="font-size: 10px;">CTT .NUG</a> <a href="/tags/Calgary/" style="font-size: 10px;">Calgary</a> <a href="/tags/Cisco-VPN/" style="font-size: 10px;">Cisco VPN</a> <a href="/tags/ClearMeasure/" style="font-size: 10.71px;">ClearMeasure</a> <a href="/tags/CodeProject/" style="font-size: 11.43px;">CodeProject</a> <a href="/tags/Conferences/" style="font-size: 10.71px;">Conferences</a> <a href="/tags/CouchDb/" style="font-size: 10px;">CouchDb</a> <a href="/tags/DNX/" style="font-size: 10px;">DNX</a> <a href="/tags/Dojo/" style="font-size: 10px;">Dojo</a> <a href="/tags/Email/" style="font-size: 10px;">Email</a> <a href="/tags/Entity-Framework/" style="font-size: 13.57px;">Entity Framework</a> <a href="/tags/Extension-Methods/" style="font-size: 10px;">Extension Methods</a> <a href="/tags/FontAwesome/" style="font-size: 10.71px;">FontAwesome</a> <a href="/tags/GenFu/" style="font-size: 10px;">GenFu</a> <a href="/tags/GetManifestResourceStream/" style="font-size: 10px;">GetManifestResourceStream</a> <a href="/tags/Git/" style="font-size: 11.43px;">Git</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HackAThon/" style="font-size: 10px;">HackAThon</a> <a href="/tags/HtmlHelper/" style="font-size: 10px;">HtmlHelper</a> <a href="/tags/IIS/" style="font-size: 10px;">IIS</a> <a href="/tags/JSON/" style="font-size: 10.71px;">JSON</a> <a href="/tags/Keynote/" style="font-size: 10px;">Keynote</a> <a href="/tags/Life-Hack/" style="font-size: 10px;">Life Hack</a> <a href="/tags/Life-Hacking/" style="font-size: 10.71px;">Life Hacking</a> <a href="/tags/Life-Hacks/" style="font-size: 12.86px;">Life Hacks</a> <a href="/tags/Linq/" style="font-size: 10px;">Linq</a> <a href="/tags/MIX11/" style="font-size: 10px;">MIX11</a> <a href="/tags/MVA/" style="font-size: 10.71px;">MVA</a> <a href="/tags/MVC/" style="font-size: 19.29px;">MVC</a> <a href="/tags/MVC5/" style="font-size: 18.57px;">MVC5</a> <a href="/tags/MVC6/" style="font-size: 13.57px;">MVC6</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/Make-Code-Not-War/" style="font-size: 10px;">Make Code Not War</a> <a href="/tags/MeasureUp/" style="font-size: 10px;">MeasureUp</a> <a href="/tags/Metro/" style="font-size: 10px;">Metro</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Microsoft-Band/" style="font-size: 12.14px;">Microsoft Band</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Mobile-Services/" style="font-size: 10px;">Mobile Services</a> <a href="/tags/Motivate/" style="font-size: 10px;">Motivate</a> <a href="/tags/MvcScaffolding/" style="font-size: 11.43px;">MvcScaffolding</a> <a href="/tags/Not-Coding-At-All/" style="font-size: 10px;">Not Coding At All</a> <a href="/tags/NuGet/" style="font-size: 15px;">NuGet</a> <a href="/tags/OData/" style="font-size: 10px;">OData</a> <a href="/tags/PayPal/" style="font-size: 10px;">PayPal</a> <a href="/tags/PostSharp/" style="font-size: 10px;">PostSharp</a> <a href="/tags/Practice/" style="font-size: 10.71px;">Practice</a> <a href="/tags/Practice-of-Awesome/" style="font-size: 10px;">Practice of Awesome</a> <a href="/tags/PrairieDevCon/" style="font-size: 16.43px;">PrairieDevCon</a> <a href="/tags/Queues/" style="font-size: 10px;">Queues</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/Radio/" style="font-size: 10px;">Radio</a> <a href="/tags/Razor/" style="font-size: 10.71px;">Razor</a> <a href="/tags/Real-Life/" style="font-size: 10px;">Real Life</a> <a href="/tags/Regina/" style="font-size: 10.71px;">Regina</a> <a href="/tags/Remote-Work/" style="font-size: 11.43px;">Remote Work</a> <a href="/tags/Resolve/" style="font-size: 10px;">Resolve</a> <a href="/tags/Rock-Paper-Scissors/" style="font-size: 10px;">Rock Paper Scissors</a> <a href="/tags/Routing/" style="font-size: 10px;">Routing</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 10px;">Ruby on Rails</a> <a href="/tags/SDEC/" style="font-size: 10px;">SDEC</a> <a href="/tags/SOAP/" style="font-size: 10px;">SOAP</a> <a href="/tags/SQL-Server/" style="font-size: 10px;">SQL Server</a> <a href="/tags/ServiceBus/" style="font-size: 10px;">ServiceBus</a> <a href="/tags/SignalR/" style="font-size: 11.43px;">SignalR</a> <a href="/tags/Speaking/" style="font-size: 11.43px;">Speaking</a> <a href="/tags/TFS/" style="font-size: 10px;">TFS</a> <a href="/tags/Table-Storage/" style="font-size: 10.71px;">Table Storage</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/Unit-Testing/" style="font-size: 10px;">Unit Testing</a> <a href="/tags/Visual-Studio/" style="font-size: 10.71px;">Visual Studio</a> <a href="/tags/Visual-Studio-11/" style="font-size: 11.43px;">Visual Studio 11</a> <a href="/tags/Visual-Studio-2010/" style="font-size: 16.43px;">Visual Studio 2010</a> <a href="/tags/Visual-Studio-2012/" style="font-size: 12.86px;">Visual Studio 2012</a> <a href="/tags/Visual-Studio-2013/" style="font-size: 10.71px;">Visual Studio 2013</a> <a href="/tags/Visual-Studio-2015/" style="font-size: 15.71px;">Visual Studio 2015</a> <a href="/tags/WCF/" style="font-size: 10.71px;">WCF</a> <a href="/tags/Web-API/" style="font-size: 11.43px;">Web API</a> <a href="/tags/Web-Development/" style="font-size: 10px;">Web Development</a> <a href="/tags/Web-Services/" style="font-size: 10.71px;">Web Services</a> <a href="/tags/Windows-8/" style="font-size: 11.43px;">Windows 8</a> <a href="/tags/Windows-Azure/" style="font-size: 10px;">Windows Azure</a> <a href="/tags/Windows-Phone/" style="font-size: 14.29px;">Windows Phone</a> <a href="/tags/Windws-Live-Writer/" style="font-size: 10px;">Windws Live Writer</a> <a href="/tags/Winnipeg/" style="font-size: 10.71px;">Winnipeg</a> <a href="/tags/c/" style="font-size: 13.57px;">c#</a> <a href="/tags/compiling/" style="font-size: 10px;">compiling</a> <a href="/tags/jQuery/" style="font-size: 12.14px;">jQuery</a> <a href="/tags/jQuery-UI/" style="font-size: 10.71px;">jQuery UI</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/open-source/" style="font-size: 10.71px;">open source</a> <a href="/tags/reflection/" style="font-size: 10px;">reflection</a> <a href="/tags/seed-data/" style="font-size: 10px;">seed data</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a>
     </div>
   </div>
 
@@ -846,7 +886,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">42</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/">2012</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">36</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">42</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/">2012</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">36</span></li></ul>
     </div>
   </div>
 
