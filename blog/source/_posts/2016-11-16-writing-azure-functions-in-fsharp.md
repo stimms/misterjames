@@ -6,8 +6,11 @@ categories:
 tags:
   - Azure
   - Azure Functions
-authorId: james_chambers
+authorId: simon_timms
 ---
+
+*Thanks* Thanks to James for letting me guest author on his blog. I love funcitons and I love F# so this was a fun post to write. 
+-Simon
 
 Azure functions can be written directly in a wide variety of languages
 
@@ -31,7 +34,7 @@ F# isn't perhaps a pure functional programming language but it is close enough t
 
 You can start with a new Azure function but instead of selecting C# let's take F#. For our example we'll base it off of the HTTP Triggered function.
 
-![azure_functions_fsharp_select_trigger.png](azure_functions_fsharp_select_http_trigger.png)
+![azure_functions_fsharp_select_trigger.png](/content/azure_functions_fsharp_select_http_trigger.png)
 
 In our scenario we'd like to pull back the headlines from the BBC World Service in JSON format. This, as it turns out, is pretty easy to do in F# thanks to type providers. 
 
